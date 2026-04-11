@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer style={{
-      borderTop: '1px solid #141414',
+      borderTop: '1px solid var(--border)',
       padding: '36px 0',
       marginTop: '40px',
     }}>
@@ -18,7 +18,7 @@ export default function Footer() {
         <span style={{
           fontFamily: "'JetBrains Mono', ui-monospace, monospace",
           fontSize: '12px',
-          color: '#3a3a3a',
+          color: 'var(--text-dim)',
           letterSpacing: '0.05em',
         }}>
           © 2025 Gaurav Anand
@@ -33,11 +33,11 @@ export default function Footer() {
       <style>{`
         .footer-email {
           font-size: 13px;
-          color: #505050;
+          color: var(--text-lo);
           text-decoration: none;
           transition: color 150ms ease;
         }
-        .footer-email:hover { color: #a0a0a0; }
+        .footer-email:hover { color: var(--text-mid); }
       `}</style>
     </footer>
   )

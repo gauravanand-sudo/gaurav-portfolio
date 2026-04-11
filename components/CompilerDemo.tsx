@@ -310,8 +310,8 @@ export default function CompilerDemo() {
 }
 
 const panelStyle: CSSProperties = {
-  border: '1px solid #181818',
-  background: '#0b0b0b',
+  border: '1px solid var(--border)',
+  background: 'linear-gradient(180deg, rgba(29, 39, 36, 0.94), rgba(24, 32, 29, 0.98))',
   borderRadius: '14px',
   padding: '24px',
 }
@@ -356,15 +356,15 @@ const stackStyle: CSSProperties = {
 }
 
 const metricStyle: CSSProperties = {
-  border: '1px solid #181818',
-  background: '#0b0b0b',
+  border: '1px solid var(--border)',
+  background: 'linear-gradient(180deg, rgba(31, 41, 38, 0.9), rgba(25, 33, 30, 0.96))',
   borderRadius: '14px',
   padding: '20px',
 }
 
 const statusCardStyle: CSSProperties = {
-  border: '1px solid #242424',
-  background: '#101010',
+  border: '1px solid var(--border)',
+  background: 'rgba(35, 46, 42, 0.72)',
   borderRadius: '12px',
   padding: '16px',
   display: 'grid',
@@ -377,35 +377,35 @@ const tokenStyle: CSSProperties = {
   gap: '6px',
   padding: '10px 12px',
   borderRadius: '10px',
-  border: '1px solid #1b2b27',
-  background: '#0f1514',
+  border: '1px solid var(--accent-border)',
+  background: 'rgba(36, 54, 48, 0.72)',
   minWidth: '104px',
 }
 
 const listCardStyle: CSSProperties = {
-  border: '1px solid #181818',
-  background: '#101010',
+  border: '1px solid var(--border)',
+  background: 'rgba(34, 44, 41, 0.72)',
   borderRadius: '12px',
   padding: '14px 16px',
 }
 
 const treeCardStyle: CSSProperties = {
-  border: '1px solid #181818',
-  background: '#101010',
+  border: '1px solid var(--border)',
+  background: 'rgba(34, 44, 41, 0.72)',
   borderRadius: '12px',
   padding: '16px',
 }
 
 const treePropStyle: CSSProperties = {
-  borderLeft: '3px solid #16352f',
+  borderLeft: '3px solid var(--accent-border)',
   paddingLeft: '12px',
   display: 'grid',
   gap: '6px',
 }
 
 const primaryButtonStyle: CSSProperties = {
-  background: '#6ee7b7',
-  color: '#05110d',
+  background: 'var(--accent)',
+  color: '#16201d',
   border: '0',
   borderRadius: '8px',
   padding: '11px 16px',
@@ -415,9 +415,9 @@ const primaryButtonStyle: CSSProperties = {
 }
 
 const secondaryButtonStyle: CSSProperties = {
-  background: '#101010',
-  color: '#a3a3a3',
-  border: '1px solid #1d1d1d',
+  background: 'rgba(35, 46, 42, 0.72)',
+  color: 'var(--text-mid)',
+  border: '1px solid var(--border)',
   borderRadius: '8px',
   padding: '11px 16px',
   fontSize: '13px',
@@ -429,9 +429,9 @@ const textareaStyle: CSSProperties = {
   minHeight: '320px',
   resize: 'vertical',
   borderRadius: '12px',
-  border: '1px solid #1b1b1b',
-  background: '#060606',
-  color: '#e7e7e7',
+  border: '1px solid var(--border)',
+  background: '#141b19',
+  color: 'var(--text-hi)',
   padding: '16px',
   fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
   fontSize: '13px',
@@ -441,7 +441,7 @@ const textareaStyle: CSSProperties = {
 const eyebrowStyle: CSSProperties = {
   fontFamily: "'JetBrains Mono', ui-monospace, monospace",
   fontSize: '10px',
-  color: '#6ee7b7',
+  color: 'var(--accent)',
   letterSpacing: '0.18em',
   textTransform: 'uppercase',
   marginBottom: '10px',
@@ -449,41 +449,41 @@ const eyebrowStyle: CSSProperties = {
 
 const headingStyle: CSSProperties = {
   fontSize: '22px',
-  color: '#efefef',
+  color: 'var(--text-hi)',
   margin: 0,
 }
 
 const subtleTextStyle: CSSProperties = {
-  color: '#7a7a7a',
+  color: 'var(--text-lo)',
   fontSize: '13px',
   lineHeight: 1.75,
   marginTop: '8px',
 }
 
 const subtleSmallTextStyle: CSSProperties = {
-  color: '#6f6f6f',
+  color: 'var(--text-dim)',
   fontSize: '12px',
   lineHeight: 1.65,
 }
 
 const metricValueStyle: CSSProperties = {
   display: 'block',
-  color: '#f2f2f2',
+  color: 'var(--text-hi)',
   fontSize: '28px',
   fontWeight: 600,
 }
 
 const metricLabelStyle: CSSProperties = {
-  color: '#6f6f6f',
+  color: 'var(--text-dim)',
   fontSize: '12px',
 }
 
 const badgeSuccessStyle: CSSProperties = {
   fontFamily: "'JetBrains Mono', ui-monospace, monospace",
   fontSize: '11px',
-  color: '#6ee7b7',
-  border: '1px solid rgba(110,231,183,0.22)',
-  background: 'rgba(110,231,183,0.08)',
+  color: 'var(--accent-strong)',
+  border: '1px solid rgba(155, 196, 177, 0.25)',
+  background: 'rgba(155, 196, 177, 0.1)',
   borderRadius: '999px',
   padding: '7px 10px',
 }
@@ -496,42 +496,42 @@ const badgeErrorStyle: CSSProperties = {
 }
 
 const statusLabelStyle: CSSProperties = {
-  color: '#9a9a9a',
+  color: 'var(--text-mid)',
   fontSize: '12px',
 }
 
 const statusStrongStyle: CSSProperties = {
-  color: '#ededed',
+  color: 'var(--text-hi)',
   fontSize: '16px',
   fontWeight: 600,
 }
 
 const tokenTypeStyle: CSSProperties = {
-  color: '#6ee7b7',
+  color: 'var(--accent-strong)',
   fontFamily: "'JetBrains Mono', ui-monospace, monospace",
   fontSize: '11px',
 }
 
 const tokenLexemeStyle: CSSProperties = {
-  color: '#efefef',
+  color: 'var(--text-hi)',
   fontFamily: "'JetBrains Mono', ui-monospace, monospace",
   fontSize: '12px',
   wordBreak: 'break-word',
 }
 
 const lineTextStyle: CSSProperties = {
-  color: '#5f5f5f',
+  color: 'var(--text-dim)',
   fontSize: '11px',
 }
 
 const monoLabelStyle: CSSProperties = {
   fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-  color: '#d8d8d8',
+  color: 'var(--text-mid)',
   fontSize: '12px',
 }
 
 const metaRowStyle: CSSProperties = {
-  color: '#7d7d7d',
+  color: 'var(--text-dim)',
   fontSize: '11px',
   textTransform: 'uppercase',
   letterSpacing: '0.06em',

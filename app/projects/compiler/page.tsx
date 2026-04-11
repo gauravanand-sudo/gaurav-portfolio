@@ -18,7 +18,7 @@ export default function CompilerProjectPage() {
           <p style={{
             fontFamily: "'JetBrains Mono', ui-monospace, monospace",
             fontSize: '10px',
-            color: '#6ee7b7',
+            color: 'var(--accent)',
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
             marginBottom: '18px',
@@ -28,7 +28,7 @@ export default function CompilerProjectPage() {
           <h1 style={{
             fontSize: 'clamp(36px, 7vw, 56px)',
             lineHeight: 1.04,
-            color: '#f1f1f1',
+            color: 'var(--text-hi)',
             letterSpacing: '-0.03em',
             margin: 0,
             maxWidth: '10ch',
@@ -38,7 +38,7 @@ export default function CompilerProjectPage() {
           <p style={{
             marginTop: '20px',
             maxWidth: '700px',
-            color: '#808080',
+            color: 'var(--text-lo)',
             fontSize: '15px',
             lineHeight: 1.85,
           }}>
@@ -55,22 +55,22 @@ export default function CompilerProjectPage() {
           marginBottom: '24px',
         }}>
           <div style={{
-            border: '1px solid #181818',
-            background: '#0b0b0b',
+            border: '1px solid var(--border)',
+            background: 'linear-gradient(180deg, rgba(29, 39, 36, 0.94), rgba(24, 32, 29, 0.98))',
             borderRadius: '14px',
             padding: '24px',
           }}>
             <p style={{
               fontFamily: "'JetBrains Mono', ui-monospace, monospace",
               fontSize: '10px',
-              color: '#6ee7b7',
+              color: 'var(--accent)',
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
               marginBottom: '14px',
             }}>
               Why it exists
             </p>
-            <p style={{ color: '#7f7f7f', fontSize: '14px', lineHeight: 1.85 }}>
+            <p style={{ color: 'var(--text-lo)', fontSize: '14px', lineHeight: 1.85 }}>
               The original compiler started as a Flex/Bison front-end for validating a small memory
               description language. I extended it into a portfolio-grade demo so someone can paste
               source code and immediately see what each stage of a compiler is doing internally.
@@ -78,22 +78,22 @@ export default function CompilerProjectPage() {
           </div>
 
           <div style={{
-            border: '1px solid #181818',
-            background: '#0b0b0b',
+            border: '1px solid var(--border)',
+            background: 'linear-gradient(180deg, rgba(29, 39, 36, 0.94), rgba(24, 32, 29, 0.98))',
             borderRadius: '14px',
             padding: '24px',
           }}>
             <p style={{
               fontFamily: "'JetBrains Mono', ui-monospace, monospace",
               fontSize: '10px',
-              color: '#6ee7b7',
+              color: 'var(--accent)',
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
               marginBottom: '14px',
             }}>
               Highlights
             </p>
-            <ul style={{ margin: 0, paddingLeft: '18px', color: '#8a8a8a', display: 'grid', gap: '10px', lineHeight: 1.7 }}>
+            <ul style={{ margin: 0, paddingLeft: '18px', color: 'var(--text-lo)', display: 'grid', gap: '10px', lineHeight: 1.7 }}>
               {highlights.map((item) => (
                 <li key={item}>{item}</li>
               ))}

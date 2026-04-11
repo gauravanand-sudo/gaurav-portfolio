@@ -17,7 +17,7 @@ export default function Hero() {
         width: '600px',
         height: '600px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(110,231,183,0.04) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(155,196,177,0.1) 0%, transparent 72%)',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
@@ -28,7 +28,7 @@ export default function Hero() {
         <p style={{
           fontFamily: "'JetBrains Mono', ui-monospace, monospace",
           fontSize: '11px',
-          color: '#6ee7b7',
+          color: 'var(--accent)',
           letterSpacing: '0.2em',
           textTransform: 'uppercase',
           marginBottom: '24px',
@@ -40,7 +40,7 @@ export default function Hero() {
         <h1 style={{
           fontSize: 'clamp(40px, 7vw, 64px)',
           fontWeight: 600,
-          color: '#f2f2f2',
+          color: 'var(--text-hi)',
           lineHeight: 1.05,
           letterSpacing: '-0.03em',
         }}>
@@ -49,7 +49,7 @@ export default function Hero() {
 
         <p style={{
           fontSize: '15px',
-          color: '#6a6a6a',
+          color: 'var(--text-lo)',
           maxWidth: '440px',
           margin: '24px auto 0',
           lineHeight: 1.85,
@@ -88,21 +88,21 @@ export default function Hero() {
 
       <style>{`
         .hero-btn {
-          border: 1px solid #1e1e1e;
+          border: 1px solid var(--border);
           padding: 9px 20px;
           font-size: 13px;
-          color: #909090;
+          color: var(--text-mid);
           text-decoration: none;
           border-radius: 6px;
-          background: #0c0c0c;
+          background: rgba(32, 42, 39, 0.7);
           cursor: pointer;
           transition: border-color 150ms ease, color 150ms ease, background 150ms ease;
           letter-spacing: 0.01em;
         }
         .hero-btn:hover {
-          border-color: #6ee7b7;
-          color: #6ee7b7;
-          background: rgba(110,231,183,0.04);
+          border-color: var(--accent-border);
+          color: var(--text-hi);
+          background: rgba(155,196,177,0.08);
         }
       `}</style>
     </section>

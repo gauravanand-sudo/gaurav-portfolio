@@ -121,7 +121,7 @@ function SectionLabel({ children }: { children: string }) {
     <p style={{
       fontFamily: "'JetBrains Mono', ui-monospace, monospace",
       fontSize: '10px',
-      color: '#444',
+      color: 'var(--text-dim)',
       letterSpacing: '0.18em',
       textTransform: 'uppercase',
       marginBottom: '36px',
@@ -143,7 +143,7 @@ export default function Home() {
       <section id="projects" style={{ padding: '100px 0' }}>
         <div style={{ maxWidth: MAX_W, margin: '0 auto', padding: '0 28px' }}>
           <SectionLabel>Projects</SectionLabel>
-          <p style={{ fontSize: '14px', color: '#5a5a5a', maxWidth: '520px', lineHeight: 1.85, marginBottom: '44px' }}>
+          <p style={{ fontSize: '14px', color: 'var(--text-lo)', maxWidth: '520px', lineHeight: 1.85, marginBottom: '44px' }}>
             Side projects built to understand systems from the inside out, with an emphasis on
             concurrency, compiler construction, and tooling that makes internals visible.
           </p>
@@ -154,30 +154,30 @@ export default function Home() {
       </section>
 
       {/* ── How I work ───────────────────────────────────── */}
-      <section style={{ padding: '80px 0', borderTop: '1px solid #141414' }}>
+      <section style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
         <div style={{ maxWidth: MAX_W, margin: '0 auto', padding: '0 28px' }}>
           <SectionLabel>How I work</SectionLabel>
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
             gap: '1px',
-            background: '#181818',
-            border: '1px solid #181818',
+            background: 'var(--border)',
+            border: '1px solid var(--border)',
             borderRadius: '10px',
             overflow: 'hidden',
           }}>
             {howIWork.map((c) => (
-              <div key={c.title} style={{ background: '#0a0a0a', padding: '28px 24px' }}>
+              <div key={c.title} style={{ background: 'var(--surface)', padding: '28px 24px' }}>
                 <p style={{
                   fontSize: '12px',
-                  color: '#6ee7b7',
+                  color: 'var(--accent)',
                   fontWeight: 500,
                   marginBottom: '12px',
                   letterSpacing: '0.01em',
                 }}>
                   {c.title}
                 </p>
-                <p style={{ fontSize: '13px', color: '#5e5e5e', lineHeight: 1.8 }}>
+                <p style={{ fontSize: '13px', color: 'var(--text-lo)', lineHeight: 1.8 }}>
                   {c.body}
                 </p>
               </div>
@@ -187,7 +187,7 @@ export default function Home() {
       </section>
 
       {/* ── Experience ───────────────────────────────────── */}
-      <section id="experience" style={{ padding: '100px 0', borderTop: '1px solid #141414' }}>
+      <section id="experience" style={{ padding: '100px 0', borderTop: '1px solid var(--border)' }}>
         <div style={{ maxWidth: MAX_W, margin: '0 auto', padding: '0 28px' }}>
           <SectionLabel>Experience</SectionLabel>
           <div style={{ position: 'relative' }}>
@@ -198,7 +198,7 @@ export default function Home() {
               top: 0,
               bottom: 0,
               width: '1px',
-              background: 'linear-gradient(to bottom, #222, #161616 80%, transparent)',
+              background: 'linear-gradient(to bottom, var(--border-mid), var(--border) 80%, transparent)',
             }} />
 
             {experience.map((job, i) => (
@@ -218,17 +218,17 @@ export default function Home() {
                   width: '9px',
                   height: '9px',
                   borderRadius: '50%',
-                  background: i === 0 ? '#6ee7b7' : '#282828',
-                  border: i === 0 ? '0' : '1px solid #333',
+                  background: i === 0 ? 'var(--accent)' : 'var(--surface-soft)',
+                  border: i === 0 ? '0' : '1px solid var(--border-mid)',
                 }} />
 
                 {/* header */}
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px', flexWrap: 'wrap', marginBottom: '4px' }}>
-                  <p style={{ fontSize: '14px', fontWeight: 600, color: '#e2e2e2', letterSpacing: '-0.01em' }}>
+                  <p style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-hi)', letterSpacing: '-0.01em' }}>
                     {job.company}
                   </p>
                   {job.note && (
-                    <span style={{ fontSize: '11px', color: '#383838', fontStyle: 'italic' }}>
+                    <span style={{ fontSize: '11px', color: 'var(--text-dim)', fontStyle: 'italic' }}>
                       {job.note}
                     </span>
                   )}
@@ -238,7 +238,7 @@ export default function Home() {
                   <span style={{
                     fontFamily: "'JetBrains Mono', ui-monospace, monospace",
                     fontSize: '11px',
-                    color: '#6ee7b7',
+                    color: 'var(--accent)',
                     letterSpacing: '0.02em',
                   }}>
                     {job.role}
@@ -246,7 +246,7 @@ export default function Home() {
                   <span style={{
                     fontFamily: "'JetBrains Mono', ui-monospace, monospace",
                     fontSize: '11px',
-                    color: '#363636',
+                    color: 'var(--text-dim)',
                   }}>
                     {job.period}
                   </span>
@@ -256,12 +256,12 @@ export default function Home() {
                   {job.bullets.map((b, j) => (
                     <li key={j} style={{
                       fontSize: '13px',
-                      color: '#828282',
+                      color: 'var(--text-lo)',
                       lineHeight: 1.8,
                       paddingLeft: '16px',
                       position: 'relative',
                     }}>
-                      <span style={{ position: 'absolute', left: 0, top: '2px', color: '#303030' }}>›</span>
+                      <span style={{ position: 'absolute', left: 0, top: '2px', color: 'var(--text-dim)' }}>›</span>
                       {b}
                     </li>
                   ))}
