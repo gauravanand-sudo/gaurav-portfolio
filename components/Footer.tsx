@@ -1,11 +1,6 @@
 export default function Footer() {
   return (
-    <footer
-      style={{
-        borderTop: '1px solid #1a1a1a',
-        padding: '32px 0',
-      }}
-    >
+    <footer style={{ borderTop: '1px solid #1a1a1a', padding: '32px 0', marginTop: '48px' }}>
       <div
         style={{
           maxWidth: '896px',
@@ -14,20 +9,16 @@ export default function Footer() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: '12px',
         }}
       >
-        <span style={{ fontSize: '13px', color: '#444444' }}>
-          &copy; 2025 Gaurav Anand
-        </span>
+        <span style={{ fontSize: '13px', color: '#444444' }}>&copy; 2025 Gaurav Anand</span>
         <a
-          href="mailto:gaurav_2503mth128@iitp.ac.in"
-          style={{
-            fontSize: '13px',
-            color: '#444444',
-            textDecoration: 'none',
-          }}
+          href="mailto:gaurav.anand54@gmail.com"
+          style={{ fontSize: '13px', color: '#444444', textDecoration: 'none' }}
         >
-          gaurav_2503mth128@iitp.ac.in
+          gaurav.anand54@gmail.com
         </a>
       </div>
     </footer>

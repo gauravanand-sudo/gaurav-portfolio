@@ -36,37 +36,24 @@ export default function Nav() {
           GA
         </Link>
         <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
-          <Link
-            href="/#projects"
-            style={{
-              fontSize: '14px',
-              color: '#666666',
-              textDecoration: 'none',
-            }}
-            className="nav-link"
-          >
+          <Link href="/#projects" style={{ fontSize: '14px', color: '#666666', textDecoration: 'none' }} className="nav-link">
             Projects
+          </Link>
+          <Link href="/#experience" style={{ fontSize: '14px', color: '#666666', textDecoration: 'none' }} className="nav-link">
+            Experience
           </Link>
           <a
             href="https://github.com/gauravanand-sudo"
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              fontSize: '14px',
-              color: '#666666',
-              textDecoration: 'none',
-            }}
+            style={{ fontSize: '14px', color: '#666666', textDecoration: 'none' }}
             className="nav-link"
           >
             GitHub
           </a>
           <a
-            href="mailto:gaurav_2503mth128@iitp.ac.in"
-            style={{
-              fontSize: '14px',
-              color: '#666666',
-              textDecoration: 'none',
-            }}
+            href="mailto:gaurav.anand54@gmail.com"
+            style={{ fontSize: '14px', color: '#666666', textDecoration: 'none' }}
             className="nav-link"
           >
             Contact
@@ -74,9 +61,7 @@ export default function Nav() {
         </div>
       </div>
       <style>{`
-        .nav-link:hover {
-          color: #ededed !important;
-        }
+        .nav-link:hover { color: #ededed !important; }
       `}</style>
     </nav>
   )
