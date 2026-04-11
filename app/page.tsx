@@ -7,7 +7,7 @@ const projects = [
   {
     title: 'Celeris',
     description:
-      'Open-source multicore event-driven simulation engine in C++20 with a live browser demo, performance benchmarks, and hot-path analysis from Verilog input.',
+      'Built to understand how multicore simulation engines work internally. C++20, multithreading benchmarks, and a browser UI where you can paste Verilog and see hot-path analysis.',
     tags: ['C++20', 'Multithreading', 'Simulation', 'FastAPI', 'Python'],
     github: 'https://github.com/gauravanand-sudo/celeris',
     href: '/projects/celeris',
@@ -17,10 +17,10 @@ const projects = [
   {
     title: 'NeuroPowerRL',
     description:
-      'Learning-based framework for proactively optimizing circuit power before expensive simulation. Models circuits as graphs using a hybrid GNN + temporal architecture with RL-driven closed-loop optimization.',
+      'Exploring whether GNNs and RL can reduce pre-simulation power estimation cost. Circuits as graphs, temporal switching behavior, RL-driven node-level gating — still early research.',
     tags: ['Python', 'PyTorch', 'GNN', 'Reinforcement Learning', 'EDA'],
     github: 'https://github.com/gauravanand-sudo',
-    status: 'Research',
+    status: 'Exploring',
   },
 ]
 
@@ -32,7 +32,7 @@ const experience = [
     note: 'Payroll: Intellismith',
     bullets: [
       'Partnered with product managers to deliver end-to-end solutions including API development, deployment, and production releases.',
-      'Developed a supervised learning model on millions of transaction, latency, retry, and error log records to detect potential transaction failures earlier.',
+      'Developed a supervised learning model using historical transaction, latency, retry, and error logs to identify patterns associated with delayed or failed operations, enabling earlier detection of potential transaction failure.',
     ],
   },
   {
@@ -40,9 +40,9 @@ const experience = [
     role: 'Software Engineer II',
     period: 'Jun 2022 – Aug 2024',
     bullets: [
-      "Contributed synchronization optimizations to Xcelium's multicore simulation engine — identified hot paths, modernized locking strategies, and replaced custom barriers with C++20 primitives.",
-      'Led cross-platform migration of the simulation codebase (11M+ LOC) from Linux/GCC (C++11) to macOS/Clang (C++17), resolving threading models, system calls, and memory mapping differences.',
-      'Debugged intermittent concurrency defects using Undo time-travel debugging and mentored junior engineers on concurrency-aware development.',
+      "Contributed to the event-driven propagation subsystem of Xcelium's multicore engine — refactoring synchronization from coarse-grained locking to fine-grained strategies and introducing atomic fast paths for hot variables.",
+      'Led cross-platform migration of the Xcelium simulation codebase (11M+ LOC) from Linux/GCC C++11 to macOS/Clang C++17, resolving platform differences across threading models, system calls, memory mapping, and toolchain compatibility.',
+      'Debugged intermittent concurrency defects using Undo time-travel debugging and mentored junior engineers on concurrency-aware development practices.',
     ],
   },
   {
@@ -50,7 +50,7 @@ const experience = [
     role: 'C++ Developer',
     period: 'Dec 2021 – May 2022',
     bullets: [
-      'Developed a compiler for a memory description language using Flex and Bison, generating an LALR-based parser for configuration validation.',
+      'Developed a compiler for a memory description language using Flex and Bison, generating an LALR-based parser for configuration validation and input processing.',
       'Implemented AST construction, semantic validation, and structured error handling for the compiler front-end.',
     ],
   },
@@ -65,47 +65,32 @@ const experience = [
   },
 ]
 
-const skills = [
+const skills: { label: string; items: string[]; dim?: boolean }[] = [
   {
-    label: 'Languages',
-    items: ['C++17/20', 'Python', 'Tcl'],
+    label: 'Strong',
+    items: ['C++17/20', 'Multithreading', 'Atomics & Locking', 'Memory Management', 'GDB / Valgrind / TSan', 'Linux', 'Git'],
   },
   {
-    label: 'Concurrency',
-    items: ['Multithreading', 'Atomics', 'Mutexes', 'Lock-free', 'std::barrier', 'std::jthread'],
+    label: 'Worked with',
+    items: ['Event-Driven Architecture', 'Flex / Bison', 'Cross-Platform C++', 'Clang / GCC', 'Docker', 'REST APIs', 'Tcl'],
   },
   {
-    label: 'Performance',
-    items: ['Profiling', 'Cache Optimization', 'False Sharing', 'Critical Path', 'p95/p99 Latency'],
-  },
-  {
-    label: 'Systems',
-    items: ['Event-Driven Architecture', 'Memory Management', 'Cross-Platform', 'GDB', 'Valgrind', 'TSan'],
-  },
-  {
-    label: 'EDA',
-    items: ['Simulation Engines', 'DFT', 'HDL', 'Compiler Front-ends', 'Flex/Bison'],
-  },
-  {
-    label: 'AI / ML',
-    items: ['GNN', 'Reinforcement Learning', 'PyTorch', 'RAG', 'LLMs', 'Hugging Face'],
+    label: 'Learning (AI-assisted)',
+    items: ['GNN', 'Reinforcement Learning', 'PyTorch', 'RAG', 'LLMs', 'FastAPI'],
+    dim: true,
   },
 ]
 
-const sectionLabel: React.CSSProperties = {
-  fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
-  fontSize: '11px',
-  color: '#9a9a9a',
-  letterSpacing: '0.12em',
+const SL: React.CSSProperties = {
+  fontFamily: "'JetBrains Mono', monospace",
+  fontSize: '10px',
+  color: '#4a4a4a',
+  letterSpacing: '0.15em',
   textTransform: 'uppercase',
   marginBottom: '32px',
 }
 
-const section: React.CSSProperties = {
-  maxWidth: '896px',
-  margin: '0 auto',
-  padding: '0 24px',
-}
+const W: React.CSSProperties = { maxWidth: '860px', margin: '0 auto', padding: '0 24px' }
 
 export default function Home() {
   return (
@@ -113,62 +98,69 @@ export default function Home() {
       <Nav />
       <Hero />
 
-      {/* ── Projects ── */}
-      <section id="projects" style={{ padding: '80px 0' }}>
-        <div style={section}>
-          <p style={sectionLabel}>Projects</p>
-          <p style={{ fontSize: '15px', color: '#bcbcbc', maxWidth: '680px', lineHeight: 1.7, marginBottom: '28px' }}>
-            This portfolio is centered on selected systems projects. Each one is meant to show technical depth,
-            engineering judgment, and the kind of work I like building.
+      {/* Projects */}
+      <section id="projects" style={{ padding: '96px 0' }}>
+        <div style={W}>
+          <p style={SL}>Projects</p>
+          <p style={{ fontSize: '14px', color: '#6e6e6e', maxWidth: '560px', lineHeight: 1.8, marginBottom: '40px' }}>
+            Side projects built to understand things from the inside. I use AI tools to learn and move faster —
+            that&apos;s part of how these got built.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '16px' }}>
-            {projects.map((p) => (
-              <ProjectCard key={p.title} {...p} />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))', gap: '16px' }}>
+            {projects.map((p) => <ProjectCard key={p.title} {...p} />)}
+          </div>
+        </div>
+      </section>
+
+      {/* How I work */}
+      <section style={{ padding: '80px 0', borderTop: '1px solid #1a1a1a' }}>
+        <div style={W}>
+          <p style={SL}>How I work</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '1px', border: '1px solid #1a1a1a', borderRadius: '10px', overflow: 'hidden' }}>
+            {[
+              { title: 'AI-assisted learning', body: "I use Claude, Copilot, and other tools to understand concepts I don't know, explore unfamiliar codebases, and ship faster. Not hiding it." },
+              { title: 'Depth over breadth', body: "I'd rather understand one thing well than skim ten. Celeris exists because I wanted to know what multicore simulation actually means internally." },
+              { title: 'Learning by building', body: 'If I want to understand something — synchronization, compilers, ML — I build a project around it. Even if it takes longer.' },
+              { title: 'Honest about limits', body: "C++ and concurrency I know well. AI/ML is something I'm actively learning. I won't overstate either." },
+            ].map((c, i) => (
+              <div key={i} style={{ background: '#0e0e0e', padding: '24px', borderRight: i % 2 === 0 ? '1px solid #1a1a1a' : 'none' }}>
+                <p style={{ fontSize: '13px', color: '#6ee7b7', fontWeight: 500, marginBottom: '10px' }}>{c.title}</p>
+                <p style={{ fontSize: '13px', color: '#7a7a7a', lineHeight: 1.75 }}>{c.body}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Experience ── */}
-      <section id="experience" style={{ padding: '80px 0', borderTop: '1px solid #1f1f1f' }}>
-        <div style={section}>
-          <p style={sectionLabel}>Experience</p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+      {/* Experience */}
+      <section id="experience" style={{ padding: '96px 0', borderTop: '1px solid #1a1a1a' }}>
+        <div style={W}>
+          <p style={SL}>Experience</p>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             {experience.map((job, i) => (
               <div
                 key={i}
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: '1fr 3fr',
-                  gap: '24px',
-                  padding: '28px 0',
-                  borderBottom: i < experience.length - 1 ? '1px solid #111' : 'none',
+                  gridTemplateColumns: '200px 1fr',
+                  gap: '32px',
+                  padding: '32px 0',
+                  borderBottom: i < experience.length - 1 ? '1px solid #161616' : 'none',
                 }}
               >
-                {/* Left col */}
-                <div>
-                  <p style={{ fontSize: '13px', color: '#f1f1f1', fontWeight: 500 }}>{job.company}</p>
-                  <p style={{ fontSize: '12px', color: '#8a8a8a', marginTop: '4px' }}>{job.period}</p>
-                  {job.note && (
-                    <p style={{ fontSize: '11px', color: '#767676', marginTop: '4px', fontStyle: 'italic' }}>{job.note}</p>
-                  )}
+                <div style={{ paddingTop: '2px' }}>
+                  <p style={{ fontSize: '13px', color: '#e0e0e0', fontWeight: 500, lineHeight: 1.4 }}>{job.company}</p>
+                  <p style={{ fontSize: '11px', color: '#4a4a4a', marginTop: '6px', fontFamily: 'monospace' }}>{job.period}</p>
+                  {job.note && <p style={{ fontSize: '11px', color: '#3a3a3a', marginTop: '4px', fontStyle: 'italic' }}>{job.note}</p>}
                 </div>
-                {/* Right col */}
                 <div>
-                  <p
-                    style={{
-                      fontSize: '13px',
-                      color: '#d9d9d9',
-                      fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
-                      marginBottom: '12px',
-                    }}
-                  >
+                  <p style={{ fontSize: '12px', color: '#6ee7b7', fontFamily: 'monospace', marginBottom: '14px', letterSpacing: '0.02em' }}>
                     {job.role}
                   </p>
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
                     {job.bullets.map((b, j) => (
-                      <li key={j} style={{ fontSize: '13px', color: '#cfcfcf', lineHeight: 1.6, paddingLeft: '16px', position: 'relative' }}>
-                        <span style={{ position: 'absolute', left: 0, color: '#5f5f5f' }}>—</span>
+                      <li key={j} style={{ fontSize: '13px', color: '#a0a0a0', lineHeight: 1.75, paddingLeft: '14px', position: 'relative' }}>
+                        <span style={{ position: 'absolute', left: 0, color: '#2e2e2e', top: '1px' }}>›</span>
                         {b}
                       </li>
                     ))}
@@ -180,23 +172,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Skills ── */}
-      <section id="skills" style={{ padding: '80px 0', borderTop: '1px solid #1f1f1f' }}>
-        <div style={section}>
-          <p style={sectionLabel}>Skills</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '24px' }}>
+      {/* Skills */}
+      <section style={{ padding: '80px 0', borderTop: '1px solid #1a1a1a' }}>
+        <div style={W}>
+          <p style={SL}>Skills</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {skills.map((group) => (
-              <div key={group.label}>
-                <p
-                  style={{
-                    fontSize: '11px',
-                    color: '#9a9a9a',
-                    fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
-                    letterSpacing: '0.08em',
-                    textTransform: 'uppercase',
-                    marginBottom: '10px',
-                  }}
-                >
+              <div key={group.label} style={{ display: 'grid', gridTemplateColumns: '160px 1fr', gap: '16px', alignItems: 'start' }}>
+                <p style={{ fontSize: '11px', color: group.dim ? '#3a5a3a' : '#4a4a4a', fontFamily: 'monospace', paddingTop: '3px' }}>
                   {group.label}
                 </p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
@@ -205,12 +188,12 @@ export default function Home() {
                       key={item}
                       style={{
                         fontSize: '12px',
-                        color: '#cfcfcf',
-                        background: '#151515',
-                        border: '1px solid #2b2b2b',
+                        color: group.dim ? '#4a7a4a' : '#c0c0c0',
+                        background: group.dim ? '#0a120a' : '#111',
+                        border: `1px solid ${group.dim ? '#1e301e' : '#242424'}`,
                         borderRadius: '4px',
-                        padding: '2px 8px',
-                        fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
+                        padding: '3px 9px',
+                        fontFamily: 'monospace',
                       }}
                     >
                       {item}
@@ -223,21 +206,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Education ── */}
-      <section style={{ padding: '80px 0', borderTop: '1px solid #1f1f1f' }}>
-        <div style={section}>
-          <p style={sectionLabel}>Education</p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      {/* Education */}
+      <section style={{ padding: '80px 0', borderTop: '1px solid #1a1a1a' }}>
+        <div style={W}>
+          <p style={SL}>Education</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             {[
               { school: 'IIT Patna', degree: 'M.Tech in Artificial Intelligence (Hybrid)', period: '2025 – 2027' },
               { school: 'Thapar Institute of Engineering & Technology', degree: 'B.E. in Electronics Engineering · CGPA 8.05', period: '2015 – 2019' },
             ].map((edu) => (
               <div key={edu.school} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '8px' }}>
                 <div>
-                  <p style={{ fontSize: '14px', color: '#f1f1f1', fontWeight: 500 }}>{edu.school}</p>
-                  <p style={{ fontSize: '13px', color: '#cfcfcf', marginTop: '4px' }}>{edu.degree}</p>
+                  <p style={{ fontSize: '14px', color: '#e0e0e0', fontWeight: 500 }}>{edu.school}</p>
+                  <p style={{ fontSize: '13px', color: '#5a5a5a', marginTop: '4px' }}>{edu.degree}</p>
                 </div>
-                <p style={{ fontSize: '12px', color: '#8a8a8a', fontFamily: "'JetBrains Mono', monospace", whiteSpace: 'nowrap' }}>{edu.period}</p>
+                <p style={{ fontSize: '12px', color: '#3a3a3a', fontFamily: 'monospace', whiteSpace: 'nowrap' }}>{edu.period}</p>
               </div>
             ))}
           </div>

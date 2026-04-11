@@ -3,42 +3,41 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0a0a0a;
-  --bg-elevated: #0f0f0f;
-  --bg-card: #111111;
-  --border: #1f1f1f;
-  --border-strong: #2f2f2f;
-  --text: #f1f1f1;
-  --text-soft: #cfcfcf;
-  --text-muted: #8a8a8a;
-  --accent: #ffffff;
-  --accent-soft: #d9d9d9;
-  --success: #d9d9d9;
+  --bg: #080808;
+  --bg-elevated: #0e0e0e;
+  --bg-card: #121212;
+  --border: #232323;
+  --border-hover: #383838;
+  --text: #f0f0f0;
+  --text-soft: #b8b8b8;
+  --text-muted: #6e6e6e;
+  --accent: #6ee7b7;       /* emerald — used sparingly */
+  --accent-dim: #1a3d30;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
-  background: #0a0a0a;
+  background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
-body {
-  min-height: 100vh;
-  color: var(--text);
-}
+body { min-height: 100vh; }
+
+/* scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+.fade-in { animation: fadeIn 0.5s ease forwards; }
 
-.fade-in {
-  animation: fadeIn 0.4s ease forwards;
-}
+/* selection */
+::selection { background: #6ee7b720; color: #6ee7b7; }
