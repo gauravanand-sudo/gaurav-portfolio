@@ -55,9 +55,9 @@ export default function Hero() {
           lineHeight: 1.85,
           fontWeight: 400,
         }}>
-          I work in systems C++ — concurrency, simulation, compilers.
-          I use AI tools to learn and build faster. This site is a collection
-          of things I&apos;ve built or explored, not a claim to know everything.
+          I work in systems C++ across concurrency, simulation infrastructure,
+          and compilers. This site is a focused collection of projects and
+          engineering work that reflect how I like to build: from internals outward.
         </p>
 
         <div style={{
