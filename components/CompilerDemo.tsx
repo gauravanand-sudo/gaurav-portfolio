@@ -101,6 +101,7 @@ memory OVERLAP {
 }`
 
 const API_BASE = process.env.NEXT_PUBLIC_MDL_API_BASE ?? ''
+const ANALYZE_URL = API_BASE ? `${API_BASE}/api/analyze` : ''
 
 export default function CompilerDemo() {
   const [source, setSource] = useState(VALID_SAMPLE)
@@ -119,7 +120,13 @@ export default function CompilerDemo() {
     setError('')
 
     try {
-      const response = await fetch(`${API_BASE}/api/analyze`, {
+      if (!ANALYZE_URL) {
+        throw new Error(
+          'Compiler backend is not configured yet. Set NEXT_PUBLIC_MDL_API_BASE in the portfolio deployment to your Render API URL.'
+        )
+      }
+
+      const response = await fetch(ANALYZE_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -127,6 +134,13 @@ export default function CompilerDemo() {
           name: 'gaurav-portfolio-demo.mdl',
         }),
       })
+
+      const contentType = response.headers.get('content-type') ?? ''
+      if (!contentType.includes('application/json')) {
+        throw new Error(
+          'Compiler backend returned HTML instead of JSON. Check NEXT_PUBLIC_MDL_API_BASE and the Render service URL.'
+        )
+      }
 
       const payload = await response.json()
 
@@ -172,6 +186,12 @@ export default function CompilerDemo() {
               Paste MDL input and inspect each stage: tokenization, grammar reductions,
               AST construction, and semantic diagnostics.
             </p>
+            {!ANALYZE_URL && (
+              <p style={{ ...subtleTextStyle, color: '#d8b27a' }}>
+                Backend pending: add <code>NEXT_PUBLIC_MDL_API_BASE</code> to the portfolio deployment
+                to enable live analysis.
+              </p>
+            )}
           </div>
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
             <button type="button" onClick={() => setSource(VALID_SAMPLE)} style={secondaryButtonStyle}>
