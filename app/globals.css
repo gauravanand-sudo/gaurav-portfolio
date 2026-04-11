@@ -3,41 +3,61 @@
 @tailwind utilities;
 
 :root {
-  --bg: #080808;
-  --bg-elevated: #0e0e0e;
-  --bg-card: #121212;
-  --border: #232323;
-  --border-hover: #383838;
-  --text: #f0f0f0;
-  --text-soft: #b8b8b8;
-  --text-muted: #6e6e6e;
-  --accent: #6ee7b7;       /* emerald — used sparingly */
-  --accent-dim: #1a3d30;
+  --bg: #060606;
+  --bg-2: #0c0c0c;
+  --bg-3: #111111;
+  --border: #1e1e1e;
+  --border-mid: #2a2a2a;
+  --text-hi: #f0f0f0;
+  --text-mid: #b0b0b0;
+  --text-lo: #707070;
+  --text-dim: #484848;
+  --accent: #6ee7b7;
+  --accent-bg: #0d2a1f;
+  --accent-border: #1a4a33;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
   background: var(--bg);
-  color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+  color: var(--text-hi);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-size: 15px;
   line-height: 1.6;
+  scroll-behavior: smooth;
 }
 
 body { min-height: 100vh; }
 
-/* scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+/* anchor offset for sticky nav */
+section[id] { scroll-margin-top: 72px; }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.fade-in { animation: fadeIn 0.5s ease forwards; }
+/* scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #222; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #333; }
 
 /* selection */
-::selection { background: #6ee7b720; color: #6ee7b7; }
+::selection { background: rgba(110,231,183,0.15); color: var(--accent); }
+
+/* animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.fade-up { animation: fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) forwards; }
+.fade-in { animation: fadeIn 0.5s ease forwards; }
+
+/* mono utility */
+.mono {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+}

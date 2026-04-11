@@ -2,38 +2,76 @@ export default function Hero() {
   return (
     <section
       className="fade-in"
-      style={{ minHeight: 'calc(100vh - 56px)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      style={{
+        minHeight: 'calc(100vh - 56px)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
     >
-      <div style={{ textAlign: 'center', padding: '0 24px' }}>
-        <h1 style={{ fontSize: '52px', fontWeight: 600, color: '#f0f0f0', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
+      {/* subtle radial glow */}
+      <div style={{
+        position: 'absolute',
+        width: '600px',
+        height: '600px',
+        borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(110,231,183,0.04) 0%, transparent 70%)',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        pointerEvents: 'none',
+      }} />
+
+      <div style={{ textAlign: 'center', padding: '0 24px', position: 'relative' }}>
+        <p style={{
+          fontFamily: "'JetBrains Mono', ui-monospace, monospace",
+          fontSize: '11px',
+          color: '#6ee7b7',
+          letterSpacing: '0.2em',
+          textTransform: 'uppercase',
+          marginBottom: '24px',
+          opacity: 0.8,
+        }}>
+          Systems Engineer · C++ · 6.5 years
+        </p>
+
+        <h1 style={{
+          fontSize: 'clamp(40px, 7vw, 64px)',
+          fontWeight: 600,
+          color: '#f2f2f2',
+          lineHeight: 1.05,
+          letterSpacing: '-0.03em',
+        }}>
           Gaurav Anand
         </h1>
-        <p style={{
-          fontSize: '13px',
-          color: '#6ee7b7',
-          fontFamily: 'monospace',
-          marginTop: '14px',
-          letterSpacing: '0.08em',
-        }}>
-          C++ · Systems Engineering · 6.5 years
-        </p>
+
         <p style={{
           fontSize: '15px',
-          color: '#6e6e6e',
-          maxWidth: '480px',
-          margin: '20px auto 0',
-          lineHeight: 1.8,
+          color: '#6a6a6a',
+          maxWidth: '440px',
+          margin: '24px auto 0',
+          lineHeight: 1.85,
+          fontWeight: 400,
         }}>
-          I work in systems C++ — concurrency, simulation, compilers. I use AI tools
-          to learn and build faster. This site is a collection of things I&apos;ve built
-          or explored, not a claim to know everything.
+          I work in systems C++ — concurrency, simulation, compilers.
+          I use AI tools to learn and build faster. This site is a collection
+          of things I&apos;ve built or explored, not a claim to know everything.
         </p>
-        <div style={{ display: 'flex', gap: '10px', marginTop: '36px', justifyContent: 'center', flexWrap: 'wrap' }}>
+
+        <div style={{
+          display: 'flex',
+          gap: '10px',
+          marginTop: '40px',
+          justifyContent: 'center',
+          flexWrap: 'wrap',
+        }}>
           {[
-            { label: 'Projects', href: '#projects' },
-            { label: 'Experience', href: '#experience' },
-            { label: 'GitHub ↗', href: 'https://github.com/gauravanand-sudo', external: true },
-            { label: 'Contact', href: 'mailto:gaurav.anand54@gmail.com' },
+            { label: 'Projects',    href: '#projects' },
+            { label: 'Experience',  href: '#experience' },
+            { label: 'GitHub ↗',   href: 'https://github.com/gauravanand-sudo', external: true },
+            { label: 'Contact',     href: 'mailto:gaurav.anand54@gmail.com' },
           ].map((btn) => (
             <a
               key={btn.label}
@@ -41,26 +79,30 @@ export default function Hero() {
               target={btn.external ? '_blank' : undefined}
               rel={btn.external ? 'noopener noreferrer' : undefined}
               className="hero-btn"
-              style={{
-                border: '1px solid #252525',
-                padding: '8px 18px',
-                fontSize: '13px',
-                color: '#b0b0b0',
-                textDecoration: 'none',
-                borderRadius: '6px',
-                background: '#0e0e0e',
-                cursor: 'pointer',
-              }}
             >
               {btn.label}
             </a>
           ))}
         </div>
       </div>
+
       <style>{`
+        .hero-btn {
+          border: 1px solid #1e1e1e;
+          padding: 9px 20px;
+          font-size: 13px;
+          color: #909090;
+          text-decoration: none;
+          border-radius: 6px;
+          background: #0c0c0c;
+          cursor: pointer;
+          transition: border-color 150ms ease, color 150ms ease, background 150ms ease;
+          letter-spacing: 0.01em;
+        }
         .hero-btn:hover {
-          border-color: #6ee7b7 !important;
-          color: #6ee7b7 !important;
+          border-color: #6ee7b7;
+          color: #6ee7b7;
+          background: rgba(110,231,183,0.04);
         }
       `}</style>
     </section>
