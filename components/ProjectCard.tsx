@@ -20,37 +20,145 @@ export default function ProjectCard({
   status,
 }: ProjectCardProps) {
   return (
-    <article className="project-card">
-      <div className="project-card-top">
-        <h3 className="project-title">{title}</h3>
-        {status && <span className="status-pill">{status}</span>}
+    <div
+      className="project-card"
+      style={{
+        border: '1px solid #263154',
+        background: '#151d39',
+        padding: '24px',
+        borderRadius: '8px',
+        transition: 'border-color 150ms',
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+      >
+        <h3
+          style={{
+            fontSize: '16px',
+            fontWeight: 500,
+            color: '#ededed',
+          }}
+        >
+          {title}
+        </h3>
+        {status && (
+          <span
+            style={{
+              fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
+              fontSize: '11px',
+              color: '#6ee7b7',
+              border: '1px solid #2f6f5b',
+              background: 'rgba(110, 231, 183, 0.08)',
+              padding: '2px 8px',
+              borderRadius: '4px',
+            }}
+          >
+            {status}
+          </span>
+        )}
       </div>
-
-      <p className="project-description">{description}</p>
-
-      <div className="tag-list">
+      <p
+        style={{
+          fontSize: '14px',
+          color: '#c8d2f0',
+          marginTop: '8px',
+          lineHeight: 1.6,
+          display: '-webkit-box',
+          WebkitLineClamp: 2,
+          WebkitBoxOrient: 'vertical',
+          overflow: 'hidden',
+        }}
+      >
+        {description}
+      </p>
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '6px',
+          marginTop: '16px',
+        }}
+      >
         {tags.map((tag) => (
-          <span key={tag} className="tag-chip">
+          <span
+            key={tag}
+            style={{
+              fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
+              fontSize: '11px',
+              color: '#8bf0ff',
+              background: '#111831',
+              border: '1px solid #2d3b67',
+              padding: '2px 8px',
+              borderRadius: '4px',
+            }}
+          >
             {tag}
           </span>
         ))}
       </div>
-
-      <div className="project-links">
-        <a href={github} target="_blank" rel="noopener noreferrer" className="card-link">
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '16px',
+          marginTop: '20px',
+        }}
+      >
+        <a
+          href={github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="card-link"
+          style={{
+            fontSize: '13px',
+            color: '#c8d2f0',
+            textDecoration: 'none',
+          }}
+        >
           GitHub ↗
         </a>
         {liveDemo && (
-          <a href={liveDemo} target="_blank" rel="noopener noreferrer" className="card-link">
+          <a
+            href={liveDemo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="card-link"
+            style={{
+              fontSize: '13px',
+              color: '#c8d2f0',
+              textDecoration: 'none',
+            }}
+          >
             Live Demo ↗
           </a>
         )}
         {href && (
-          <Link href={href} className="card-link">
+          <Link
+            href={href}
+            className="card-link"
+            style={{
+              fontSize: '13px',
+              color: '#c8d2f0',
+              textDecoration: 'none',
+            }}
+          >
             Read More →
           </Link>
         )}
       </div>
-    </article>
+      <style>{`
+        .project-card:hover {
+          border-color: #67e8f9 !important;
+        }
+        .card-link:hover {
+          color: #67e8f9 !important;
+        }
+      `}</style>
+    </div>
   )
 }

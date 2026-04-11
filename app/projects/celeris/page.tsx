@@ -5,28 +5,28 @@ import Footer from '@/components/Footer'
 const benchmarkRows = [
   {
     experiment: 'Coarse → Fine-grained locking',
-    result: '2.15× throughput gain',
+    result: '2.15×  throughput gain',
   },
   {
     experiment: 'Fine mutex → Atomic fast path',
-    result: '1.73× additional gain',
+    result: '1.73×  additional gain',
   },
   {
     experiment: 'Combined improvement',
-    result: '3.72× total',
+    result: '3.72×  total',
   },
   {
     experiment: 'Per-thread sharding (vs mutex)',
-    result: '3000× on write-heavy paths',
+    result: '3000×  on write-heavy paths',
   },
 ]
 
 const keyConcepts = [
   'Time-wheel O(1) event scheduling with per-bucket SpinLocks',
-  'Ping-pong delta queue for zero-copy double-buffered propagation',
-  'Runtime-swappable strategy variants for coarse, fine-grained, and atomic paths',
-  'C++20 std::barrier replacing a hand-rolled barrier with race-prone generation handling',
-  'Per-thread sharding with alignas(64) to reduce false sharing',
+  'Ping-pong delta queue — zero-copy double buffer for delta propagation',
+  'Strategy pattern: CoarseGrained / FineGrained / Atomic, runtime swappable',
+  'C++20 std::barrier replacing hand-rolled barrier with generation-counter race',
+  'Per-thread sharding with alignas(64) to eliminate false sharing',
 ]
 
 const architectureDiagram = `RTL Input (Verilog)
@@ -45,146 +45,403 @@ export default function CelerisPage() {
   return (
     <>
       <Nav />
-      <main className="project-page shell">
-        <Link href="/#projects" className="back-link">
+      <main style={{ maxWidth: '896px', margin: '0 auto', padding: '64px 24px' }}>
+        {/* Back link */}
+        <Link
+          href="/#projects"
+          className="back-link"
+          style={{
+            fontSize: '14px',
+            color: '#c8d2f0',
+            textDecoration: 'none',
+            display: 'inline-block',
+            marginBottom: '40px',
+          }}
+        >
           ← Projects
         </Link>
 
-        <section className="project-hero">
-          <div className="project-hero-main">
-            <div className="project-card-top">
-              <h1 className="project-page-title">Celeris</h1>
-              <span className="status-pill">Active</span>
-            </div>
-            <p className="project-lead">
-              An open-source multicore event-driven simulation engine in C++20 built to study synchronization
-              tradeoffs, benchmark scaling strategies, and surface hot paths from Verilog input.
-            </p>
-            <div className="tag-list">
-              {tags.map((tag) => (
-                <span key={tag} className="tag-chip">
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <div className="hero-actions">
-              <a
-                href="https://github.com/gauravanand-sudo/celeris"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary"
-              >
-                View GitHub ↗
-              </a>
-              <a
-                href="https://celeris-vxjb.onrender.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-secondary"
-              >
-                Open Live Demo ↗
-              </a>
-            </div>
-          </div>
+        {/* Header */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'flex-start',
+            justifyContent: 'space-between',
+            marginBottom: '12px',
+          }}
+        >
+          <h1
+            style={{
+              fontSize: '36px',
+              fontWeight: 600,
+              color: '#f7f9ff',
+            }}
+          >
+            Celeris
+          </h1>
+          <span
+            style={{
+              fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
+              fontSize: '11px',
+              color: '#6ee7b7',
+              border: '1px solid #2f6f5b',
+              background: 'rgba(110, 231, 183, 0.08)',
+              padding: '2px 8px',
+              borderRadius: '4px',
+              marginTop: '8px',
+            }}
+          >
+            Active
+          </span>
+        </div>
+        <p
+          style={{
+            fontSize: '16px',
+            color: '#c8d2f0',
+            marginBottom: '20px',
+            lineHeight: 1.6,
+          }}
+        >
+          Open-source multicore event-driven simulation engine in C++20
+        </p>
 
-          <aside className="project-summary-card">
-            <p className="hero-panel-label">Why it matters</p>
-            <ul className="hero-panel-list">
-              <li>Compares coarse locks, finer locks, and atomic fast paths.</li>
-              <li>Shows how cache-line sharding changes write-heavy behavior.</li>
-              <li>Connects lower-level systems ideas to a usable browser demo.</li>
-            </ul>
-          </aside>
-        </section>
+        {/* Tags */}
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '6px',
+            marginBottom: '20px',
+          }}
+        >
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              style={{
+                fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
+                fontSize: '11px',
+                color: '#8bf0ff',
+                background: '#111831',
+                border: '1px solid #2d3b67',
+                padding: '2px 8px',
+                borderRadius: '4px',
+              }}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
 
-        <section className="detail-section">
-          <h2 className="detail-heading">Project Snapshot</h2>
-          <div className="snapshot-grid">
-            <div className="focus-card">
-              <p className="focus-title">Problem</p>
-              <p className="focus-text">Understand how synchronization decisions affect throughput in event-driven simulation workloads.</p>
-            </div>
-            <div className="focus-card">
-              <p className="focus-title">Approach</p>
-              <p className="focus-text">Model hardware scheduling behavior, benchmark multiple strategies, and expose results through a web UI.</p>
-            </div>
-            <div className="focus-card">
-              <p className="focus-title">Outcome</p>
-              <p className="focus-text">Clear performance comparisons, a shareable demo, and a strong showcase of systems thinking.</p>
-            </div>
-          </div>
-        </section>
+        {/* Links */}
+        <div
+          style={{ display: 'flex', gap: '16px', marginBottom: '64px' }}
+        >
+          <a
+            href="https://github.com/gauravanand-sudo/celeris"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="detail-link"
+            style={{
+              border: '1px solid #3a4977',
+              background: '#151d39',
+              padding: '8px 16px',
+              fontSize: '14px',
+              color: '#f7f9ff',
+              textDecoration: 'none',
+              borderRadius: '6px',
+            }}
+          >
+            GitHub ↗
+          </a>
+          <a
+            href="https://celeris.gauravanand.tech"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="detail-link"
+            style={{
+              border: '1px solid #3a4977',
+              background: '#151d39',
+              padding: '8px 16px',
+              fontSize: '14px',
+              color: '#f7f9ff',
+              textDecoration: 'none',
+              borderRadius: '6px',
+            }}
+          >
+            Live Demo ↗
+          </a>
+        </div>
 
-        <section className="detail-section">
-          <h2 className="detail-heading">Overview</h2>
-          <p className="detail-copy">
-            Celeris models the architecture of hardware simulation schedulers including time-wheel event scheduling,
-            delta-cycle propagation, and parallel region execution. It was built to make low-level synchronization
-            tradeoffs easier to observe, measure, and explain.
+        {/* Overview */}
+        <section style={{ marginBottom: '64px' }}>
+          <h2
+            style={{
+              fontSize: '16px',
+              fontWeight: 500,
+              color: '#f7f9ff',
+              marginBottom: '16px',
+            }}
+          >
+            Overview
+          </h2>
+          <p
+            style={{
+              fontSize: '14px',
+              color: '#c8d2f0',
+              lineHeight: 1.8,
+              maxWidth: '640px',
+            }}
+          >
+            Celeris models the architecture of hardware simulation schedulers —
+            time-wheel event scheduling, delta-cycle propagation, and parallel
+            region execution. Built to understand and benchmark synchronization
+            strategies at the systems level.
           </p>
         </section>
 
-        <section className="detail-section">
-          <h2 className="detail-heading">Benchmark Results</h2>
-          <div className="table-card">
-            <table className="benchmark-table">
-              <thead>
-                <tr>
-                  <th>Experiment</th>
-                  <th>Result</th>
+        {/* Benchmark Results */}
+        <section style={{ marginBottom: '64px' }}>
+          <h2
+            style={{
+              fontSize: '16px',
+              fontWeight: 500,
+              color: '#ededed',
+              marginBottom: '20px',
+            }}
+          >
+            Benchmark Results
+          </h2>
+          <table
+            style={{
+              borderCollapse: 'collapse',
+              width: '100%',
+              fontSize: '13px',
+            }}
+          >
+            <thead>
+              <tr
+                style={{
+                  background: '#151d39',
+                }}
+              >
+                <th
+                  style={{
+                    padding: '10px 16px',
+                    textAlign: 'left',
+                    color: '#8bf0ff',
+                    fontWeight: 500,
+                  }}
+                >
+                  Experiment
+                </th>
+                <th
+                  style={{
+                    padding: '10px 16px',
+                    textAlign: 'right',
+                    color: '#8bf0ff',
+                    fontWeight: 500,
+                  }}
+                >
+                  Result
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {benchmarkRows.map((row, idx) => (
+                <tr
+                  key={row.experiment}
+                  style={{
+                    background: idx % 2 === 0 ? '#0f1730' : '#131c38',
+                  }}
+                >
+                  <td
+                    style={{
+                      padding: '10px 16px',
+                      color: '#c8d2f0',
+                    }}
+                  >
+                    {row.experiment}
+                  </td>
+                  <td
+                    style={{
+                      padding: '10px 16px',
+                      textAlign: 'right',
+                      fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
+                      color: '#6ee7b7',
+                    }}
+                  >
+                    {row.result}
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                {benchmarkRows.map((row, idx) => (
-                  <tr key={row.experiment} className={idx % 2 === 0 ? 'table-row-even' : 'table-row-odd'}>
-                    <td>{row.experiment}</td>
-                    <td className="benchmark-result">{row.result}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </table>
         </section>
 
-        <section className="detail-section">
-          <h2 className="detail-heading">Try It</h2>
-          <p className="detail-copy">
-            Paste a Verilog module into the live demo to explore hot paths and simulation behavior directly in the browser.
+        {/* Live Demo */}
+        <section style={{ marginBottom: '64px' }}>
+          <h2
+            style={{
+              fontSize: '16px',
+              fontWeight: 500,
+              color: '#f7f9ff',
+              marginBottom: '8px',
+            }}
+          >
+            Try It
+          </h2>
+          <p
+            style={{
+              fontSize: '14px',
+              color: '#c8d2f0',
+              marginBottom: '20px',
+            }}
+          >
+            Paste any Verilog module below and run the simulation.
           </p>
-          <iframe src="https://celeris.gauravanand.tech" className="demo-frame" title="Celeris Live Demo" />
-          <p className="demo-note">The demo runs on a free-tier server, so the first load may take around 30 seconds.</p>
+          <iframe
+            src="https://celeris.gauravanand.tech"
+            className="w-full rounded-lg border border-[#1a1a1a]"
+            style={{ height: '700px', width: '100%', borderRadius: '8px', border: '1px solid #263154' }}
+            title="Celeris Live Demo"
+          />
+          <p
+            style={{
+              fontSize: '12px',
+              color: '#94a3c7',
+              marginTop: '12px',
+            }}
+          >
+            Demo runs on a free-tier server — first load may take 30s to wake up.
+          </p>
         </section>
 
-        <section className="detail-section">
-          <h2 className="detail-heading">Architecture</h2>
-          <pre className="architecture-block">{architectureDiagram}</pre>
+        {/* Architecture */}
+        <section style={{ marginBottom: '64px' }}>
+          <h2
+            style={{
+              fontSize: '16px',
+              fontWeight: 500,
+              color: '#f7f9ff',
+              marginBottom: '16px',
+            }}
+          >
+            Architecture
+          </h2>
+          <pre
+            style={{
+              fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
+              fontSize: '12px',
+              background: '#151d39',
+              border: '1px solid #263154',
+              padding: '20px',
+              borderRadius: '6px',
+              overflowX: 'auto',
+              color: '#c8d2f0',
+              lineHeight: 1.7,
+            }}
+          >
+            {architectureDiagram}
+          </pre>
         </section>
 
-        <section className="detail-section">
-          <h2 className="detail-heading">Key Concepts</h2>
-          <ul className="hero-panel-list detail-list">
+        {/* Key Concepts */}
+        <section style={{ marginBottom: '64px' }}>
+          <h2
+            style={{
+              fontSize: '16px',
+              fontWeight: 500,
+              color: '#f7f9ff',
+              marginBottom: '16px',
+            }}
+          >
+            Key Concepts
+          </h2>
+          <ul
+            style={{
+              listStyle: 'none',
+              padding: 0,
+              margin: 0,
+            }}
+          >
             {keyConcepts.map((concept) => (
-              <li key={concept}>{concept}</li>
+              <li
+                key={concept}
+                style={{
+                  fontSize: '14px',
+                  color: '#c8d2f0',
+                  lineHeight: 2,
+                  paddingLeft: '16px',
+                  position: 'relative',
+                }}
+              >
+                <span
+                  style={{
+                    position: 'absolute',
+                    left: 0,
+                    color: '#67e8f9',
+                  }}
+                >
+                  —
+                </span>
+                {concept}
+              </li>
             ))}
           </ul>
         </section>
 
-        <section className="detail-section">
-          <h2 className="detail-heading">Source</h2>
-          <p className="detail-copy">
-            Full source, benchmarks, and the ZERO_TO_ARCHITECT guide are available on GitHub.
+        {/* Source */}
+        <section style={{ marginBottom: '32px' }}>
+          <h2
+            style={{
+              fontSize: '16px',
+              fontWeight: 500,
+              color: '#f7f9ff',
+              marginBottom: '12px',
+            }}
+          >
+            Source
+          </h2>
+          <p
+            style={{
+              fontSize: '14px',
+              color: '#c8d2f0',
+              marginBottom: '20px',
+              lineHeight: 1.6,
+            }}
+          >
+            Full source, benchmarks, and ZERO_TO_ARCHITECT.md guide available on GitHub.
           </p>
           <a
             href="https://github.com/gauravanand-sudo/celeris"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-secondary"
+            className="detail-link"
+            style={{
+              border: '1px solid #3a4977',
+              background: '#151d39',
+              padding: '8px 16px',
+              fontSize: '14px',
+              color: '#f7f9ff',
+              textDecoration: 'none',
+              borderRadius: '6px',
+              display: 'inline-block',
+            }}
           >
-            View Repository ↗
+            View on GitHub ↗
           </a>
         </section>
       </main>
       <Footer />
+      <style>{`
+        .back-link:hover {
+          color: #67e8f9 !important;
+        }
+        .detail-link:hover {
+          border-color: #67e8f9 !important;
+          color: #67e8f9 !important;
+        }
+      `}</style>
     </>
   )
 }
