@@ -52,7 +52,7 @@ export default function CelerisPage() {
           className="back-link"
           style={{
             fontSize: '14px',
-            color: '#c8d2f0',
+            color: '#bdbdbd',
             textDecoration: 'none',
             display: 'inline-block',
             marginBottom: '40px',
@@ -74,7 +74,7 @@ export default function CelerisPage() {
             style={{
               fontSize: '36px',
               fontWeight: 600,
-              color: '#f7f9ff',
+              color: '#f1f1f1',
             }}
           >
             Celeris
@@ -83,9 +83,9 @@ export default function CelerisPage() {
             style={{
               fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
               fontSize: '11px',
-              color: '#6ee7b7',
-              border: '1px solid #2f6f5b',
-              background: 'rgba(110, 231, 183, 0.08)',
+              color: '#d9d9d9',
+              border: '1px solid #3a3a3a',
+              background: '#171717',
               padding: '2px 8px',
               borderRadius: '4px',
               marginTop: '8px',
@@ -97,12 +97,12 @@ export default function CelerisPage() {
         <p
           style={{
             fontSize: '16px',
-            color: '#c8d2f0',
+            color: '#cfcfcf',
             marginBottom: '20px',
             lineHeight: 1.6,
           }}
         >
-          Open-source multicore event-driven simulation engine in C++20
+          Portfolio project: open-source multicore event-driven simulation engine in C++20
         </p>
 
         {/* Tags */}
@@ -120,9 +120,9 @@ export default function CelerisPage() {
               style={{
                 fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
                 fontSize: '11px',
-                color: '#8bf0ff',
-                background: '#111831',
-                border: '1px solid #2d3b67',
+                color: '#bdbdbd',
+                background: '#151515',
+                border: '1px solid #2b2b2b',
                 padding: '2px 8px',
                 borderRadius: '4px',
               }}
@@ -137,38 +137,39 @@ export default function CelerisPage() {
           style={{ display: 'flex', gap: '16px', marginBottom: '64px' }}
         >
           <a
-            href="https://github.com/gauravanand-sudo/celeris"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="detail-link"
-            style={{
-              border: '1px solid #3a4977',
-              background: '#151d39',
-              padding: '8px 16px',
-              fontSize: '14px',
-              color: '#f7f9ff',
-              textDecoration: 'none',
-              borderRadius: '6px',
-            }}
-          >
-            GitHub ↗
-          </a>
-          <a
             href="https://celeris.gauravanand.tech"
             target="_blank"
             rel="noopener noreferrer"
             className="detail-link"
             style={{
-              border: '1px solid #3a4977',
-              background: '#151d39',
+              border: '1px solid #f1f1f1',
+              background: '#f1f1f1',
               padding: '8px 16px',
               fontSize: '14px',
-              color: '#f7f9ff',
+              color: '#0a0a0a',
+              textDecoration: 'none',
+              borderRadius: '6px',
+              fontWeight: 600,
+            }}
+          >
+            Try Now ↗
+          </a>
+          <a
+            href="https://github.com/gauravanand-sudo/celeris"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="detail-link"
+            style={{
+              border: '1px solid #2f2f2f',
+              background: '#111111',
+              padding: '8px 16px',
+              fontSize: '14px',
+              color: '#f1f1f1',
               textDecoration: 'none',
               borderRadius: '6px',
             }}
           >
-            Live Demo ↗
+            GitHub ↗
           </a>
         </div>
 
@@ -178,7 +179,7 @@ export default function CelerisPage() {
             style={{
               fontSize: '16px',
               fontWeight: 500,
-              color: '#f7f9ff',
+              color: '#f1f1f1',
               marginBottom: '16px',
             }}
           >
@@ -187,7 +188,7 @@ export default function CelerisPage() {
           <p
             style={{
               fontSize: '14px',
-              color: '#c8d2f0',
+              color: '#cfcfcf',
               lineHeight: 1.8,
               maxWidth: '640px',
             }}
@@ -205,7 +206,7 @@ export default function CelerisPage() {
             style={{
               fontSize: '16px',
               fontWeight: 500,
-              color: '#ededed',
+              color: '#f1f1f1',
               marginBottom: '20px',
             }}
           >
@@ -221,14 +222,14 @@ export default function CelerisPage() {
             <thead>
               <tr
                 style={{
-                  background: '#151d39',
+                  background: '#111111',
                 }}
               >
                 <th
                   style={{
                     padding: '10px 16px',
                     textAlign: 'left',
-                    color: '#8bf0ff',
+                    color: '#9a9a9a',
                     fontWeight: 500,
                   }}
                 >
@@ -238,7 +239,7 @@ export default function CelerisPage() {
                   style={{
                     padding: '10px 16px',
                     textAlign: 'right',
-                    color: '#8bf0ff',
+                    color: '#9a9a9a',
                     fontWeight: 500,
                   }}
                 >
@@ -251,13 +252,13 @@ export default function CelerisPage() {
                 <tr
                   key={row.experiment}
                   style={{
-                    background: idx % 2 === 0 ? '#0f1730' : '#131c38',
+                    background: idx % 2 === 0 ? '#0f0f0f' : '#131313',
                   }}
                 >
                   <td
                     style={{
                       padding: '10px 16px',
-                      color: '#c8d2f0',
+                      color: '#cfcfcf',
                     }}
                   >
                     {row.experiment}
@@ -267,7 +268,7 @@ export default function CelerisPage() {
                       padding: '10px 16px',
                       textAlign: 'right',
                       fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
-                      color: '#6ee7b7',
+                      color: '#f1f1f1',
                     }}
                   >
                     {row.result}
@@ -288,27 +289,27 @@ export default function CelerisPage() {
               marginBottom: '8px',
             }}
           >
-            Try It
+            Try Now
           </h2>
           <p
             style={{
               fontSize: '14px',
-              color: '#c8d2f0',
+              color: '#cfcfcf',
               marginBottom: '20px',
             }}
           >
-            Paste any Verilog module below and run the simulation.
+            Open the live demo and paste a Verilog module to run the simulation immediately.
           </p>
           <iframe
             src="https://celeris.gauravanand.tech"
             className="w-full rounded-lg border border-[#1a1a1a]"
-            style={{ height: '700px', width: '100%', borderRadius: '8px', border: '1px solid #263154' }}
+            style={{ height: '700px', width: '100%', borderRadius: '8px', border: '1px solid #1f1f1f' }}
             title="Celeris Live Demo"
           />
           <p
             style={{
               fontSize: '12px',
-              color: '#94a3c7',
+              color: '#8a8a8a',
               marginTop: '12px',
             }}
           >
@@ -322,7 +323,7 @@ export default function CelerisPage() {
             style={{
               fontSize: '16px',
               fontWeight: 500,
-              color: '#f7f9ff',
+              color: '#f1f1f1',
               marginBottom: '16px',
             }}
           >
@@ -332,12 +333,12 @@ export default function CelerisPage() {
             style={{
               fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
               fontSize: '12px',
-              background: '#151d39',
-              border: '1px solid #263154',
+              background: '#111111',
+              border: '1px solid #1f1f1f',
               padding: '20px',
               borderRadius: '6px',
               overflowX: 'auto',
-              color: '#c8d2f0',
+              color: '#cfcfcf',
               lineHeight: 1.7,
             }}
           >
@@ -351,7 +352,7 @@ export default function CelerisPage() {
             style={{
               fontSize: '16px',
               fontWeight: 500,
-              color: '#f7f9ff',
+              color: '#f1f1f1',
               marginBottom: '16px',
             }}
           >
@@ -369,7 +370,7 @@ export default function CelerisPage() {
                 key={concept}
                 style={{
                   fontSize: '14px',
-                  color: '#c8d2f0',
+                  color: '#cfcfcf',
                   lineHeight: 2,
                   paddingLeft: '16px',
                   position: 'relative',
@@ -379,7 +380,7 @@ export default function CelerisPage() {
                   style={{
                     position: 'absolute',
                     left: 0,
-                    color: '#67e8f9',
+                    color: '#5f5f5f',
                   }}
                 >
                   —
@@ -396,7 +397,7 @@ export default function CelerisPage() {
             style={{
               fontSize: '16px',
               fontWeight: 500,
-              color: '#f7f9ff',
+              color: '#f1f1f1',
               marginBottom: '12px',
             }}
           >
@@ -405,7 +406,7 @@ export default function CelerisPage() {
           <p
             style={{
               fontSize: '14px',
-              color: '#c8d2f0',
+              color: '#cfcfcf',
               marginBottom: '20px',
               lineHeight: 1.6,
             }}
@@ -418,11 +419,11 @@ export default function CelerisPage() {
             rel="noopener noreferrer"
             className="detail-link"
             style={{
-              border: '1px solid #3a4977',
-              background: '#151d39',
+              border: '1px solid #2f2f2f',
+              background: '#111111',
               padding: '8px 16px',
               fontSize: '14px',
-              color: '#f7f9ff',
+              color: '#f1f1f1',
               textDecoration: 'none',
               borderRadius: '6px',
               display: 'inline-block',
@@ -435,11 +436,11 @@ export default function CelerisPage() {
       <Footer />
       <style>{`
         .back-link:hover {
-          color: #67e8f9 !important;
+          color: #ffffff !important;
         }
         .detail-link:hover {
-          border-color: #67e8f9 !important;
-          color: #67e8f9 !important;
+          border-color: #ffffff !important;
+          color: #ffffff !important;
         }
       `}</style>
     </>

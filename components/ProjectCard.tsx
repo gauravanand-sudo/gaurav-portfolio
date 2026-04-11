@@ -23,8 +23,8 @@ export default function ProjectCard({
     <div
       className="project-card"
       style={{
-        border: '1px solid #263154',
-        background: '#151d39',
+        border: '1px solid #1f1f1f',
+        background: '#111111',
         padding: '24px',
         borderRadius: '8px',
         transition: 'border-color 150ms',
@@ -51,9 +51,9 @@ export default function ProjectCard({
             style={{
               fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
               fontSize: '11px',
-              color: '#6ee7b7',
-              border: '1px solid #2f6f5b',
-              background: 'rgba(110, 231, 183, 0.08)',
+              color: '#d9d9d9',
+              border: '1px solid #3a3a3a',
+              background: '#171717',
               padding: '2px 8px',
               borderRadius: '4px',
             }}
@@ -65,7 +65,7 @@ export default function ProjectCard({
       <p
         style={{
           fontSize: '14px',
-          color: '#c8d2f0',
+          color: '#cfcfcf',
           marginTop: '8px',
           lineHeight: 1.6,
           display: '-webkit-box',
@@ -90,9 +90,9 @@ export default function ProjectCard({
             style={{
               fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
               fontSize: '11px',
-              color: '#8bf0ff',
-              background: '#111831',
-              border: '1px solid #2d3b67',
+              color: '#bdbdbd',
+              background: '#151515',
+              border: '1px solid #2b2b2b',
               padding: '2px 8px',
               borderRadius: '4px',
             }}
@@ -114,11 +114,11 @@ export default function ProjectCard({
           target="_blank"
           rel="noopener noreferrer"
           className="card-link"
-          style={{
-            fontSize: '13px',
-            color: '#c8d2f0',
-            textDecoration: 'none',
-          }}
+            style={{
+              fontSize: '13px',
+              color: '#cfcfcf',
+              textDecoration: 'none',
+            }}
         >
           GitHub ↗
         </a>
@@ -130,11 +130,12 @@ export default function ProjectCard({
             className="card-link"
             style={{
               fontSize: '13px',
-              color: '#c8d2f0',
+              color: '#ffffff',
               textDecoration: 'none',
+              fontWeight: 500,
             }}
           >
-            Live Demo ↗
+            Try Now ↗
           </a>
         )}
         {href && (
@@ -143,7 +144,7 @@ export default function ProjectCard({
             className="card-link"
             style={{
               fontSize: '13px',
-              color: '#c8d2f0',
+              color: '#cfcfcf',
               textDecoration: 'none',
             }}
           >
@@ -153,10 +154,10 @@ export default function ProjectCard({
       </div>
       <style>{`
         .project-card:hover {
-          border-color: #67e8f9 !important;
+          border-color: #3a3a3a !important;
         }
         .card-link:hover {
-          color: #67e8f9 !important;
+          color: #ffffff !important;
         }
       `}</style>
     </div>

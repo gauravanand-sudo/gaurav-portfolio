@@ -7,10 +7,11 @@ const projects = [
   {
     title: 'Celeris',
     description:
-      'Open-source multicore event-driven simulation engine in C++20. Benchmarks lock granularity, atomic fast paths, and cache-line sharding. Paste Verilog RTL and get instant hot-path analysis.',
+      'Open-source multicore event-driven simulation engine in C++20 with a live browser demo, performance benchmarks, and hot-path analysis from Verilog input.',
     tags: ['C++20', 'Multithreading', 'Simulation', 'FastAPI', 'Python'],
     github: 'https://github.com/gauravanand-sudo/celeris',
     href: '/projects/celeris',
+    liveDemo: 'https://celeris.gauravanand.tech',
     status: 'Active',
   },
   {
@@ -94,7 +95,7 @@ const skills = [
 const sectionLabel: React.CSSProperties = {
   fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
   fontSize: '11px',
-  color: '#8bf0ff',
+  color: '#9a9a9a',
   letterSpacing: '0.12em',
   textTransform: 'uppercase',
   marginBottom: '32px',
@@ -116,6 +117,10 @@ export default function Home() {
       <section id="projects" style={{ padding: '80px 0' }}>
         <div style={section}>
           <p style={sectionLabel}>Projects</p>
+          <p style={{ fontSize: '15px', color: '#bcbcbc', maxWidth: '680px', lineHeight: 1.7, marginBottom: '28px' }}>
+            This portfolio is centered on selected systems projects. Each one is meant to show technical depth,
+            engineering judgment, and the kind of work I like building.
+          </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '16px' }}>
             {projects.map((p) => (
               <ProjectCard key={p.title} {...p} />
@@ -125,7 +130,7 @@ export default function Home() {
       </section>
 
       {/* ── Experience ── */}
-      <section id="experience" style={{ padding: '80px 0', borderTop: '1px solid #263154' }}>
+      <section id="experience" style={{ padding: '80px 0', borderTop: '1px solid #1f1f1f' }}>
         <div style={section}>
           <p style={sectionLabel}>Experience</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
@@ -142,10 +147,10 @@ export default function Home() {
               >
                 {/* Left col */}
                 <div>
-                  <p style={{ fontSize: '13px', color: '#f7f9ff', fontWeight: 500 }}>{job.company}</p>
-                  <p style={{ fontSize: '12px', color: '#94a3c7', marginTop: '4px' }}>{job.period}</p>
+                  <p style={{ fontSize: '13px', color: '#f1f1f1', fontWeight: 500 }}>{job.company}</p>
+                  <p style={{ fontSize: '12px', color: '#8a8a8a', marginTop: '4px' }}>{job.period}</p>
                   {job.note && (
-                    <p style={{ fontSize: '11px', color: '#7f8fb7', marginTop: '4px', fontStyle: 'italic' }}>{job.note}</p>
+                    <p style={{ fontSize: '11px', color: '#767676', marginTop: '4px', fontStyle: 'italic' }}>{job.note}</p>
                   )}
                 </div>
                 {/* Right col */}
@@ -153,7 +158,7 @@ export default function Home() {
                   <p
                     style={{
                       fontSize: '13px',
-                      color: '#8bf0ff',
+                      color: '#d9d9d9',
                       fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
                       marginBottom: '12px',
                     }}
@@ -162,8 +167,8 @@ export default function Home() {
                   </p>
                   <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
                     {job.bullets.map((b, j) => (
-                      <li key={j} style={{ fontSize: '13px', color: '#c8d2f0', lineHeight: 1.6, paddingLeft: '16px', position: 'relative' }}>
-                        <span style={{ position: 'absolute', left: 0, color: '#67e8f9' }}>—</span>
+                      <li key={j} style={{ fontSize: '13px', color: '#cfcfcf', lineHeight: 1.6, paddingLeft: '16px', position: 'relative' }}>
+                        <span style={{ position: 'absolute', left: 0, color: '#5f5f5f' }}>—</span>
                         {b}
                       </li>
                     ))}
@@ -176,7 +181,7 @@ export default function Home() {
       </section>
 
       {/* ── Skills ── */}
-      <section id="skills" style={{ padding: '80px 0', borderTop: '1px solid #263154' }}>
+      <section id="skills" style={{ padding: '80px 0', borderTop: '1px solid #1f1f1f' }}>
         <div style={section}>
           <p style={sectionLabel}>Skills</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '24px' }}>
@@ -185,7 +190,7 @@ export default function Home() {
                 <p
                   style={{
                     fontSize: '11px',
-                    color: '#8bf0ff',
+                    color: '#9a9a9a',
                     fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
                     letterSpacing: '0.08em',
                     textTransform: 'uppercase',
@@ -200,9 +205,9 @@ export default function Home() {
                       key={item}
                       style={{
                         fontSize: '12px',
-                        color: '#c8d2f0',
-                        background: '#111831',
-                        border: '1px solid #2d3b67',
+                        color: '#cfcfcf',
+                        background: '#151515',
+                        border: '1px solid #2b2b2b',
                         borderRadius: '4px',
                         padding: '2px 8px',
                         fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
@@ -219,7 +224,7 @@ export default function Home() {
       </section>
 
       {/* ── Education ── */}
-      <section style={{ padding: '80px 0', borderTop: '1px solid #263154' }}>
+      <section style={{ padding: '80px 0', borderTop: '1px solid #1f1f1f' }}>
         <div style={section}>
           <p style={sectionLabel}>Education</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -229,10 +234,10 @@ export default function Home() {
             ].map((edu) => (
               <div key={edu.school} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '8px' }}>
                 <div>
-                  <p style={{ fontSize: '14px', color: '#f7f9ff', fontWeight: 500 }}>{edu.school}</p>
-                  <p style={{ fontSize: '13px', color: '#c8d2f0', marginTop: '4px' }}>{edu.degree}</p>
+                  <p style={{ fontSize: '14px', color: '#f1f1f1', fontWeight: 500 }}>{edu.school}</p>
+                  <p style={{ fontSize: '13px', color: '#cfcfcf', marginTop: '4px' }}>{edu.degree}</p>
                 </div>
-                <p style={{ fontSize: '12px', color: '#94a3c7', fontFamily: "'JetBrains Mono', monospace", whiteSpace: 'nowrap' }}>{edu.period}</p>
+                <p style={{ fontSize: '12px', color: '#8a8a8a', fontFamily: "'JetBrains Mono', monospace", whiteSpace: 'nowrap' }}>{edu.period}</p>
               </div>
             ))}
           </div>

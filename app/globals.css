@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0b1020;
-  --bg-elevated: #111831;
-  --bg-card: #151d39;
-  --border: #263154;
-  --border-strong: #3a4977;
-  --text: #f7f9ff;
-  --text-soft: #c8d2f0;
-  --text-muted: #94a3c7;
-  --accent: #67e8f9;
-  --accent-soft: #8bf0ff;
-  --success: #6ee7b7;
+  --bg: #0a0a0a;
+  --bg-elevated: #0f0f0f;
+  --bg-card: #111111;
+  --border: #1f1f1f;
+  --border-strong: #2f2f2f;
+  --text: #f1f1f1;
+  --text-soft: #cfcfcf;
+  --text-muted: #8a8a8a;
+  --accent: #ffffff;
+  --accent-soft: #d9d9d9;
+  --success: #d9d9d9;
 }
 
 * {
@@ -23,9 +23,7 @@
 }
 
 html {
-  background:
-    radial-gradient(circle at top, rgba(103, 232, 249, 0.12), transparent 30%),
-    linear-gradient(180deg, #0b1020 0%, #0e1530 100%);
+  background: #0a0a0a;
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
