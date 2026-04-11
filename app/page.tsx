@@ -17,6 +17,16 @@ const projects = [
     status: 'Active',
   },
   {
+    title: 'MDL Compiler',
+    description:
+      'A compiler front-end for a memory description language with a browser walkthrough of tokenization, parsing, AST construction, and semantic validation.',
+    tags: ['C', 'Flex', 'Bison', 'Compiler Design', 'Python'],
+    github: 'https://github.com/gauravanand-sudo/compiler-project',
+    href: '/projects/compiler',
+    liveDemo: '/projects/compiler',
+    status: 'Active',
+  },
+  {
     title: 'NeuroPowerRL',
     description:
       'Exploring whether GNNs and RL can reduce pre-simulation power estimation cost. Circuits as graphs, temporal switching behavior, RL-driven node-level gating — still early research.',
@@ -77,7 +87,7 @@ const skills: { label: string; items: string[]; accent?: boolean }[] = [
     items: ['Event-Driven Architecture', 'Flex / Bison', 'Cross-Platform C++', 'Clang / GCC', 'Docker', 'REST APIs', 'Tcl'],
   },
   {
-    label: 'Learning (AI-assisted)',
+    label: 'Currently exploring',
     items: ['GNN', 'Reinforcement Learning', 'PyTorch', 'RAG', 'LLMs', 'FastAPI'],
     accent: true,
   },
@@ -85,8 +95,8 @@ const skills: { label: string; items: string[]; accent?: boolean }[] = [
 
 const howIWork = [
   {
-    title: 'AI-assisted learning',
-    body: "I use Claude, Copilot, and other tools to understand concepts I don't know, explore unfamiliar codebases, and ship faster. Not hiding it.",
+    title: 'Systems-first',
+    body: 'I like working close to the internals: thread coordination, parsers, simulation behavior, and the edges where abstractions start leaking.',
   },
   {
     title: 'Depth over breadth',
@@ -97,8 +107,8 @@ const howIWork = [
     body: 'If I want to understand something — synchronization, compilers, ML — I build a project around it. Even if it takes longer.',
   },
   {
-    title: 'Honest about limits',
-    body: "C++ and concurrency I know well. AI/ML is something I'm actively learning. I won't overstate either.",
+    title: 'Clear ownership',
+    body: 'I prefer projects where the reasoning is inspectable: benchmarks, design notes, compiler stages, and code paths I can explain end to end.',
   },
 ]
 
@@ -134,8 +144,8 @@ export default function Home() {
         <div style={{ maxWidth: MAX_W, margin: '0 auto', padding: '0 28px' }}>
           <SectionLabel>Projects</SectionLabel>
           <p style={{ fontSize: '14px', color: '#5a5a5a', maxWidth: '520px', lineHeight: 1.85, marginBottom: '44px' }}>
-            Side projects built to understand things from the inside. I use AI tools to learn and
-            move faster — that&apos;s part of how these got built.
+            Side projects built to understand systems from the inside out, with an emphasis on
+            concurrency, compiler construction, and tooling that makes internals visible.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))', gap: '14px' }}>
             {projects.map((p) => <ProjectCard key={p.title} {...p} />)}
