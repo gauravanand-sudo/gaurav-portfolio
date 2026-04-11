@@ -152,8 +152,7 @@ export default function CelerisPage() {
             GitHub ↗
           </a>
           <a
-            //href="https://celeris.gauravanand.tech"
-	    href="https://celeris-vxjb.onrender.com"
+            href="https://celeris.gauravanand.tech"
             target="_blank"
             rel="noopener noreferrer"
             className="detail-link"
