@@ -52,7 +52,7 @@ export default function CelerisPage() {
           className="back-link"
           style={{
             fontSize: '14px',
-            color: '#bdbdbd',
+            color: 'var(--text-mid)',
             textDecoration: 'none',
             display: 'inline-block',
             marginBottom: '40px',
@@ -74,7 +74,7 @@ export default function CelerisPage() {
             style={{
               fontSize: '36px',
               fontWeight: 600,
-              color: '#f1f1f1',
+              color: 'var(--text-hi)',
             }}
           >
             Celeris
@@ -83,9 +83,9 @@ export default function CelerisPage() {
             style={{
               fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
               fontSize: '11px',
-              color: '#d9d9d9',
-              border: '1px solid #3a3a3a',
-              background: '#171717',
+              color: 'var(--text-mid)',
+              border: '1px solid var(--border-mid)',
+              background: 'rgba(35, 46, 42, 0.72)',
               padding: '2px 8px',
               borderRadius: '4px',
               marginTop: '8px',
@@ -97,7 +97,7 @@ export default function CelerisPage() {
         <p
           style={{
             fontSize: '16px',
-            color: '#cfcfcf',
+            color: 'var(--text-mid)',
             marginBottom: '20px',
             lineHeight: 1.6,
           }}
@@ -120,9 +120,9 @@ export default function CelerisPage() {
               style={{
                 fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
                 fontSize: '11px',
-                color: '#bdbdbd',
-                background: '#151515',
-                border: '1px solid #2b2b2b',
+                color: 'var(--text-mid)',
+                background: 'rgba(35, 46, 42, 0.72)',
+                border: '1px solid var(--border)',
                 padding: '2px 8px',
                 borderRadius: '4px',
               }}
@@ -142,11 +142,11 @@ export default function CelerisPage() {
             rel="noopener noreferrer"
             className="detail-link"
             style={{
-              border: '1px solid #f1f1f1',
-              background: '#f1f1f1',
+              border: '1px solid var(--accent)',
+              background: 'var(--accent)',
               padding: '8px 16px',
               fontSize: '14px',
-              color: '#0a0a0a',
+              color: '#16201d',
               textDecoration: 'none',
               borderRadius: '6px',
               fontWeight: 600,
@@ -160,11 +160,11 @@ export default function CelerisPage() {
             rel="noopener noreferrer"
             className="detail-link"
             style={{
-              border: '1px solid #2f2f2f',
-              background: '#111111',
+              border: '1px solid var(--border)',
+              background: 'rgba(35, 46, 42, 0.72)',
               padding: '8px 16px',
               fontSize: '14px',
-              color: '#f1f1f1',
+              color: 'var(--text-hi)',
               textDecoration: 'none',
               borderRadius: '6px',
             }}
@@ -179,7 +179,7 @@ export default function CelerisPage() {
             style={{
               fontSize: '16px',
               fontWeight: 500,
-              color: '#f1f1f1',
+              color: 'var(--text-hi)',
               marginBottom: '16px',
             }}
           >
@@ -188,7 +188,7 @@ export default function CelerisPage() {
           <p
             style={{
               fontSize: '14px',
-              color: '#cfcfcf',
+              color: 'var(--text-mid)',
               lineHeight: 1.8,
               maxWidth: '640px',
             }}
@@ -206,7 +206,7 @@ export default function CelerisPage() {
             style={{
               fontSize: '16px',
               fontWeight: 500,
-              color: '#f1f1f1',
+              color: 'var(--text-hi)',
               marginBottom: '20px',
             }}
           >
@@ -222,14 +222,14 @@ export default function CelerisPage() {
             <thead>
               <tr
                 style={{
-                  background: '#111111',
+                  background: 'rgba(35, 46, 42, 0.75)',
                 }}
               >
                 <th
                   style={{
                     padding: '10px 16px',
                     textAlign: 'left',
-                    color: '#9a9a9a',
+                    color: 'var(--text-lo)',
                     fontWeight: 500,
                   }}
                 >
@@ -239,7 +239,7 @@ export default function CelerisPage() {
                   style={{
                     padding: '10px 16px',
                     textAlign: 'right',
-                    color: '#9a9a9a',
+                    color: 'var(--text-lo)',
                     fontWeight: 500,
                   }}
                 >
@@ -252,7 +252,7 @@ export default function CelerisPage() {
                 <tr
                   key={row.experiment}
                   style={{
-                    background: idx % 2 === 0 ? '#0f0f0f' : '#131313',
+                    background: idx % 2 === 0 ? 'rgba(29, 39, 36, 0.82)' : 'rgba(35, 46, 42, 0.86)',
                   }}
                 >
                   <td

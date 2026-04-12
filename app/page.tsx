@@ -17,6 +17,16 @@ const projects = [
     status: 'Active',
   },
   {
+    title: 'MDL Compiler',
+    description:
+      'A compiler front-end for a memory description language with a browser walkthrough of tokenization, parsing, AST construction, and semantic validation.',
+    tags: ['C', 'Flex', 'Bison', 'Compiler Design', 'Python'],
+    github: 'https://github.com/gauravanand-sudo/compiler-project',
+    href: '/projects/compiler',
+    liveDemo: '/projects/compiler',
+    status: 'Active',
+  },
+  {
     title: 'NeuroPowerRL',
     description:
       'Exploring whether GNNs and RL can reduce pre-simulation power estimation cost. Circuits as graphs, temporal switching behavior, RL-driven node-level gating — still early research.',
@@ -77,7 +87,7 @@ const skills: { label: string; items: string[]; accent?: boolean }[] = [
     items: ['Event-Driven Architecture', 'Flex / Bison', 'Cross-Platform C++', 'Clang / GCC', 'Docker', 'REST APIs', 'Tcl'],
   },
   {
-    label: 'Learning (AI-assisted)',
+    label: 'Currently exploring',
     items: ['GNN', 'Reinforcement Learning', 'PyTorch', 'RAG', 'LLMs', 'FastAPI'],
     accent: true,
   },
@@ -85,8 +95,8 @@ const skills: { label: string; items: string[]; accent?: boolean }[] = [
 
 const howIWork = [
   {
-    title: 'AI-assisted learning',
-    body: "I use Claude, Copilot, and other tools to understand concepts I don't know, explore unfamiliar codebases, and ship faster. Not hiding it.",
+    title: 'Systems-first',
+    body: 'I like working close to the internals: thread coordination, parsers, simulation behavior, and the edges where abstractions start leaking.',
   },
   {
     title: 'Depth over breadth',
@@ -97,21 +107,22 @@ const howIWork = [
     body: 'If I want to understand something — synchronization, compilers, ML — I build a project around it. Even if it takes longer.',
   },
   {
-    title: 'Honest about limits',
-    body: "C++ and concurrency I know well. AI/ML is something I'm actively learning. I won't overstate either.",
+    title: 'Clear ownership',
+    body: 'I prefer projects where the reasoning is inspectable: benchmarks, design notes, compiler stages, and code paths I can explain end to end.',
   },
 ]
 
 /* ─── Helpers ────────────────────────────────────────────────────── */
 
-const W = { maxWidth: '860px', margin: '0 auto', padding: '0 32px' }
+const MAX_W = '860px'
+const W = { maxWidth: MAX_W, margin: '0 auto', padding: '0 28px' }
 
 function SectionLabel({ children }: { children: string }) {
   return (
     <p style={{
       fontFamily: "'JetBrains Mono', ui-monospace, monospace",
       fontSize: '10px',
-      color: '#606060',
+      color: 'var(--text-dim)',
       letterSpacing: '0.18em',
       textTransform: 'uppercase' as const,
       marginBottom: '32px',
@@ -120,8 +131,6 @@ function SectionLabel({ children }: { children: string }) {
     </p>
   )
 }
-
-const divider = { borderTop: '1px solid #1c1c1c' }
 
 /* ─── Page ───────────────────────────────────────────────────────── */
 
@@ -132,15 +141,19 @@ export default function Home() {
       <Hero />
 
       {/* ── Experience ─── first — EM scans this immediately */}
-      <section id="experience" style={{ padding: '88px 0' }}>
+      <section id="experience" style={{ padding: '100px 0' }}>
         <div style={W}>
           <SectionLabel>Experience</SectionLabel>
 
           <div style={{ position: 'relative' }}>
             {/* vertical timeline rule */}
             <div style={{
-              position: 'absolute', left: 0, top: '8px', bottom: '8px', width: '1px',
-              background: 'linear-gradient(to bottom, #2a2a2a, #181818 85%, transparent)',
+              position: 'absolute',
+              left: 0,
+              top: 0,
+              bottom: 0,
+              width: '1px',
+              background: 'linear-gradient(to bottom, var(--border-mid), var(--border) 80%, transparent)',
             }} />
 
             {experience.map((job, i) => (
@@ -151,19 +164,23 @@ export default function Home() {
               }}>
                 {/* dot — accent on most recent */}
                 <div style={{
-                  position: 'absolute', left: '-4px', top: '7px',
-                  width: '9px', height: '9px', borderRadius: '50%',
-                  background: i === 0 ? '#6ee7b7' : '#242424',
-                  border: i === 0 ? 'none' : '1px solid #383838',
+                  position: 'absolute',
+                  left: '-4px',
+                  top: '6px',
+                  width: '9px',
+                  height: '9px',
+                  borderRadius: '50%',
+                  background: i === 0 ? 'var(--accent)' : 'var(--surface-soft)',
+                  border: i === 0 ? '0' : '1px solid var(--border-mid)',
                 }} />
 
-                {/* company + payroll note */}
-                <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', flexWrap: 'wrap', marginBottom: '3px' }}>
-                  <p style={{ fontSize: '14px', fontWeight: 600, color: '#ebebeb', letterSpacing: '-0.01em' }}>
+                {/* header */}
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px', flexWrap: 'wrap', marginBottom: '4px' }}>
+                  <p style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-hi)', letterSpacing: '-0.01em' }}>
                     {job.company}
                   </p>
                   {job.note && (
-                    <span style={{ fontSize: '11px', color: '#484848', fontStyle: 'italic' }}>
+                    <span style={{ fontSize: '11px', color: 'var(--text-dim)', fontStyle: 'italic' }}>
                       {job.note}
                     </span>
                   )}
@@ -173,13 +190,16 @@ export default function Home() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '16px', flexWrap: 'wrap' }}>
                   <span style={{
                     fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                    fontSize: '11px', color: '#6ee7b7', letterSpacing: '0.02em',
+                    fontSize: '11px',
+                    color: 'var(--accent)',
+                    letterSpacing: '0.02em',
                   }}>
                     {job.role}
                   </span>
                   <span style={{
                     fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                    fontSize: '11px', color: '#606060',
+                    fontSize: '11px',
+                    color: 'var(--text-dim)',
                   }}>
                     {job.period}
                   </span>
@@ -189,10 +209,13 @@ export default function Home() {
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '9px' }}>
                   {job.bullets.map((b, j) => (
                     <li key={j} style={{
-                      fontSize: '13.5px', color: '#a8a8a8', lineHeight: 1.8,
-                      paddingLeft: '16px', position: 'relative',
+                      fontSize: '13px',
+                      color: 'var(--text-lo)',
+                      lineHeight: 1.8,
+                      paddingLeft: '16px',
+                      position: 'relative',
                     }}>
-                      <span style={{ position: 'absolute', left: 0, top: '2px', color: '#484848' }}>›</span>
+                      <span style={{ position: 'absolute', left: 0, top: '2px', color: 'var(--text-dim)' }}>›</span>
                       {b}
                     </li>
                   ))}
@@ -203,22 +226,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Projects ── */}
-      <section id="projects" style={{ padding: '80px 0', ...divider }}>
+      {/* ── Projects ─────────────────────────────────────── */}
+      <section id="projects" style={{ padding: '100px 0', borderTop: '1px solid var(--border)' }}>
         <div style={W}>
           <SectionLabel>Projects</SectionLabel>
-          <p style={{ fontSize: '13.5px', color: '#707070', maxWidth: '500px', lineHeight: 1.85, marginBottom: '36px' }}>
-            Side projects built to understand things from the inside. I use AI tools to learn and
-            move faster — that&apos;s part of how these got built.
+          <p style={{ fontSize: '14px', color: 'var(--text-lo)', maxWidth: '520px', lineHeight: 1.85, marginBottom: '44px' }}>
+            Side projects built to understand systems from the inside out, with an emphasis on
+            concurrency, compiler construction, and tooling that makes internals visible.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '14px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))', gap: '14px' }}>
             {projects.map((p) => <ProjectCard key={p.title} {...p} />)}
           </div>
         </div>
       </section>
 
-      {/* ── Skills ── */}
-      <section style={{ padding: '80px 0', ...divider }}>
+      {/* ── Skills ─────────────────────────────────────── */}
+      <section style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
         <div style={W}>
           <SectionLabel>Skills</SectionLabel>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -229,7 +252,7 @@ export default function Home() {
                 <p style={{
                   fontFamily: "'JetBrains Mono', ui-monospace, monospace",
                   fontSize: '11px',
-                  color: group.accent ? '#2e5e3e' : '#505050',
+                  color: group.accent ? 'var(--accent)' : 'var(--text-dim)',
                   paddingTop: '4px',
                 }}>
                   {group.label}
@@ -239,9 +262,9 @@ export default function Home() {
                     <span key={item} style={{
                       fontFamily: "'JetBrains Mono', ui-monospace, monospace",
                       fontSize: '11px',
-                      color: group.accent ? '#3a6e4a' : '#909090',
-                      background: group.accent ? '#081408' : '#0f0f0f',
-                      border: `1px solid ${group.accent ? '#1a3520' : '#222'}`,
+                      color: group.accent ? 'var(--accent)' : 'var(--text-lo)',
+                      background: group.accent ? 'rgba(110,231,183,0.04)' : 'var(--surface)',
+                      border: `1px solid ${group.accent ? 'var(--accent-border)' : 'var(--border)'}`,
                       borderRadius: '4px',
                       padding: '4px 10px',
                     }}>
@@ -255,8 +278,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Education ── */}
-      <section style={{ padding: '72px 0', ...divider }}>
+      {/* ── Education ─────────────────────────────────────── */}
+      <section style={{ padding: '72px 0', borderTop: '1px solid var(--border)' }}>
         <div style={W}>
           <SectionLabel>Education</SectionLabel>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -268,17 +291,17 @@ export default function Home() {
                 display: 'flex', justifyContent: 'space-between',
                 alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px',
                 padding: '24px 0',
-                borderBottom: i < arr.length - 1 ? '1px solid #1c1c1c' : 'none',
+                borderBottom: i < arr.length - 1 ? '1px solid var(--border)' : 'none',
               }}>
                 <div>
-                  <p style={{ fontSize: '14px', fontWeight: 600, color: '#e0e0e0', letterSpacing: '-0.01em' }}>
+                  <p style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-hi)', letterSpacing: '-0.01em' }}>
                     {edu.school}
                   </p>
-                  <p style={{ fontSize: '13px', color: '#707070', marginTop: '5px' }}>{edu.degree}</p>
+                  <p style={{ fontSize: '13px', color: 'var(--text-lo)', marginTop: '5px' }}>{edu.degree}</p>
                 </div>
                 <p style={{
                   fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                  fontSize: '11px', color: '#585858', whiteSpace: 'nowrap', marginTop: '4px',
+                  fontSize: '11px', color: 'var(--text-dim)', whiteSpace: 'nowrap', marginTop: '4px',
                 }}>
                   {edu.period}
                 </p>
@@ -289,24 +312,30 @@ export default function Home() {
       </section>
 
       {/* ── How I work ── last, personality context */}
-      <section style={{ padding: '72px 0', ...divider }}>
+      <section style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
         <div style={W}>
           <SectionLabel>How I work</SectionLabel>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(190px, 1fr))',
-            gap: '1px', background: '#1a1a1a',
-            border: '1px solid #1a1a1a', borderRadius: '10px', overflow: 'hidden',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+            gap: '1px',
+            background: 'var(--border)',
+            border: '1px solid var(--border)',
+            borderRadius: '10px',
+            overflow: 'hidden',
           }}>
             {howIWork.map((c) => (
-              <div key={c.title} style={{ background: '#0a0a0a', padding: '24px 22px' }}>
+              <div key={c.title} style={{ background: 'var(--surface)', padding: '28px 24px' }}>
                 <p style={{
-                  fontSize: '12px', color: '#6ee7b7', fontWeight: 500,
-                  marginBottom: '10px', letterSpacing: '0.01em',
+                  fontSize: '12px',
+                  color: 'var(--accent)',
+                  fontWeight: 500,
+                  marginBottom: '12px',
+                  letterSpacing: '0.01em',
                 }}>
                   {c.title}
                 </p>
-                <p style={{ fontSize: '12.5px', color: '#707070', lineHeight: 1.8 }}>
+                <p style={{ fontSize: '13px', color: 'var(--text-lo)', lineHeight: 1.8 }}>
                   {c.body}
                 </p>
               </div>

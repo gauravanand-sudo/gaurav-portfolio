@@ -16,8 +16,9 @@ export default function Hero() {
         position: 'absolute',
         width: '700px', height: '700px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(110,231,183,0.035) 0%, transparent 65%)',
-        top: '50%', left: '50%',
+        background: 'radial-gradient(circle, rgba(155,196,177,0.1) 0%, transparent 72%)',
+        top: '50%',
+        left: '50%',
         transform: 'translate(-50%, -50%)',
         pointerEvents: 'none',
       }} />
@@ -27,7 +28,7 @@ export default function Hero() {
         <p style={{
           fontFamily: "'JetBrains Mono', ui-monospace, monospace",
           fontSize: '11px',
-          color: '#6ee7b7',
+          color: 'var(--accent)',
           letterSpacing: '0.2em',
           textTransform: 'uppercase',
           marginBottom: '22px',
@@ -39,7 +40,7 @@ export default function Hero() {
         <h1 style={{
           fontSize: 'clamp(38px, 6vw, 60px)',
           fontWeight: 600,
-          color: '#f4f4f4',
+          color: 'var(--text-hi)',
           lineHeight: 1.05,
           letterSpacing: '-0.03em',
         }}>
@@ -48,14 +49,14 @@ export default function Hero() {
 
         <p style={{
           fontSize: '15px',
-          color: '#7a7a7a',
-          maxWidth: '420px',
-          margin: '22px auto 0',
+          color: 'var(--text-lo)',
+          maxWidth: '440px',
+          margin: '24px auto 0',
           lineHeight: 1.85,
         }}>
-          I work in systems C++ — concurrency, simulation, compilers.
-          I use AI tools to learn and build faster. This site is a collection
-          of things I&apos;ve built or explored, not a claim to know everything.
+          I work in systems C++ across concurrency, simulation infrastructure,
+          and compilers. This site is a focused collection of projects and
+          engineering work that reflect how I like to build: from internals outward.
         </p>
 
         <div style={{
@@ -83,21 +84,20 @@ export default function Hero() {
 
       <style>{`
         .hero-btn {
-          border: 1px solid #222;
+          border: 1px solid var(--border);
           padding: 9px 20px;
           font-size: 13px;
-          color: '#a0a0a0';
+          color: var(--text-mid);
           text-decoration: none;
           border-radius: 6px;
-          background: #0c0c0c;
+          background: rgba(32, 42, 39, 0.7);
           cursor: pointer;
-          color: #a0a0a0;
           transition: border-color 150ms ease, color 150ms ease, background 150ms ease;
         }
         .hero-btn:hover {
-          border-color: #6ee7b7;
-          color: #6ee7b7;
-          background: rgba(110,231,183,0.04);
+          border-color: var(--accent-border);
+          color: var(--text-hi);
+          background: rgba(155,196,177,0.08);
         }
       `}</style>
     </section>

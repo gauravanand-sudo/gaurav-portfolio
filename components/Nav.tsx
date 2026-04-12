@@ -14,8 +14,8 @@ export default function Nav() {
         position: 'sticky',
         top: 0,
         height: '56px',
-        background: 'rgba(6,6,6,0.85)',
-        borderBottom: '1px solid #161616',
+        background: 'rgba(20, 27, 25, 0.82)',
+        borderBottom: '1px solid var(--border)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
         zIndex: 100,
@@ -32,7 +32,7 @@ export default function Nav() {
           <Link href="/" style={{
             fontFamily: "'JetBrains Mono', ui-monospace, monospace",
             fontSize: '13px',
-            color: '#6ee7b7',
+            color: 'var(--accent-strong)',
             textDecoration: 'none',
             fontWeight: 700,
             letterSpacing: '0.12em',
@@ -59,12 +59,12 @@ export default function Nav() {
       <style>{`
         .nav-link {
           font-size: 13px;
-          color: #606060;
+          color: var(--text-lo);
           text-decoration: none;
           transition: color 150ms ease;
           letter-spacing: 0.01em;
         }
-        .nav-link:hover { color: #d0d0d0; }
+        .nav-link:hover { color: var(--text-hi); }
       `}</style>
     </>
   )

@@ -11,9 +11,9 @@ interface ProjectCardProps {
 }
 
 const statusColor: Record<string, string> = {
-  Active:     '#6ee7b7',
-  Exploring:  '#94a3b8',
-  Archived:   '#555',
+  Active:     'var(--accent)',
+  Exploring:  '#a6b6c1',
+  Archived:   '#7f8a84',
 }
 
 export default function ProjectCard({
@@ -24,7 +24,7 @@ export default function ProjectCard({
   return (
     <div className="pcard">
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '12px' }}>
-        <h3 style={{ fontSize: '15px', fontWeight: 600, color: '#ececec', letterSpacing: '-0.01em' }}>
+        <h3 style={{ fontSize: '15px', fontWeight: 600, color: 'var(--text-hi)', letterSpacing: '-0.01em' }}>
           {title}
         </h3>
         {status && (
@@ -47,7 +47,7 @@ export default function ProjectCard({
 
       <p style={{
         fontSize: '13px',
-        color: '#8a8a8a',
+        color: 'var(--text-lo)',
         marginTop: '10px',
         lineHeight: 1.75,
         display: '-webkit-box',
@@ -63,9 +63,9 @@ export default function ProjectCard({
           <span key={tag} style={{
             fontFamily: "'JetBrains Mono', ui-monospace, monospace",
             fontSize: '10px',
-            color: '#7a7a7a',
-            background: '#0e0e0e',
-            border: '1px solid #212121',
+            color: 'var(--text-lo)',
+            background: 'rgba(38, 50, 46, 0.65)',
+            border: '1px solid var(--border)',
             padding: '3px 8px',
             borderRadius: '4px',
           }}>
@@ -74,7 +74,7 @@ export default function ProjectCard({
         ))}
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginTop: '22px', paddingTop: '18px', borderTop: '1px solid #181818' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginTop: '22px', paddingTop: '18px', borderTop: '1px solid var(--border)' }}>
         <a href={github} target="_blank" rel="noopener noreferrer" className="pcard-link">
           GitHub ↗
         </a>
@@ -92,8 +92,8 @@ export default function ProjectCard({
 
       <style>{`
         .pcard {
-          border: 1px solid #1a1a1a;
-          background: #0c0c0c;
+          border: 1px solid var(--border);
+          background: linear-gradient(180deg, rgba(29, 39, 36, 0.92), rgba(24, 32, 29, 0.96));
           padding: 24px;
           border-radius: 10px;
           transition: border-color 200ms ease, background 200ms ease;
@@ -105,26 +105,26 @@ export default function ProjectCard({
           position: absolute;
           top: 0; left: 0; right: 0;
           height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(110,231,183,0), transparent);
+          background: linear-gradient(90deg, transparent, rgba(182,215,198,0), transparent);
           transition: background 200ms ease;
         }
         .pcard:hover {
-          border-color: #2e2e2e;
-          background: #0e0e0e;
+          border-color: var(--border-mid);
+          background: linear-gradient(180deg, rgba(33, 44, 40, 0.95), rgba(27, 36, 33, 0.98));
         }
         .pcard:hover::before {
-          background: linear-gradient(90deg, transparent, rgba(110,231,183,0.25), transparent);
+          background: linear-gradient(90deg, transparent, rgba(182,215,198,0.28), transparent);
         }
         .pcard-link {
           font-size: 12px;
-          color: #606060;
+          color: var(--text-lo);
           text-decoration: none;
           transition: color 150ms ease;
           letter-spacing: 0.01em;
         }
-        .pcard-link:hover { color: #c0c0c0; }
-        .pcard-cta { color: #6ee7b7 !important; }
-        .pcard-cta:hover { color: #a7f3d0 !important; }
+        .pcard-link:hover { color: var(--text-hi); }
+        .pcard-cta { color: var(--accent-strong) !important; }
+        .pcard-cta:hover { color: var(--text-hi) !important; }
       `}</style>
     </div>
   )
