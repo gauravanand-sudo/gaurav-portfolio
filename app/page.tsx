@@ -5,46 +5,15 @@ import Footer from '@/components/Footer'
 
 /* ─── Data ──────────────────────────────────────────────────────── */
 
-const projects = [
-  {
-    title: 'Celeris',
-    description:
-      'Built to understand how multicore simulation engines work internally. C++20, multithreading benchmarks, and a browser UI where you can paste Verilog and see hot-path analysis.',
-    tags: ['C++20', 'Multithreading', 'Simulation', 'FastAPI', 'Python'],
-    github: 'https://github.com/gauravanand-sudo/celeris',
-    href: '/projects/celeris',
-    liveDemo: 'https://celeris.gauravanand.tech',
-    status: 'Active',
-  },
-  {
-    title: 'MDL Compiler',
-    description:
-      'A compiler front-end for a memory description language with a browser walkthrough of tokenization, parsing, AST construction, and semantic validation.',
-    tags: ['C', 'Flex', 'Bison', 'Compiler Design', 'Python'],
-    github: 'https://github.com/gauravanand-sudo/compiler-project',
-    href: '/projects/compiler',
-    liveDemo: '/projects/compiler',
-    status: 'Active',
-  },
-  {
-    title: 'NeuroPowerRL',
-    description:
-      'Exploring whether GNNs and RL can reduce pre-simulation power estimation cost. Circuits as graphs, temporal switching behavior, RL-driven node-level gating — still early research.',
-    tags: ['Python', 'PyTorch', 'GNN', 'Reinforcement Learning', 'EDA'],
-    github: 'https://github.com/gauravanand-sudo',
-    status: 'Exploring',
-  },
-]
-
 const experience = [
   {
     company: 'Airtel Africa Digital Labs',
     role: 'Senior Software Engineer',
-    period: 'Apr 2025 – Apr 2026',
     note: 'Payroll: Intellismith',
+    period: 'Apr 2025 – Apr 2026',
     bullets: [
-      'Partnered with product managers to deliver end-to-end solutions including API development, deployment, and production releases.',
-      'Developed a supervised learning model using historical transaction, latency, retry, and error logs to identify patterns associated with delayed or failed operations, enabling earlier detection of potential transaction failure.',
+      'Partnered with product managers to understand business requirements and deliver end-to-end solutions, including API development, deployment, and production releases.',
+      'Developed a supervised learning model using historical transaction, latency, retry, and error logs millions of records to identify patterns associated with delayed or failed operations, enabling earlier detection of potential transaction failure.',
     ],
   },
   {
@@ -52,8 +21,9 @@ const experience = [
     role: 'Software Engineer II',
     period: 'Jun 2022 – Aug 2024',
     bullets: [
-      "Contributed to the event-driven propagation subsystem of Xcelium's multicore engine — refactoring synchronization from coarse-grained locking to fine-grained strategies and introducing atomic fast paths for hot variables.",
-      'Led cross-platform migration of the Xcelium simulation codebase (11M+ LOC) from Linux/GCC C++11 to macOS/Clang C++17, resolving platform differences across threading models, system calls, memory mapping, and toolchain compatibility.',
+      "Contributed to the event-driven propagation subsystem of Xcelium's multicore engine by refactoring synchronization from coarse-grained locking to fine-grained strategies and introducing atomic fast paths for hot variables, reducing contention and improving throughput under parallel workloads (validated through performance benchmarks).",
+      'Replaced custom synchronization barriers with C++20 primitives and optimized contention-sensitive regions, improving scalability and reducing synchronization overhead in multicore simulation workloads.',
+      'Led cross-platform migration of the Xcelium simulation codebase (11M+ LOC) from Linux/GCC (C++11) to macOS/Clang (C++17), resolving platform differences across threading models, system calls, memory mapping, and toolchain compatibility.',
       'Debugged intermittent concurrency defects using Undo time-travel debugging and mentored junior engineers on concurrency-aware development practices.',
     ],
   },
@@ -63,7 +33,7 @@ const experience = [
     period: 'Dec 2021 – May 2022',
     bullets: [
       'Developed a compiler for a memory description language using Flex and Bison, generating an LALR-based parser for configuration validation and input processing.',
-      'Implemented AST construction, semantic validation, and structured error handling for the compiler front-end.',
+      'Implemented AST construction, semantic validation, and structured error handling for the compiler front-end, improving robustness and correctness of configuration parsing.',
     ],
   },
   {
@@ -72,50 +42,73 @@ const experience = [
     period: 'Jan 2019 – Nov 2021',
     bullets: [
       'Supported Design for Testability (DFT) flows for automotive radar SoCs.',
-      'Worked on SPI/UART serial interfacing protocols for radar systems.',
+      'Worked on serial interfacing protocols (SPI/UART) for radar systems, contributing to communication and data exchange between hardware components.',
     ],
   },
 ]
 
-const skills: { label: string; items: string[]; accent?: boolean }[] = [
+const skills = [
   {
-    label: 'Strong',
-    items: ['C++17/20', 'Multithreading', 'Atomics & Locking', 'Memory Management', 'GDB / Valgrind / TSan', 'Linux', 'Git'],
+    label: 'Languages & Software Engineering',
+    items: ['C++', 'Object-Oriented Design (OOD)', 'Design Patterns', 'SOLID Principles', 'Data Structures & Algorithms', 'Code Review', 'Unit Testing', 'Docker', 'Git', 'Scrum', 'REST API Integration', 'Microservices'],
   },
   {
-    label: 'Worked with',
-    items: ['Event-Driven Architecture', 'Flex / Bison', 'Cross-Platform C++', 'Clang / GCC', 'Docker', 'REST APIs', 'Tcl'],
+    label: 'Systems & Concurrency',
+    items: ['Multithreading', 'Thread Safety', 'Synchronization', 'Atomic Operations', 'Locking Strategies', 'Race Condition Analysis', 'Memory Management'],
   },
   {
-    label: 'Currently exploring',
-    items: ['GNN', 'Reinforcement Learning', 'PyTorch', 'RAG', 'LLMs', 'FastAPI'],
-    accent: true,
-  },
-]
-
-const howIWork = [
-  {
-    title: 'Systems-first',
-    body: 'I like working close to the internals: thread coordination, parsers, simulation behavior, and the edges where abstractions start leaking.',
+    label: 'Performance & Architecture',
+    items: ['Performance Optimization', 'Event-Driven Architecture', 'Scalability', 'Tail Latency Analysis (p95/p99)', 'Critical Path Analysis'],
   },
   {
-    title: 'Depth over breadth',
-    body: "I'd rather understand one thing well than skim ten. Celeris exists because I wanted to know what multicore simulation actually means internally.",
+    label: 'EDA & Hardware Exposure',
+    items: ['Xcelium', 'Design for Testability (DFT)', 'Hardware Description Languages (HDL)', 'Testbenches', 'Tcl', 'Parsing & Compiler Concepts'],
   },
   {
-    title: 'Learning by building',
-    body: 'If I want to understand something — synchronization, compilers, ML — I build a project around it. Even if it takes longer.',
+    label: 'Debugging & Toolchain',
+    items: ['Linux', 'Clang/GCC', 'GDB', 'Undo Time-Travel Debugging', 'Valgrind', 'Sanitizers', 'Cross-Platform Migration'],
   },
   {
-    title: 'Clear ownership',
-    body: 'I prefer projects where the reasoning is inspectable: benchmarks, design notes, compiler stages, and code paths I can explain end to end.',
+    label: 'AI/ML (Exposure)',
+    items: ['RAG', 'LLMs', 'Hugging Face Transformers', 'Graph Neural Network', 'Reinforcement Learning', 'Python', 'PyTorch (basics)'],
+    dim: true,
   },
 ]
 
-/* ─── Helpers ────────────────────────────────────────────────────── */
+const projects = [
+  {
+    title: 'Celeris',
+    description:
+      'C++20 multicore event-driven simulation engine with pluggable synchronization strategies (coarse-grained, fine-grained, atomic). Includes a browser UI with live benchmarks and Verilog hot-path analysis.',
+    tags: ['C++20', 'Multithreading', 'Simulation', 'FastAPI', 'Python'],
+    github: 'https://github.com/gauravanand-sudo/celeris',
+    href: '/projects/celeris',
+    liveDemo: 'https://celeris.gauravanand.tech',
+    status: 'Active',
+  },
+  {
+    title: 'MDL Compiler',
+    description:
+      'Compiler front-end for a memory description language using Flex and Bison — LALR parser, AST construction, semantic validation, and structured error handling. Browser walkthrough of each compiler stage.',
+    tags: ['C', 'Flex', 'Bison', 'Compiler Design', 'Python'],
+    github: 'https://github.com/gauravanand-sudo/compiler-project',
+    href: '/projects/compiler',
+    liveDemo: '/projects/compiler',
+    status: 'Active',
+  },
+  {
+    title: 'NeuroPowerRL',
+    description:
+      'Learning-based framework for proactively optimizing circuit power before expensive simulation, modeling circuits as graphs and capturing switching behavior over time through a hybrid GNN + temporal architecture. RL-driven closed-loop optimization for node-level gating and activity reduction.',
+    tags: ['Python', 'PyTorch', 'GNN', 'Reinforcement Learning', 'EDA'],
+    github: 'https://github.com/gauravanand-sudo',
+    status: 'Exploring',
+  },
+]
 
-const MAX_W = '860px'
-const W = { maxWidth: MAX_W, margin: '0 auto', padding: '0 28px' }
+/* ─── Layout ─────────────────────────────────────────────────────── */
+
+const W = { maxWidth: '900px', margin: '0 auto', padding: '0 28px' }
 
 function SectionLabel({ children }: { children: string }) {
   return (
@@ -123,9 +116,9 @@ function SectionLabel({ children }: { children: string }) {
       fontFamily: "'JetBrains Mono', ui-monospace, monospace",
       fontSize: '10px',
       color: 'var(--text-dim)',
-      letterSpacing: '0.18em',
+      letterSpacing: '0.2em',
       textTransform: 'uppercase' as const,
-      marginBottom: '32px',
+      marginBottom: '36px',
     }}>
       {children}
     </p>
@@ -140,82 +133,83 @@ export default function Home() {
       <Nav />
       <Hero />
 
-      {/* ── Experience ─── first — EM scans this immediately */}
-      <section id="experience" style={{ padding: '100px 0' }}>
+      {/* ── Summary ────────────────────────────────────────── */}
+      <section style={{ borderTop: '1px solid var(--border)' }}>
+        <div style={{ ...W, padding: '40px 28px' }}>
+          <p style={{
+            fontSize: '14px',
+            color: 'var(--text-lo)',
+            lineHeight: 1.9,
+            maxWidth: '820px',
+            borderLeft: '2px solid var(--accent-border)',
+            paddingLeft: '20px',
+          }}>
+            Systems-focused Software Engineer with 6.5+ years of experience in EDA, distributed systems, and performance-oriented development,
+            specializing in modern C++, multithreading, and design patterns, with a strong track record of independently solving complex problems
+            and quickly adapting to new technologies, including exposure to AI-driven workflows.
+          </p>
+        </div>
+      </section>
+
+      {/* ── Experience ─────────────────────────────────────── */}
+      <section id="experience" style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
         <div style={W}>
-          <SectionLabel>Experience</SectionLabel>
+          <SectionLabel>Professional Experience</SectionLabel>
 
-          <div style={{ position: 'relative' }}>
-            {/* vertical timeline rule */}
-            <div style={{
-              position: 'absolute',
-              left: 0,
-              top: 0,
-              bottom: 0,
-              width: '1px',
-              background: 'linear-gradient(to bottom, var(--border-mid), var(--border) 80%, transparent)',
-            }} />
-
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
             {experience.map((job, i) => (
               <div key={i} style={{
-                paddingLeft: '28px',
+                display: 'grid',
+                gridTemplateColumns: '1fr',
                 paddingBottom: i < experience.length - 1 ? '48px' : 0,
-                position: 'relative',
+                marginBottom: i < experience.length - 1 ? '48px' : 0,
+                borderBottom: i < experience.length - 1 ? '1px solid var(--border)' : 'none',
               }}>
-                {/* dot — accent on most recent */}
-                <div style={{
-                  position: 'absolute',
-                  left: '-4px',
-                  top: '6px',
-                  width: '9px',
-                  height: '9px',
-                  borderRadius: '50%',
-                  background: i === 0 ? 'var(--accent)' : 'var(--surface-soft)',
-                  border: i === 0 ? '0' : '1px solid var(--border-mid)',
-                }} />
-
-                {/* header */}
-                <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px', flexWrap: 'wrap', marginBottom: '4px' }}>
-                  <p style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-hi)', letterSpacing: '-0.01em' }}>
-                    {job.company}
-                  </p>
-                  {job.note && (
-                    <span style={{ fontSize: '11px', color: 'var(--text-dim)', fontStyle: 'italic' }}>
-                      {job.note}
+                {/* header row */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '8px', marginBottom: '4px' }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', flexWrap: 'wrap' }}>
+                    <span style={{ fontSize: '15px', fontWeight: 600, color: 'var(--text-hi)', letterSpacing: '-0.01em' }}>
+                      {job.company}
                     </span>
-                  )}
-                </div>
-
-                {/* role + period */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '16px', flexWrap: 'wrap' }}>
-                  <span style={{
-                    fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                    fontSize: '11px',
-                    color: 'var(--accent)',
-                    letterSpacing: '0.02em',
-                  }}>
-                    {job.role}
-                  </span>
+                    {job.note && (
+                      <span style={{ fontSize: '11px', color: 'var(--text-dim)', fontStyle: 'italic' }}>
+                        {job.note}
+                      </span>
+                    )}
+                  </div>
                   <span style={{
                     fontFamily: "'JetBrains Mono', ui-monospace, monospace",
                     fontSize: '11px',
                     color: 'var(--text-dim)',
+                    whiteSpace: 'nowrap',
+                    flexShrink: 0,
                   }}>
                     {job.period}
                   </span>
                 </div>
 
+                {/* role */}
+                <p style={{
+                  fontFamily: "'JetBrains Mono', ui-monospace, monospace",
+                  fontSize: '11px',
+                  color: 'var(--accent)',
+                  letterSpacing: '0.03em',
+                  marginBottom: '18px',
+                }}>
+                  {job.role}
+                </p>
+
                 {/* bullets */}
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '9px' }}>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   {job.bullets.map((b, j) => (
                     <li key={j} style={{
-                      fontSize: '13px',
+                      fontSize: '13.5px',
                       color: 'var(--text-lo)',
                       lineHeight: 1.8,
                       paddingLeft: '16px',
                       position: 'relative',
                     }}>
-                      <span style={{ position: 'absolute', left: 0, top: '2px', color: 'var(--text-dim)' }}>›</span>
+                      <span style={{ position: 'absolute', left: 0, top: '1px', color: 'var(--accent-border)' }}>•</span>
                       {b}
                     </li>
                   ))}
@@ -227,33 +221,33 @@ export default function Home() {
       </section>
 
       {/* ── Projects ─────────────────────────────────────── */}
-      <section id="projects" style={{ padding: '100px 0', borderTop: '1px solid var(--border)' }}>
+      <section id="projects" style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
         <div style={W}>
           <SectionLabel>Projects</SectionLabel>
-          <p style={{ fontSize: '14px', color: 'var(--text-lo)', maxWidth: '520px', lineHeight: 1.85, marginBottom: '44px' }}>
-            Side projects built to understand systems from the inside out, with an emphasis on
-            concurrency, compiler construction, and tooling that makes internals visible.
-          </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))', gap: '14px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '14px' }}>
             {projects.map((p) => <ProjectCard key={p.title} {...p} />)}
           </div>
         </div>
       </section>
 
       {/* ── Skills ─────────────────────────────────────── */}
-      <section style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
+      <section id="skills" style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
         <div style={W}>
-          <SectionLabel>Skills</SectionLabel>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <SectionLabel>Core Skills</SectionLabel>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             {skills.map((group) => (
               <div key={group.label} style={{
-                display: 'grid', gridTemplateColumns: '150px 1fr', gap: '16px', alignItems: 'start',
+                display: 'grid',
+                gridTemplateColumns: '220px 1fr',
+                gap: '20px',
+                alignItems: 'start',
               }}>
                 <p style={{
                   fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                  fontSize: '11px',
-                  color: group.accent ? 'var(--accent)' : 'var(--text-dim)',
-                  paddingTop: '4px',
+                  fontSize: '10.5px',
+                  color: group.dim ? 'var(--text-dim)' : 'var(--text-mid)',
+                  lineHeight: 1.6,
+                  paddingTop: '5px',
                 }}>
                   {group.label}
                 </p>
@@ -262,9 +256,9 @@ export default function Home() {
                     <span key={item} style={{
                       fontFamily: "'JetBrains Mono', ui-monospace, monospace",
                       fontSize: '11px',
-                      color: group.accent ? 'var(--accent)' : 'var(--text-lo)',
-                      background: group.accent ? 'rgba(110,231,183,0.04)' : 'var(--surface)',
-                      border: `1px solid ${group.accent ? 'var(--accent-border)' : 'var(--border)'}`,
+                      color: group.dim ? 'var(--text-dim)' : 'var(--text-lo)',
+                      background: 'var(--surface)',
+                      border: '1px solid var(--border)',
                       borderRadius: '4px',
                       padding: '4px 10px',
                     }}>
@@ -284,59 +278,42 @@ export default function Home() {
           <SectionLabel>Education</SectionLabel>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             {[
-              { school: 'IIT Patna', degree: 'M.Tech in Artificial Intelligence (Hybrid)', period: '2025 – 2027' },
-              { school: 'Thapar Institute of Engineering & Technology', degree: 'B.E. in Electronics Engineering · CGPA 8.05', period: '2015 – 2019' },
+              {
+                school: 'IIT Patna',
+                degree: 'M.Tech in Artificial Intelligence (Hybrid)',
+                period: '2025 – 2027',
+              },
+              {
+                school: 'Thapar Institute of Engineering & Technology',
+                degree: 'B.E. in Electronics Engineering · CGPA: 8.05',
+                period: '2015 – 2019',
+              },
             ].map((edu, i, arr) => (
               <div key={edu.school} style={{
-                display: 'flex', justifyContent: 'space-between',
-                alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px',
-                padding: '24px 0',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'flex-start',
+                flexWrap: 'wrap',
+                gap: '12px',
+                padding: '22px 0',
                 borderBottom: i < arr.length - 1 ? '1px solid var(--border)' : 'none',
               }}>
                 <div>
                   <p style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-hi)', letterSpacing: '-0.01em' }}>
                     {edu.school}
                   </p>
-                  <p style={{ fontSize: '13px', color: 'var(--text-lo)', marginTop: '5px' }}>{edu.degree}</p>
+                  <p style={{ fontSize: '13px', color: 'var(--text-lo)', marginTop: '4px' }}>
+                    {edu.degree}
+                  </p>
                 </div>
                 <p style={{
                   fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                  fontSize: '11px', color: 'var(--text-dim)', whiteSpace: 'nowrap', marginTop: '4px',
+                  fontSize: '11px',
+                  color: 'var(--text-dim)',
+                  whiteSpace: 'nowrap',
+                  marginTop: '3px',
                 }}>
                   {edu.period}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── How I work ── last, personality context */}
-      <section style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
-        <div style={W}>
-          <SectionLabel>How I work</SectionLabel>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-            gap: '1px',
-            background: 'var(--border)',
-            border: '1px solid var(--border)',
-            borderRadius: '10px',
-            overflow: 'hidden',
-          }}>
-            {howIWork.map((c) => (
-              <div key={c.title} style={{ background: 'var(--surface)', padding: '28px 24px' }}>
-                <p style={{
-                  fontSize: '12px',
-                  color: 'var(--accent)',
-                  fontWeight: 500,
-                  marginBottom: '12px',
-                  letterSpacing: '0.01em',
-                }}>
-                  {c.title}
-                </p>
-                <p style={{ fontSize: '13px', color: 'var(--text-lo)', lineHeight: 1.8 }}>
-                  {c.body}
                 </p>
               </div>
             ))}
