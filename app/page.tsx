@@ -99,7 +99,7 @@ const projects = [
     tags: ['C', 'Flex', 'Bison', 'Compiler Design', 'Python'],
     github: 'https://github.com/gauravanand-sudo/compiler-project',
     href: '/projects/compiler',
-    liveDemo: '/projects/compiler',
+    liveDemo: 'https://compiler-project.gauravanand.tech',
     status: 'Active',
   },
   {
