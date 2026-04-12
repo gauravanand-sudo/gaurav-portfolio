@@ -102,24 +102,26 @@ const howIWork = [
   },
 ]
 
-/* ─── Layout helpers ─────────────────────────────────────────────── */
+/* ─── Helpers ────────────────────────────────────────────────────── */
 
-const MAX_W = '900px'
+const W = { maxWidth: '860px', margin: '0 auto', padding: '0 32px' }
 
 function SectionLabel({ children }: { children: string }) {
   return (
     <p style={{
       fontFamily: "'JetBrains Mono', ui-monospace, monospace",
       fontSize: '10px',
-      color: '#444',
+      color: '#606060',
       letterSpacing: '0.18em',
-      textTransform: 'uppercase',
-      marginBottom: '36px',
+      textTransform: 'uppercase' as const,
+      marginBottom: '32px',
     }}>
       {children}
     </p>
   )
 }
+
+const divider = { borderTop: '1px solid #1c1c1c' }
 
 /* ─── Page ───────────────────────────────────────────────────────── */
 
@@ -129,129 +131,68 @@ export default function Home() {
       <Nav />
       <Hero />
 
-      {/* ── Projects ─────────────────────────────────────── */}
-      <section id="projects" style={{ padding: '100px 0' }}>
-        <div style={{ maxWidth: MAX_W, margin: '0 auto', padding: '0 28px' }}>
-          <SectionLabel>Projects</SectionLabel>
-          <p style={{ fontSize: '14px', color: '#5a5a5a', maxWidth: '520px', lineHeight: 1.85, marginBottom: '44px' }}>
-            Side projects built to understand things from the inside. I use AI tools to learn and
-            move faster — that&apos;s part of how these got built.
-          </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))', gap: '14px' }}>
-            {projects.map((p) => <ProjectCard key={p.title} {...p} />)}
-          </div>
-        </div>
-      </section>
-
-      {/* ── How I work ───────────────────────────────────── */}
-      <section style={{ padding: '80px 0', borderTop: '1px solid #141414' }}>
-        <div style={{ maxWidth: MAX_W, margin: '0 auto', padding: '0 28px' }}>
-          <SectionLabel>How I work</SectionLabel>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-            gap: '1px',
-            background: '#181818',
-            border: '1px solid #181818',
-            borderRadius: '10px',
-            overflow: 'hidden',
-          }}>
-            {howIWork.map((c) => (
-              <div key={c.title} style={{ background: '#0a0a0a', padding: '28px 24px' }}>
-                <p style={{
-                  fontSize: '12px',
-                  color: '#6ee7b7',
-                  fontWeight: 500,
-                  marginBottom: '12px',
-                  letterSpacing: '0.01em',
-                }}>
-                  {c.title}
-                </p>
-                <p style={{ fontSize: '13px', color: '#5e5e5e', lineHeight: 1.8 }}>
-                  {c.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Experience ───────────────────────────────────── */}
-      <section id="experience" style={{ padding: '100px 0', borderTop: '1px solid #141414' }}>
-        <div style={{ maxWidth: MAX_W, margin: '0 auto', padding: '0 28px' }}>
+      {/* ── Experience ─── first — EM scans this immediately */}
+      <section id="experience" style={{ padding: '88px 0' }}>
+        <div style={W}>
           <SectionLabel>Experience</SectionLabel>
+
           <div style={{ position: 'relative' }}>
-            {/* timeline line */}
+            {/* vertical timeline rule */}
             <div style={{
-              position: 'absolute',
-              left: 0,
-              top: 0,
-              bottom: 0,
-              width: '1px',
-              background: 'linear-gradient(to bottom, #222, #161616 80%, transparent)',
+              position: 'absolute', left: 0, top: '8px', bottom: '8px', width: '1px',
+              background: 'linear-gradient(to bottom, #2a2a2a, #181818 85%, transparent)',
             }} />
 
             {experience.map((job, i) => (
-              <div
-                key={i}
-                style={{
-                  paddingLeft: '32px',
-                  paddingBottom: i < experience.length - 1 ? '52px' : 0,
-                  position: 'relative',
-                }}
-              >
-                {/* dot */}
+              <div key={i} style={{
+                paddingLeft: '28px',
+                paddingBottom: i < experience.length - 1 ? '48px' : 0,
+                position: 'relative',
+              }}>
+                {/* dot — accent on most recent */}
                 <div style={{
-                  position: 'absolute',
-                  left: '-4px',
-                  top: '6px',
-                  width: '9px',
-                  height: '9px',
-                  borderRadius: '50%',
-                  background: i === 0 ? '#6ee7b7' : '#282828',
-                  border: i === 0 ? '0' : '1px solid #333',
+                  position: 'absolute', left: '-4px', top: '7px',
+                  width: '9px', height: '9px', borderRadius: '50%',
+                  background: i === 0 ? '#6ee7b7' : '#242424',
+                  border: i === 0 ? 'none' : '1px solid #383838',
                 }} />
 
-                {/* header */}
-                <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px', flexWrap: 'wrap', marginBottom: '4px' }}>
-                  <p style={{ fontSize: '14px', fontWeight: 600, color: '#e2e2e2', letterSpacing: '-0.01em' }}>
+                {/* company + payroll note */}
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', flexWrap: 'wrap', marginBottom: '3px' }}>
+                  <p style={{ fontSize: '14px', fontWeight: 600, color: '#ebebeb', letterSpacing: '-0.01em' }}>
                     {job.company}
                   </p>
                   {job.note && (
-                    <span style={{ fontSize: '11px', color: '#383838', fontStyle: 'italic' }}>
+                    <span style={{ fontSize: '11px', color: '#484848', fontStyle: 'italic' }}>
                       {job.note}
                     </span>
                   )}
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '18px', flexWrap: 'wrap' }}>
+                {/* role + period */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '16px', flexWrap: 'wrap' }}>
                   <span style={{
                     fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                    fontSize: '11px',
-                    color: '#6ee7b7',
-                    letterSpacing: '0.02em',
+                    fontSize: '11px', color: '#6ee7b7', letterSpacing: '0.02em',
                   }}>
                     {job.role}
                   </span>
                   <span style={{
                     fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                    fontSize: '11px',
-                    color: '#363636',
+                    fontSize: '11px', color: '#606060',
                   }}>
                     {job.period}
                   </span>
                 </div>
 
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                {/* bullets */}
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '9px' }}>
                   {job.bullets.map((b, j) => (
                     <li key={j} style={{
-                      fontSize: '13px',
-                      color: '#828282',
-                      lineHeight: 1.8,
-                      paddingLeft: '16px',
-                      position: 'relative',
+                      fontSize: '13.5px', color: '#a8a8a8', lineHeight: 1.8,
+                      paddingLeft: '16px', position: 'relative',
                     }}>
-                      <span style={{ position: 'absolute', left: 0, top: '2px', color: '#303030' }}>›</span>
+                      <span style={{ position: 'absolute', left: 0, top: '2px', color: '#484848' }}>›</span>
                       {b}
                     </li>
                   ))}
@@ -262,24 +203,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Skills ───────────────────────────────────────── */}
-      <section style={{ padding: '80px 0', borderTop: '1px solid #141414' }}>
-        <div style={{ maxWidth: MAX_W, margin: '0 auto', padding: '0 28px' }}>
+      {/* ── Projects ── */}
+      <section id="projects" style={{ padding: '80px 0', ...divider }}>
+        <div style={W}>
+          <SectionLabel>Projects</SectionLabel>
+          <p style={{ fontSize: '13.5px', color: '#707070', maxWidth: '500px', lineHeight: 1.85, marginBottom: '36px' }}>
+            Side projects built to understand things from the inside. I use AI tools to learn and
+            move faster — that&apos;s part of how these got built.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '14px' }}>
+            {projects.map((p) => <ProjectCard key={p.title} {...p} />)}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Skills ── */}
+      <section style={{ padding: '80px 0', ...divider }}>
+        <div style={W}>
           <SectionLabel>Skills</SectionLabel>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {skills.map((group) => (
               <div key={group.label} style={{
-                display: 'grid',
-                gridTemplateColumns: '140px 1fr',
-                gap: '16px',
-                alignItems: 'start',
+                display: 'grid', gridTemplateColumns: '150px 1fr', gap: '16px', alignItems: 'start',
               }}>
                 <p style={{
                   fontFamily: "'JetBrains Mono', ui-monospace, monospace",
                   fontSize: '11px',
-                  color: group.accent ? '#2e5e3e' : '#3e3e3e',
+                  color: group.accent ? '#2e5e3e' : '#505050',
                   paddingTop: '4px',
-                  letterSpacing: '0.03em',
                 }}>
                   {group.label}
                 </p>
@@ -288,10 +239,10 @@ export default function Home() {
                     <span key={item} style={{
                       fontFamily: "'JetBrains Mono', ui-monospace, monospace",
                       fontSize: '11px',
-                      color: group.accent ? '#3a6e4a' : '#888',
-                      background: group.accent ? '#081408' : '#0d0d0d',
-                      border: `1px solid ${group.accent ? '#1a3520' : '#1e1e1e'}`,
-                      borderRadius: '5px',
+                      color: group.accent ? '#3a6e4a' : '#909090',
+                      background: group.accent ? '#081408' : '#0f0f0f',
+                      border: `1px solid ${group.accent ? '#1a3520' : '#222'}`,
+                      borderRadius: '4px',
                       padding: '4px 10px',
                     }}>
                       {item}
@@ -304,41 +255,59 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Education ────────────────────────────────────── */}
-      <section style={{ padding: '80px 0', borderTop: '1px solid #141414' }}>
-        <div style={{ maxWidth: MAX_W, margin: '0 auto', padding: '0 28px' }}>
+      {/* ── Education ── */}
+      <section style={{ padding: '72px 0', ...divider }}>
+        <div style={W}>
           <SectionLabel>Education</SectionLabel>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             {[
               { school: 'IIT Patna', degree: 'M.Tech in Artificial Intelligence (Hybrid)', period: '2025 – 2027' },
               { school: 'Thapar Institute of Engineering & Technology', degree: 'B.E. in Electronics Engineering · CGPA 8.05', period: '2015 – 2019' },
             ].map((edu, i, arr) => (
-              <div
-                key={edu.school}
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'flex-start',
-                  flexWrap: 'wrap',
-                  gap: '12px',
-                  padding: '28px 0',
-                  borderBottom: i < arr.length - 1 ? '1px solid #141414' : 'none',
-                }}
-              >
+              <div key={edu.school} style={{
+                display: 'flex', justifyContent: 'space-between',
+                alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px',
+                padding: '24px 0',
+                borderBottom: i < arr.length - 1 ? '1px solid #1c1c1c' : 'none',
+              }}>
                 <div>
-                  <p style={{ fontSize: '14px', fontWeight: 600, color: '#d8d8d8', letterSpacing: '-0.01em' }}>
+                  <p style={{ fontSize: '14px', fontWeight: 600, color: '#e0e0e0', letterSpacing: '-0.01em' }}>
                     {edu.school}
                   </p>
-                  <p style={{ fontSize: '13px', color: '#525252', marginTop: '5px' }}>{edu.degree}</p>
+                  <p style={{ fontSize: '13px', color: '#707070', marginTop: '5px' }}>{edu.degree}</p>
                 </div>
                 <p style={{
                   fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                  fontSize: '11px',
-                  color: '#323232',
-                  whiteSpace: 'nowrap',
-                  marginTop: '3px',
+                  fontSize: '11px', color: '#585858', whiteSpace: 'nowrap', marginTop: '4px',
                 }}>
                   {edu.period}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── How I work ── last, personality context */}
+      <section style={{ padding: '72px 0', ...divider }}>
+        <div style={W}>
+          <SectionLabel>How I work</SectionLabel>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(190px, 1fr))',
+            gap: '1px', background: '#1a1a1a',
+            border: '1px solid #1a1a1a', borderRadius: '10px', overflow: 'hidden',
+          }}>
+            {howIWork.map((c) => (
+              <div key={c.title} style={{ background: '#0a0a0a', padding: '24px 22px' }}>
+                <p style={{
+                  fontSize: '12px', color: '#6ee7b7', fontWeight: 500,
+                  marginBottom: '10px', letterSpacing: '0.01em',
+                }}>
+                  {c.title}
+                </p>
+                <p style={{ fontSize: '12.5px', color: '#707070', lineHeight: 1.8 }}>
+                  {c.body}
                 </p>
               </div>
             ))}
