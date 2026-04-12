@@ -1,11 +1,8 @@
-import Link from 'next/link'
-
 interface ProjectCardProps {
   title: string
   description: string
   tags: string[]
   github: string
-  href?: string
   liveDemo?: string
   status?: string
 }
@@ -17,7 +14,7 @@ const statusColor: Record<string, string> = {
 }
 
 export default function ProjectCard({
-  title, description, tags, github, href, liveDemo, status,
+  title, description, tags, github, liveDemo, status,
 }: ProjectCardProps) {
   const color = status ? (statusColor[status] ?? '#888') : '#888'
 
@@ -82,11 +79,6 @@ export default function ProjectCard({
           <a href={liveDemo} target="_blank" rel="noopener noreferrer" className="pcard-link pcard-cta">
             Try Now ↗
           </a>
-        )}
-        {href && (
-          <Link href={href} className="pcard-link">
-            Read More →
-          </Link>
         )}
       </div>
 
