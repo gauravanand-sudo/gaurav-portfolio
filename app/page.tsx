@@ -5,17 +5,13 @@ import Footer from '@/components/Footer'
 
 /* ─── Data ──────────────────────────────────────────────────────── */
 
-const experience = [
-  {
-    company: 'Airtel Africa Digital Labs',
-    role: 'Senior Software Engineer',
-    note: 'Payroll: Intellismith',
-    period: 'Apr 2025 – Apr 2026',
-    bullets: [
-      'Partnered with product managers to understand business requirements and deliver end-to-end solutions, including API development, deployment, and production releases.',
-      'Developed a supervised learning model using historical transaction, latency, retry, and error logs millions of records to identify patterns associated with delayed or failed operations, enabling earlier detection of potential transaction failure.',
-    ],
-  },
+const experience: {
+  company: string
+  role: string
+  period: string
+  note?: string
+  bullets: string[]
+}[] = [
   {
     company: 'Cadence Design Systems',
     role: 'Software Engineer II',
@@ -25,6 +21,16 @@ const experience = [
       'Replaced custom synchronization barriers with C++20 primitives and optimized contention-sensitive regions, improving scalability and reducing synchronization overhead in multicore simulation workloads.',
       'Led cross-platform migration of the Xcelium simulation codebase (11M+ LOC) from Linux/GCC (C++11) to macOS/Clang (C++17), resolving platform differences across threading models, system calls, memory mapping, and toolchain compatibility.',
       'Debugged intermittent concurrency defects using Undo time-travel debugging and mentored junior engineers on concurrency-aware development practices.',
+    ],
+  },
+  {
+    company: 'Airtel Africa Digital Labs',
+    role: 'Senior Software Engineer',
+    note: 'Payroll: Intellismith',
+    period: 'Apr 2025 – Apr 2026',
+    bullets: [
+      'Partnered with product managers to understand business requirements and deliver end-to-end solutions, including API development, deployment, and production releases.',
+      'Developed a supervised learning model using historical transaction, latency, retry, and error logs millions of records to identify patterns associated with delayed or failed operations, enabling earlier detection of potential transaction failure.',
     ],
   },
   {
@@ -114,11 +120,12 @@ function SectionLabel({ children }: { children: string }) {
   return (
     <p style={{
       fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-      fontSize: '10px',
-      color: 'var(--text-dim)',
+      fontSize: '11px',
+      fontWeight: 600,
+      color: 'var(--accent)',
       letterSpacing: '0.2em',
       textTransform: 'uppercase' as const,
-      marginBottom: '36px',
+      marginBottom: '40px',
     }}>
       {children}
     </p>
@@ -135,14 +142,14 @@ export default function Home() {
 
       {/* ── Summary ────────────────────────────────────────── */}
       <section style={{ borderTop: '1px solid var(--border)' }}>
-        <div style={{ ...W, padding: '40px 28px' }}>
+        <div style={{ ...W, padding: '44px 28px' }}>
           <p style={{
-            fontSize: '14px',
-            color: 'var(--text-lo)',
-            lineHeight: 1.9,
+            fontSize: '15px',
+            color: 'var(--text-hi)',
+            lineHeight: 2,
             maxWidth: '820px',
             borderLeft: '2px solid var(--accent-border)',
-            paddingLeft: '20px',
+            paddingLeft: '22px',
           }}>
             Systems-focused Software Engineer with 6.5+ years of experience in EDA, distributed systems, and performance-oriented development,
             specializing in modern C++, multithreading, and design patterns, with a strong track record of independently solving complex problems
@@ -152,35 +159,33 @@ export default function Home() {
       </section>
 
       {/* ── Experience ─────────────────────────────────────── */}
-      <section id="experience" style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
+      <section id="experience" style={{ padding: '88px 0', borderTop: '1px solid var(--border)' }}>
         <div style={W}>
           <SectionLabel>Professional Experience</SectionLabel>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             {experience.map((job, i) => (
               <div key={i} style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr',
-                paddingBottom: i < experience.length - 1 ? '48px' : 0,
-                marginBottom: i < experience.length - 1 ? '48px' : 0,
+                paddingBottom: i < experience.length - 1 ? '52px' : 0,
+                marginBottom: i < experience.length - 1 ? '52px' : 0,
                 borderBottom: i < experience.length - 1 ? '1px solid var(--border)' : 'none',
               }}>
                 {/* header row */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '8px', marginBottom: '4px' }}>
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', flexWrap: 'wrap' }}>
-                    <span style={{ fontSize: '15px', fontWeight: 600, color: 'var(--text-hi)', letterSpacing: '-0.01em' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: '8px', marginBottom: '6px' }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px', flexWrap: 'wrap' }}>
+                    <span style={{ fontSize: '17px', fontWeight: 700, color: 'var(--text-hi)', letterSpacing: '-0.02em' }}>
                       {job.company}
                     </span>
                     {job.note && (
-                      <span style={{ fontSize: '11px', color: 'var(--text-dim)', fontStyle: 'italic' }}>
+                      <span style={{ fontSize: '12px', color: 'var(--text-dim)', fontStyle: 'italic' }}>
                         {job.note}
                       </span>
                     )}
                   </div>
                   <span style={{
                     fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                    fontSize: '11px',
-                    color: 'var(--text-dim)',
+                    fontSize: '12px',
+                    color: 'var(--text-mid)',
                     whiteSpace: 'nowrap',
                     flexShrink: 0,
                   }}>
@@ -191,25 +196,25 @@ export default function Home() {
                 {/* role */}
                 <p style={{
                   fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                  fontSize: '11px',
+                  fontSize: '12px',
                   color: 'var(--accent)',
-                  letterSpacing: '0.03em',
-                  marginBottom: '18px',
+                  letterSpacing: '0.04em',
+                  marginBottom: '20px',
                 }}>
                   {job.role}
                 </p>
 
                 {/* bullets */}
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   {job.bullets.map((b, j) => (
                     <li key={j} style={{
-                      fontSize: '13.5px',
-                      color: 'var(--text-lo)',
-                      lineHeight: 1.8,
-                      paddingLeft: '16px',
+                      fontSize: '14px',
+                      color: 'var(--text-hi)',
+                      lineHeight: 1.85,
+                      paddingLeft: '18px',
                       position: 'relative',
                     }}>
-                      <span style={{ position: 'absolute', left: 0, top: '1px', color: 'var(--accent-border)' }}>•</span>
+                      <span style={{ position: 'absolute', left: 0, top: '2px', color: 'var(--accent)' }}>•</span>
                       {b}
                     </li>
                   ))}
@@ -221,46 +226,47 @@ export default function Home() {
       </section>
 
       {/* ── Projects ─────────────────────────────────────── */}
-      <section id="projects" style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
+      <section id="projects" style={{ padding: '88px 0', borderTop: '1px solid var(--border)' }}>
         <div style={W}>
           <SectionLabel>Projects</SectionLabel>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '14px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '16px' }}>
             {projects.map((p) => <ProjectCard key={p.title} {...p} />)}
           </div>
         </div>
       </section>
 
       {/* ── Skills ─────────────────────────────────────── */}
-      <section id="skills" style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
+      <section id="skills" style={{ padding: '88px 0', borderTop: '1px solid var(--border)' }}>
         <div style={W}>
           <SectionLabel>Core Skills</SectionLabel>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
             {skills.map((group) => (
               <div key={group.label} style={{
                 display: 'grid',
-                gridTemplateColumns: '220px 1fr',
+                gridTemplateColumns: '230px 1fr',
                 gap: '20px',
                 alignItems: 'start',
               }}>
                 <p style={{
                   fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                  fontSize: '10.5px',
+                  fontSize: '11px',
+                  fontWeight: 600,
                   color: group.dim ? 'var(--text-dim)' : 'var(--text-mid)',
                   lineHeight: 1.6,
-                  paddingTop: '5px',
+                  paddingTop: '6px',
                 }}>
                   {group.label}
                 </p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '7px' }}>
                   {group.items.map((item) => (
                     <span key={item} style={{
                       fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                      fontSize: '11px',
-                      color: group.dim ? 'var(--text-dim)' : 'var(--text-lo)',
+                      fontSize: '12px',
+                      color: group.dim ? 'var(--text-dim)' : 'var(--text-hi)',
                       background: 'var(--surface)',
-                      border: '1px solid var(--border)',
+                      border: '1px solid var(--border-mid)',
                       borderRadius: '4px',
-                      padding: '4px 10px',
+                      padding: '5px 12px',
                     }}>
                       {item}
                     </span>
@@ -273,7 +279,7 @@ export default function Home() {
       </section>
 
       {/* ── Education ─────────────────────────────────────── */}
-      <section style={{ padding: '72px 0', borderTop: '1px solid var(--border)' }}>
+      <section style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
         <div style={W}>
           <SectionLabel>Education</SectionLabel>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -295,23 +301,23 @@ export default function Home() {
                 alignItems: 'flex-start',
                 flexWrap: 'wrap',
                 gap: '12px',
-                padding: '22px 0',
+                padding: '24px 0',
                 borderBottom: i < arr.length - 1 ? '1px solid var(--border)' : 'none',
               }}>
                 <div>
-                  <p style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-hi)', letterSpacing: '-0.01em' }}>
+                  <p style={{ fontSize: '16px', fontWeight: 700, color: 'var(--text-hi)', letterSpacing: '-0.01em' }}>
                     {edu.school}
                   </p>
-                  <p style={{ fontSize: '13px', color: 'var(--text-lo)', marginTop: '4px' }}>
+                  <p style={{ fontSize: '14px', color: 'var(--text-mid)', marginTop: '5px' }}>
                     {edu.degree}
                   </p>
                 </div>
                 <p style={{
                   fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                  fontSize: '11px',
-                  color: 'var(--text-dim)',
+                  fontSize: '12px',
+                  color: 'var(--text-mid)',
                   whiteSpace: 'nowrap',
-                  marginTop: '3px',
+                  marginTop: '4px',
                 }}>
                   {edu.period}
                 </p>

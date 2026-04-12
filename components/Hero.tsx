@@ -23,33 +23,33 @@ export default function Hero() {
 
         <p style={{
           fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-          fontSize: '11px',
+          fontSize: '12px',
+          fontWeight: 600,
           color: 'var(--accent)',
-          letterSpacing: '0.18em',
+          letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          marginBottom: '18px',
-          opacity: 0.9,
+          marginBottom: '20px',
         }}>
           C++ Systems Engineer · 6.5+ Years of Experience · Immediate Joiner
         </p>
 
         <h1 style={{
-          fontSize: 'clamp(40px, 5.5vw, 62px)',
-          fontWeight: 600,
+          fontSize: 'clamp(44px, 6vw, 72px)',
+          fontWeight: 700,
           color: 'var(--text-hi)',
           lineHeight: 1.0,
           letterSpacing: '-0.03em',
-          marginBottom: '20px',
+          marginBottom: '22px',
         }}>
           Gaurav Anand
         </h1>
 
         <p style={{
-          fontSize: '13px',
-          color: 'var(--text-dim)',
+          fontSize: '14px',
+          color: 'var(--text-mid)',
           fontFamily: "'JetBrains Mono', ui-monospace, monospace",
           letterSpacing: '0.02em',
-          marginBottom: '36px',
+          marginBottom: '40px',
         }}>
           Noida, India&nbsp;&nbsp;·&nbsp;&nbsp;+91-9289656293&nbsp;&nbsp;·&nbsp;&nbsp;gaurav.anand54@gmail.com
         </p>
