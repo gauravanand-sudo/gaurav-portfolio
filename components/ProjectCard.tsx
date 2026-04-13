@@ -2,7 +2,7 @@ interface ProjectCardProps {
   title: string
   description: string
   tags: string[]
-  github: string
+  github?: string
   liveDemo?: string
   status?: string
 }
@@ -72,9 +72,11 @@ export default function ProjectCard({
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginTop: '22px', paddingTop: '18px', borderTop: '1px solid var(--border)' }}>
-        <a href={github} target="_blank" rel="noopener noreferrer" className="pcard-link">
-          GitHub ↗
-        </a>
+        {github && (
+          <a href={github} target="_blank" rel="noopener noreferrer" className="pcard-link">
+            GitHub ↗
+          </a>
+        )}
         {liveDemo && (
           <a href={liveDemo} target="_blank" rel="noopener noreferrer" className="pcard-link pcard-cta">
             Try Now ↗

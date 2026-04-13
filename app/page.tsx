@@ -81,7 +81,7 @@ const skills = [
   },
 ]
 
-const projects = [
+const projects: { title: string; description: string; tags: string[]; github?: string; href?: string; liveDemo?: string; status?: string }[] = [
   {
     title: 'Celeris',
     description:
