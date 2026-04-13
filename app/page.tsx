@@ -107,6 +107,7 @@ const projects: { title: string; description: string; tags: string[]; github?: s
     description:
       'Grounded assistant for technical manuals and engineering runbooks. Built with lexical retrieval, a PyTorch reranker, and Hugging Face generation to return citation-backed answers over long technical notes.',
     tags: ['PyTorch', 'RAG', 'LLM', 'Hugging Face', 'FastAPI'],
+    github: 'https://github.com/gauravanand-sudo/specpilot-rag',
     liveDemo: '/projects/specpilot-rag',
     status: 'Active',
   },
