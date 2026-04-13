@@ -116,6 +116,7 @@ const projects: { title: string; description: string; tags: string[]; github?: s
       '10 Gang of Four patterns — Observer, Strategy, Command, Visitor, Factory, Builder, Singleton, Decorator, Adapter, Facade — each with an animated structure diagram, C++ implementation, and real-world usage in EDA tools, compilers, and systems software.',
     tags: ['C++', 'Next.js', 'FastAPI', 'Design Patterns', 'SVG'],
     github: 'https://github.com/gauravanand-sudo/design-patterns-visual',
+    liveDemo: 'https://design-patterns-visual.vercel.app',
     status: 'Active',
   },
   {
