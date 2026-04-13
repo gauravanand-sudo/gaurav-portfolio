@@ -103,6 +103,22 @@ const projects = [
     status: 'Active',
   },
   {
+    title: 'SpecPilot RAG',
+    description:
+      'Grounded assistant for technical manuals and engineering runbooks. Designed around Hugging Face embeddings, a PyTorch reranker, hybrid retrieval, and citation-backed LLM answers for long-form technical questions.',
+    tags: ['PyTorch', 'RAG', 'LLM', 'Hugging Face', 'FAISS'],
+    liveDemo: '/projects/specpilot-rag',
+    status: 'Concept',
+  },
+  {
+    title: 'Design Patterns Visual',
+    description:
+      '10 Gang of Four patterns — Observer, Strategy, Command, Visitor, Factory, Builder, Singleton, Decorator, Adapter, Facade — each with an animated structure diagram, C++ implementation, and real-world usage in EDA tools, compilers, and systems software.',
+    tags: ['C++', 'Next.js', 'FastAPI', 'Design Patterns', 'SVG'],
+    github: 'https://github.com/gauravanand-sudo/design-patterns-visual',
+    status: 'Active',
+  },
+  {
     title: 'NeuroPowerRL',
     description:
       'Learning-based framework for proactively optimizing circuit power before expensive simulation, modeling circuits as graphs and capturing switching behavior over time through a hybrid GNN + temporal architecture. RL-driven closed-loop optimization for node-level gating and activity reduction.',
