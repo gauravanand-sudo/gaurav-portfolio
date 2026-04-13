@@ -171,7 +171,7 @@ export default function SpecPilotDemo() {
               Interactive Mock
             </p>
             <h3 style={{ margin: 0, color: 'var(--text-hi)', fontSize: '20px' }}>
-              Retrieval, reranking, grounded answer
+              Retrieval candidates, reranking, grounded answer
             </h3>
           </div>
           <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
@@ -274,7 +274,7 @@ export default function SpecPilotDemo() {
                 textTransform: 'uppercase',
                 marginBottom: '10px',
               }}>
-                Initial Retrieval
+                Candidate Retrieval
               </p>
               <div style={{ display: 'grid', gap: '10px' }}>
                 {current.retrieval.map((item) => (
@@ -355,7 +355,7 @@ export default function SpecPilotDemo() {
           flexWrap: 'wrap',
           background: 'rgba(18, 24, 22, 0.6)',
         }}>
-          {['sentence-transformers', 'FAISS', 'PyTorch cross-encoder', 'Hugging Face Inference', 'citation grounding'].map((item) => (
+          {['lexical retrieval', 'PyTorch cross-encoder', 'Hugging Face generation', 'citation grounding'].map((item) => (
             <span
               key={item}
               style={{

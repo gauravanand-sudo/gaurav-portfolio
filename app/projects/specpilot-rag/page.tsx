@@ -10,9 +10,9 @@ const architecture = [
       'Chunk large PDFs, runbooks, and wiki pages into retrieval-sized passages while preserving section headers, product names, and source metadata for downstream citation.',
   },
   {
-    title: 'Hybrid retrieval',
+    title: 'Candidate retrieval',
     detail:
-      'Combine dense embeddings from Hugging Face models with sparse keyword retrieval so both semantic intent and exact part names stay discoverable.',
+      'Use lexical retrieval over chunked technical notes to pull a focused candidate set before the more expensive ranking stage runs.',
   },
   {
     title: 'PyTorch reranking',
@@ -82,8 +82,9 @@ export default function SpecPilotRagPage() {
             SpecPilot RAG is the kind of assistant I would build for long engineering manuals,
             silicon bring-up notes, and platform runbooks where the real problem is not "chat",
             it is finding the right source quickly and answering without drifting away from the
-            evidence. The portfolio page below is an interactive product-style walkthrough of that
-            system: retrieval, reranking, and citation-backed response generation.
+            evidence. The working version behind this page uses lexical retrieval, a Hugging Face
+            reranker in PyTorch, and a lightweight local language model to return citation-backed
+            answers over a technical mini-corpus.
           </p>
         </section>
 
@@ -93,7 +94,7 @@ export default function SpecPilotRagPage() {
           gap: '16px',
           marginBottom: '24px',
         }}>
-          {['PyTorch', 'RAG', 'LLM', 'Hugging Face', 'FAISS', 'Evaluation'].map((tag) => (
+          {['PyTorch', 'RAG', 'LLM', 'Hugging Face', 'Lexical Retrieval', 'Evaluation'].map((tag) => (
             <span
               key={tag}
               style={{
@@ -133,22 +134,6 @@ export default function SpecPilotRagPage() {
           >
             Try Now ↓
           </a>
-          <a
-            href="https://github.com/gauravanand-sudo"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              border: '1px solid var(--border)',
-              background: 'rgba(35, 46, 42, 0.72)',
-              padding: '10px 16px',
-              fontSize: '14px',
-              color: 'var(--text-hi)',
-              textDecoration: 'none',
-              borderRadius: '8px',
-            }}
-          >
-            GitHub ↗
-          </a>
         </section>
 
         <section style={{
@@ -176,10 +161,10 @@ export default function SpecPilotRagPage() {
             <p style={{ color: 'var(--text-lo)', fontSize: '14px', lineHeight: 1.9, margin: 0 }}>
               Generic chat interfaces usually break down on dense technical documentation because
               the answer quality depends more on retrieval quality than on clever wording. This
-              project is shaped around that reality: better chunking, better ranking, tighter
-              grounding, and clearer citations. It is especially relevant for product specs,
-              API references, EDA flow notes, and bring-up documents that engineers revisit under
-              time pressure.
+              project is shaped around that reality: stronger candidate retrieval, an explicit
+              reranking stage, grounded generation, and clearer citations. It is especially
+              relevant for product specs, API references, EDA flow notes, and bring-up documents
+              that engineers revisit under time pressure.
             </p>
           </div>
 
@@ -200,9 +185,9 @@ export default function SpecPilotRagPage() {
               Model stack
             </p>
             <ul style={{ margin: 0, paddingLeft: '18px', display: 'grid', gap: '10px', color: 'var(--text-lo)', lineHeight: 1.7 }}>
-              <li>Hugging Face embedding models for dense retrieval</li>
+              <li>Lexical retrieval over chunked technical documents</li>
               <li>PyTorch cross-encoder reranker for relevance refinement</li>
-              <li>LLM answer layer constrained by retrieved evidence</li>
+              <li>Hugging Face generation constrained by retrieved evidence</li>
               <li>Evaluation loop for citation quality and factual drift</li>
             </ul>
           </div>

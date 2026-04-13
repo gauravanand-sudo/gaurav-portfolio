@@ -105,10 +105,10 @@ const projects: { title: string; description: string; tags: string[]; github?: s
   {
     title: 'SpecPilot RAG',
     description:
-      'Grounded assistant for technical manuals and engineering runbooks. Designed around Hugging Face embeddings, a PyTorch reranker, hybrid retrieval, and citation-backed LLM answers for long-form technical questions.',
-    tags: ['PyTorch', 'RAG', 'LLM', 'Hugging Face', 'FAISS'],
+      'Grounded assistant for technical manuals and engineering runbooks. Built with lexical retrieval, a PyTorch reranker, and Hugging Face generation to return citation-backed answers over long technical notes.',
+    tags: ['PyTorch', 'RAG', 'LLM', 'Hugging Face', 'FastAPI'],
     liveDemo: '/projects/specpilot-rag',
-    status: 'Concept',
+    status: 'Active',
   },
   {
     title: 'Design Patterns Visual',
