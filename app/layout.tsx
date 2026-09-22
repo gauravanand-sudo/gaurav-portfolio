@@ -6,6 +6,7 @@ import './site-sections.css'
 import './site-content.css'
 import './company.css'
 import './maturity.css'
+import './maturity-extra.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 

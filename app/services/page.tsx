@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/services' },
 }
 
-const requestGroups = [
+const requestGroups: [string, string[]][] = [
   ['Products', ['Business website', 'Landing page', 'SaaS MVP', 'Customer portal', 'Booking flow', 'Marketplace']],
   ['Automation', ['AI chatbot', 'RAG knowledge assistant', 'Document workflow', 'CRM automation', 'Recurring reports', 'Research workflow']],
   ['Creative', ['Launch creative', 'Pitch deck', 'Social media pack', 'Poster system', 'SEO content', 'Landing-page copy']],
