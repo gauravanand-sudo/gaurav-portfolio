@@ -6,17 +6,16 @@ export default function Footer() {
       <div className="site-shell footer-main">
         <div>
           <Link href="/" className="footer-brand">GAURAVANAND.TECH</Link>
-          <p className="footer-copy">AI, software, cloud and automation — built around a concrete business outcome.</p>
+          <p className="footer-copy">Apps, AI, games, design, content, cloud and custom digital work.</p>
         </div>
         <div className="footer-links">
           <Link href="/#services">Services</Link>
-          <Link href="/#work">Work</Link>
           <Link href="/insights">Insights</Link>
-          <Link href="/portfolio">Portfolio</Link>
+          <Link href="/portfolio">Portfolio / Resume</Link>
         </div>
         <div className="footer-cta">
-          <span>Know what you need built?</span>
-          <a href="mailto:gaurav.anand54@gmail.com?subject=Project%20estimate%20-%20gauravanand.tech">Get a project estimate →</a>
+          <span>Need something made?</span>
+          <a href="mailto:gaurav.anand54@gmail.com?subject=New%20work%20request%20-%20gauravanand.tech">Send a request →</a>
         </div>
       </div>
       <div className="site-shell footer-bottom">

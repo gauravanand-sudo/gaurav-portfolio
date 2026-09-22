@@ -1,50 +1,152 @@
 import Link from 'next/link'
 import Nav from '@/components/Nav'
-import Hero from '@/components/Hero'
 import Footer from '@/components/Footer'
 
-const services = [
+const serviceGroups = [
   {
-    title: 'AI automation & agents',
-    pitch: 'Automate repetitive work and give teams AI tools that can search, reason and act across your systems.',
-    outcomes: ['AI agents & copilots', 'workflow automation', 'document processing', 'support & operations tools'],
+    icon: 'APP',
+    title: 'Apps & websites',
+    summary: 'Customer apps, marketplaces, portals and websites built around a real workflow.',
+    examples: [
+      'Zomato / Swiggy-style food delivery',
+      'Amazon / Flipkart-style e-commerce',
+      'Uber / Ola-style booking & tracking',
+      'Urban Company-style service marketplace',
+      'SaaS dashboards & admin panels',
+      'Business websites & landing pages',
+    ],
   },
   {
-    title: 'RAG & knowledge systems',
-    pitch: 'Turn private PDFs, wikis, SOPs and product documentation into fast, citation-backed search and Q&A.',
-    outcomes: ['private knowledge assistants', 'semantic search', 'retrieval & reranking', 'permissions & evaluation'],
+    icon: 'AI',
+    title: 'AI & automation',
+    summary: 'AI tools that answer, create, classify, search, summarize and automate repetitive work.',
+    examples: [
+      'ChatGPT-style support assistant',
+      'PDF / company knowledge chatbot',
+      'Lead qualification & CRM automation',
+      'Email, report & document automation',
+      'AI content & research workflows',
+      'Custom agents connected to APIs',
+    ],
   },
   {
-    title: 'Custom software & integrations',
-    pitch: 'Build the product, portal, dashboard, API or internal tool your business needs — and connect it to the systems you already use.',
-    outcomes: ['SaaS & MVPs', 'web applications', 'REST APIs', 'third-party integrations'],
+    icon: 'GAME',
+    title: 'Games & interactive',
+    summary: 'Playable experiences, prototypes and interactive demos for web, mobile or internal use.',
+    examples: [
+      '2D casual & arcade games',
+      'Quiz, puzzle & educational games',
+      'Endless runner / tap games',
+      'Multiplayer prototype concepts',
+      'Interactive product demos',
+      'Simulation & training experiences',
+    ],
   },
   {
-    title: 'Cloud, backend & performance',
-    pitch: 'Make software reliable, deployable and fast — from cloud infrastructure and backend services to performance-critical C++ systems.',
-    outcomes: ['cloud deployment', 'Docker & CI/CD', 'microservices', 'performance optimization'],
+    icon: 'DESIGN',
+    title: 'Graphics & creative',
+    summary: 'Visual assets for brands, creators, products, campaigns and events.',
+    examples: [
+      'Posters & event creatives',
+      'Instagram / LinkedIn social posts',
+      'YouTube thumbnails & banners',
+      'Logos & lightweight brand kits',
+      'Ad creatives & campaign graphics',
+      'Infographics, menus & brochures',
+    ],
+  },
+  {
+    icon: 'CONTENT',
+    title: 'Content & marketing',
+    summary: 'Useful, search-friendly and campaign-ready content across channels.',
+    examples: [
+      'SEO articles & tech news briefs',
+      'Landing-page & website copy',
+      'Product descriptions & catalog copy',
+      'Social captions & content calendars',
+      'Video scripts & newsletter drafts',
+      'Ad copy, hooks & campaign ideas',
+    ],
+  },
+  {
+    icon: 'DATA',
+    title: 'Data, dashboards & research',
+    summary: 'Turn messy information into usable dashboards, reports and decisions.',
+    examples: [
+      'Excel / Sheets automation',
+      'Business KPI dashboards',
+      'Data cleaning & transformation',
+      'Market / competitor research',
+      'Reporting & recurring summaries',
+      'Forecasting / ML prototypes',
+    ],
+  },
+  {
+    icon: 'CLOUD',
+    title: 'Backend, APIs & cloud',
+    summary: 'The infrastructure behind apps, automations and digital products.',
+    examples: [
+      'REST APIs & integrations',
+      'Payments, auth & notifications',
+      'Docker & cloud deployment',
+      'CI/CD & release automation',
+      'Databases & backend services',
+      'Monitoring & performance fixes',
+    ],
+  },
+  {
+    icon: 'DOC',
+    title: 'Documents & presentations',
+    summary: 'Professional business material that is ready to send, present or publish.',
+    examples: [
+      'Pitch decks & sales presentations',
+      'Proposals & company profiles',
+      'Resumes & portfolio documents',
+      'PDF reports & executive summaries',
+      'SOPs, manuals & documentation',
+      'Case studies & one-pagers',
+    ],
+  },
+  {
+    icon: 'CUSTOM',
+    title: 'Custom digital work',
+    summary: 'If it can be designed, automated, coded, organized or produced digitally, ask.',
+    examples: [
+      'MVPs & proof-of-concepts',
+      'Calculators, forms & mini-tools',
+      'QR menus & microsites',
+      'Bots & workflow helpers',
+      'Internal productivity tools',
+      'Unusual one-off digital builds',
+    ],
   },
 ]
 
-const work = [
-  {
-    tag: 'AI / RAG',
-    title: 'SpecPilot RAG',
-    description: 'A grounded technical-document assistant using retrieval, reranking and citation-backed answers — the same core pattern used for internal knowledge and support systems.',
-    href: '/projects/specpilot-rag',
-  },
-  {
-    tag: 'C++ / PERFORMANCE',
-    title: 'Celeris',
-    description: 'A C++20 multicore simulation engine built around synchronization, concurrency and benchmark-driven optimization.',
-    href: '/projects/celeris',
-  },
-  {
-    tag: 'COMPILERS / TOOLING',
-    title: 'MDL Compiler',
-    description: 'A complete compiler front-end with tokenization, LALR parsing, AST construction and semantic validation.',
-    href: '/projects/compiler',
-  },
+const popularRequests = [
+  'Food delivery app',
+  'E-commerce store',
+  'Booking app',
+  'AI chatbot',
+  'Company website',
+  'Admin dashboard',
+  'Poster design',
+  'Social media creatives',
+  'Pitch deck',
+  'YouTube thumbnail',
+  '2D mobile game',
+  'Quiz game',
+  'SEO articles',
+  'Tech news content',
+  'Excel automation',
+  'Business reports',
+  'API integration',
+  'Cloud deployment',
+  'PDF chatbot',
+  'Lead automation',
+  'Resume / portfolio',
+  'Landing page',
+  'Product catalog',
+  'Custom prototype',
 ]
 
 const insights = [
@@ -60,91 +162,111 @@ export default function Home() {
     name: 'GauravAnand.Tech',
     url: 'https://gauravanand.tech',
     areaServed: 'Worldwide',
-    description: 'AI and software engineering services for automation, custom applications, cloud systems and performance-critical software.',
-    serviceType: ['AI automation', 'AI software development', 'Custom software development', 'Cloud engineering', 'Backend engineering'],
+    description: 'A broad digital studio for apps, websites, AI, automation, games, graphics, content, presentations, data and cloud work.',
+    serviceType: [
+      'App development',
+      'Website development',
+      'AI automation',
+      'Game development',
+      'Graphic design',
+      'Content creation',
+      'Data dashboards',
+      'Cloud engineering',
+      'Presentation design',
+    ],
   }
 
   return (
     <>
       <Nav />
       <main>
-        <Hero />
-
-        <section id="services" className="sales-section">
-          <div className="site-shell">
-            <div className="sales-heading">
-              <div>
-                <p className="section-eyebrow">SERVICES</p>
-                <h2>Tell us what is slowing the business down. We’ll build the software to fix it.</h2>
+        <section className="studio-hero">
+          <div className="site-shell studio-hero-grid">
+            <div>
+              <p className="hero-kicker">DIGITAL STUDIO · BUILD / DESIGN / AUTOMATE / CREATE</p>
+              <h1>Need something digital? We can probably build it.</h1>
+              <p className="hero-lead">
+                Apps, websites, AI tools, automations, games, posters, dashboards, presentations, content, cloud systems and custom digital work — one place to get ideas turned into finished output.
+              </p>
+              <div className="hero-actions">
+                <a className="button button-primary" href="mailto:gaurav.anand54@gmail.com?subject=Project%20request%20-%20gauravanand.tech">Tell us what you need →</a>
+                <a className="button button-secondary" href="#services">Browse services</a>
               </div>
-              <p>Start with a focused build or a complete product. Every engagement is scoped around a concrete outcome and a deployable result.</p>
+            </div>
+            <div className="hero-service-board">
+              <span>APPS</span><span>AI</span><span>GAMES</span><span>WEBSITES</span>
+              <span>POSTERS</span><span>AUTOMATION</span><span>CONTENT</span><span>DATA</span>
+              <span>CLOUD</span><span>DECKS</span><span>GRAPHICS</span><span>MORE</span>
+            </div>
+          </div>
+          <div className="studio-marquee">
+            <div className="site-shell marquee-row">
+              <span>Food delivery apps</span><i /> <span>E-commerce</span><i /> <span>AI assistants</span><i />
+              <span>Games</span><i /> <span>Posters</span><i /> <span>Dashboards</span><i />
+              <span>Websites</span><i /> <span>Presentations</span><i /> <span>Automation</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="services" className="studio-section">
+          <div className="site-shell">
+            <div className="studio-heading">
+              <div>
+                <p className="section-eyebrow">WHAT YOU CAN ORDER</p>
+                <h2>Concrete services, not vague “digital transformation”.</h2>
+              </div>
+              <p>Choose a category or simply describe the result you want. We can scope a one-off task, a prototype, or a complete build.</p>
             </div>
 
-            <div className="sales-services">
-              {services.map((service, index) => (
-                <article className="sales-service-card" key={service.title}>
-                  <span className="sales-num">0{index + 1}</span>
-                  <h3>{service.title}</h3>
-                  <p>{service.pitch}</p>
-                  <ul>{service.outcomes.map((item) => <li key={item}>{item}</li>)}</ul>
+            <div className="service-matrix">
+              {serviceGroups.map((group) => (
+                <article className="service-tile" key={group.title}>
+                  <div className="service-tile-top"><span>{group.icon}</span><i>↗</i></div>
+                  <h3>{group.title}</h3>
+                  <p>{group.summary}</p>
+                  <ul>{group.examples.map((item) => <li key={item}>{item}</li>)}</ul>
                 </article>
               ))}
             </div>
 
-            <div className="inline-cta">
-              <div>
-                <strong>Have a specific problem already?</strong>
-                <span>Send the goal, current setup and deadline. We’ll reply with the clearest next step.</span>
-              </div>
-              <a className="button button-primary" href="mailto:gaurav.anand54@gmail.com?subject=Project%20brief%20-%20gauravanand.tech">Send project brief →</a>
-            </div>
+            <p className="brand-example-note">Brand names above describe familiar product patterns only; there is no affiliation or endorsement.</p>
           </div>
         </section>
 
-        <section id="work" className="sales-section proof-section">
+        <section className="studio-section requests-section">
           <div className="site-shell">
-            <div className="sales-heading compact-heading">
+            <div className="studio-heading compact-heading">
               <div>
-                <p className="section-eyebrow">ENGINEERING PROOF</p>
-                <h2>Built across AI, backend systems and low-level engineering.</h2>
+                <p className="section-eyebrow">POPULAR REQUESTS</p>
+                <h2>Start with the thing you want made.</h2>
               </div>
-              <Link href="/portfolio" className="simple-link">View technical portfolio →</Link>
+              <a className="button button-primary small-button" href="mailto:gaurav.anand54@gmail.com?subject=Custom%20work%20request%20-%20gauravanand.tech">Request something else →</a>
             </div>
-
-            <div className="proof-cards">
-              {work.map((project) => (
-                <Link href={project.href} className="proof-card" key={project.title}>
-                  <span>{project.tag}</span>
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  <strong>See project →</strong>
-                </Link>
-              ))}
+            <div className="request-cloud">
+              {popularRequests.map((item) => <span key={item}>{item}</span>)}
             </div>
           </div>
         </section>
 
-        <section className="sales-section process-section">
-          <div className="site-shell process-sales-grid">
-            <div className="process-copy">
+        <section className="studio-section studio-process">
+          <div className="site-shell process-compact">
+            <div>
               <p className="section-eyebrow">HOW IT WORKS</p>
-              <h2>Small process. Clear deliverables.</h2>
-              <p>No long discovery theatre. Start with the problem, validate the risky part, then ship.</p>
-              <a className="simple-link" href="mailto:gaurav.anand54@gmail.com?subject=Project%20estimate%20-%20gauravanand.tech">Ask for an estimate →</a>
+              <h2>Send the task. Get a clear plan. Get the work.</h2>
             </div>
-            <div className="process-steps">
-              <article><span>1</span><div><h3>Share the problem</h3><p>What needs to change, who uses it, what systems are involved, and what success looks like.</p></div></article>
-              <article><span>2</span><div><h3>Get a practical build plan</h3><p>Scope, architecture, milestones and the fastest way to de-risk the hard part.</p></div></article>
-              <article><span>3</span><div><h3>Build, deploy, iterate</h3><p>Working software with testing, deployment and the engineering needed to keep it maintainable.</p></div></article>
+            <div className="compact-steps">
+              <article><span>01</span><div><h3>Describe it</h3><p>Send the idea, example links, deadline and what “done” should look like.</p></div></article>
+              <article><span>02</span><div><h3>Scope it</h3><p>We turn it into deliverables, milestones and the simplest practical execution plan.</p></div></article>
+              <article><span>03</span><div><h3>Build it</h3><p>You get the finished files, product, design or deployed system — with revisions where agreed.</p></div></article>
             </div>
           </div>
         </section>
 
-        <section className="sales-section insight-strip">
+        <section className="studio-section insights-compact">
           <div className="site-shell">
             <div className="mini-head">
-              <div><p className="section-eyebrow">INSIGHTS</p><h2>Useful technical notes.</h2></div>
-              <Link href="/insights" className="simple-link">All insights →</Link>
+              <div><p className="section-eyebrow">INSIGHTS</p><h2>Ideas, guides & tech briefs.</h2></div>
+              <Link href="/insights" className="simple-link">See all →</Link>
             </div>
             <div className="mini-insights">
               {insights.map(([title, href]) => <Link key={href} href={href}>{title}<span>→</span></Link>)}
@@ -152,14 +274,16 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="sales-final">
-          <div className="site-shell">
-            <p className="section-eyebrow">READY TO BUILD?</p>
-            <h2>Turn the problem into working software.</h2>
-            <p>AI automation, internal tools, SaaS, APIs, cloud systems or performance engineering — send a short brief and start with a concrete plan.</p>
-            <div className="hero-actions">
-              <a className="button button-light" href="mailto:gaurav.anand54@gmail.com?subject=Project%20estimate%20-%20gauravanand.tech">Get a project estimate →</a>
-              <a className="button button-dark-outline" href="/portfolio">View portfolio</a>
+        <section className="studio-final">
+          <div className="site-shell final-grid">
+            <div>
+              <p className="section-eyebrow">ANY DIGITAL TASK</p>
+              <h2>What do you need done?</h2>
+              <p>Send one sentence or a full brief. App, game, poster, automation, website, dashboard, presentation, content, AI tool — or something not listed.</p>
+            </div>
+            <div className="final-actions">
+              <a className="button button-light" href="mailto:gaurav.anand54@gmail.com?subject=New%20work%20request%20-%20gauravanand.tech">Start a request →</a>
+              <Link className="button button-dark-outline" href="/portfolio">View resume</Link>
             </div>
           </div>
         </section>

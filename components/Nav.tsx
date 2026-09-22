@@ -2,7 +2,6 @@ import Link from 'next/link'
 
 const links = [
   { label: 'Services', href: '/#services' },
-  { label: 'Work', href: '/#work' },
   { label: 'Insights', href: '/insights' },
   { label: 'Portfolio', href: '/portfolio' },
 ]
@@ -17,7 +16,7 @@ export default function Nav() {
         </Link>
         <div className="nav-links" aria-label="Primary navigation">
           {links.map((link) => <Link key={link.label} href={link.href} className="nav-link">{link.label}</Link>)}
-          <a className="nav-cta" href="mailto:gaurav.anand54@gmail.com?subject=Project%20estimate%20-%20gauravanand.tech">Get estimate</a>
+          <a className="nav-cta" href="mailto:gaurav.anand54@gmail.com?subject=New%20work%20request%20-%20gauravanand.tech">Request work</a>
         </div>
       </div>
     </nav>

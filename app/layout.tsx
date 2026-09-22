@@ -10,27 +10,27 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'sw
 export const metadata: Metadata = {
   metadataBase: new URL('https://gauravanand.tech'),
   title: {
-    default: 'GauravAnand.Tech — AI & Software Engineering',
+    default: 'GauravAnand.Tech — Digital Studio for Apps, AI, Games, Design & More',
     template: '%s | GauravAnand.Tech',
   },
-  description: 'AI-native software engineering studio for AI products, cloud platforms, automation, data systems, SaaS and custom software.',
+  description: 'Digital services for apps, websites, AI automation, games, graphics, posters, content, dashboards, presentations, cloud systems and custom digital work.',
   keywords: [
-    'AI software development', 'AI agents', 'RAG development', 'custom software development',
-    'cloud engineering', 'SaaS development', 'workflow automation', 'software consulting',
-    'OpenAI development', 'product engineering', 'DevOps', 'C++ performance engineering'
+    'app development', 'website development', 'AI automation', 'AI chatbot', 'game development',
+    'graphic design', 'poster design', 'social media design', 'presentation design', 'SEO content',
+    'dashboard development', 'cloud deployment', 'API development', 'custom digital services'
   ],
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'GauravAnand.Tech — AI & Software Engineering',
-    description: 'AI-native software engineering for products, platforms and automation.',
+    title: 'GauravAnand.Tech — Digital Studio',
+    description: 'Apps, AI, games, websites, graphics, content, cloud and custom digital work.',
     url: 'https://gauravanand.tech',
     siteName: 'GauravAnand.Tech',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GauravAnand.Tech — AI & Software Engineering',
-    description: 'AI-native software engineering for products, platforms and automation.',
+    title: 'GauravAnand.Tech — Digital Studio',
+    description: 'Apps, AI, games, websites, graphics, content, cloud and custom digital work.',
   },
   robots: { index: true, follow: true },
 }
