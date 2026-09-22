@@ -15,16 +15,9 @@ export default function Nav() {
           <span className="brand-mark">GA</span>
           <span className="brand-name">GAURAVANAND.TECH</span>
         </Link>
-
         <div className="nav-links" aria-label="Primary navigation">
-          {links.map((link) => (
-            <Link key={link.label} href={link.href} className="nav-link">
-              {link.label}
-            </Link>
-          ))}
-          <a className="nav-cta" href="mailto:gaurav.anand54@gmail.com?subject=Project%20inquiry%20-%20gauravanand.tech">
-            Start a project
-          </a>
+          {links.map((link) => <Link key={link.label} href={link.href} className="nav-link">{link.label}</Link>)}
+          <a className="nav-cta" href="mailto:gaurav.anand54@gmail.com?subject=Project%20estimate%20-%20gauravanand.tech">Get estimate</a>
         </div>
       </div>
     </nav>
