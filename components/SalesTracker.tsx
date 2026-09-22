@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 function getAttribution() {
   if (typeof window === 'undefined') return {}
@@ -27,6 +27,7 @@ function getAttribution() {
 }
 
 export async function track(event: string, data: Record<string, unknown> = {}) {
+  if (typeof window === 'undefined') return
   try {
     const payload = JSON.stringify({
       event,
@@ -35,22 +36,18 @@ export async function track(event: string, data: Record<string, unknown> = {}) {
       attribution: getAttribution(),
       ...data,
     })
-    if (navigator.sendBeacon) {
-      navigator.sendBeacon('/api/events', new Blob([payload], { type: 'application/json' }))
-    } else {
-      await fetch('/api/events', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: payload, keepalive: true })
-    }
+    if (navigator.sendBeacon) navigator.sendBeacon('/api/events', new Blob([payload], { type: 'application/json' }))
+    else await fetch('/api/events', { method:'POST', headers:{'Content-Type':'application/json'}, body:payload, keepalive:true })
   } catch {}
 }
 
 export default function SalesTracker() {
   const pathname = usePathname()
-  const search = useSearchParams()
 
   useEffect(() => {
     getAttribution()
-    track('page_view', { search: search.toString() })
-  }, [pathname, search])
+    track('page_view', { search: window.location.search })
+  }, [pathname])
 
   useEffect(() => {
     const onClick = (event: MouseEvent) => {
@@ -68,6 +65,4 @@ export default function SalesTracker() {
   return null
 }
 
-export function readAttribution() {
-  return getAttribution()
-}
+export function readAttribution() { return getAttribution() }

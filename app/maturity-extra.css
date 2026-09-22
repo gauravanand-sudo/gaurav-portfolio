@@ -42,3 +42,5 @@
 .brand-domain-note{display:block;margin-top:10px;color:#98a2b3;font-size:10px;line-height:1.45}
 @media(max-width:900px){.care-grid{grid-template-columns:repeat(2,1fr)}.case-study-grid{grid-template-columns:1fr}.risk-grid{grid-template-columns:repeat(2,1fr)}.resource-nurture-row,.nurture-grid,.article-nurture{grid-template-columns:1fr}.comparison-row{grid-template-columns:1fr}.comparison-row.heading{display:none}}
 @media(max-width:560px){.care-grid,.risk-grid,.resource-grid{grid-template-columns:1fr}.subscribe-form input{min-width:100%;width:100%}.subscribe-form .button{width:100%}.lead-step-actions{flex-direction:column}.lead-step-actions .button{width:100%}}
+
+.lead-step-hidden{display:none!important}
