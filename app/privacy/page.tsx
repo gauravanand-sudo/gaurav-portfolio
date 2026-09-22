@@ -2,32 +2,16 @@ import type { Metadata } from 'next'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy',
-  description: 'Privacy policy for ga.tech.',
-  alternates: { canonical: '/privacy' },
-}
+export const metadata: Metadata={title:'Privacy Policy',description:'Privacy policy for ga.tech.',alternates:{canonical:'/privacy'}}
 
-export default function PrivacyPage() {
-  return (
-    <>
-      <Nav />
-      <main className="legal-page">
-        <div className="site-shell legal-shell">
-          <p className="company-kicker">LEGAL</p>
-          <h1>Privacy Policy</h1>
-          <p className="legal-updated">Last updated: 23 September 2026</p>
-
-          <section><h2>What we collect</h2><p>When you contact ga.tech or submit a project brief, we may collect your name, email address, phone number, company name, project details, budget/timeline selections, links and files you choose to provide.</p></section>
-          <section><h2>How we use it</h2><p>We use submitted information to evaluate your request, communicate with you, prepare scope or estimates, prevent abuse, and—if an engagement begins—deliver and support the agreed work.</p></section>
-          <section><h2>Form processing</h2><p>The project brief form is processed using a third-party form delivery provider and sent to ga.tech by email. Do not submit passwords, financial credentials, government IDs or other highly sensitive information through the website form.</p></section>
-          <section><h2>Files and retention</h2><p>We keep project correspondence only as long as reasonably necessary for evaluation, delivery, support, record-keeping or legal obligations. Third-party infrastructure providers may retain data according to their own policies.</p></section>
-          <section><h2>Sharing</h2><p>We do not sell personal information. Information may be shared with infrastructure or service providers only when needed to operate the website, process a request or deliver agreed work.</p></section>
-          <section><h2>Your choices</h2><p>You may ask us to correct or delete information you submitted, subject to legitimate record-keeping or legal requirements. Contact us through the project/contact page on this website.</p></section>
-          <section><h2>Changes</h2><p>This policy may be updated as ga.tech adds tools, integrations or formal business operations. The latest version will appear on this page.</p></section>
-        </div>
-      </main>
-      <Footer />
-    </>
-  )
-}
+export default function PrivacyPage(){return <><Nav/><main id="main-content" className="legal-page"><div className="site-shell legal-shell"><p className="company-kicker">LEGAL</p><h1>Privacy Policy</h1><p className="legal-updated">Last updated: 23 September 2026</p>
+<section><h2>What we collect</h2><p>When you submit a project brief, discovery request, referral or newsletter signup, we may collect contact details, company information, project context, budget/timeline selections and optional links you provide.</p></section>
+<section><h2>Attribution and website events</h2><p>The site may store campaign parameters such as UTM source, medium and campaign, original landing page and referrer in session storage so an enquiry can be attributed to its source. First-party events such as page views, CTA clicks, form starts and submissions may be recorded in server logs or forwarded to a configured analytics service.</p></section>
+<section><h2>Lead qualification</h2><p>Project enquiries may be assigned a routing score based on information you submit, such as budget range, timeline, company context and brief detail. This score helps prioritize follow-up and does not make an automated decision about whether ga.tech will work with you.</p></section>
+<section><h2>How we use information</h2><p>We use information to evaluate requests, communicate, prepare scope or estimates, improve the sales funnel, prevent abuse and—if an engagement begins—deliver and support the agreed work.</p></section>
+<section><h2>Service providers</h2><p>Information may be processed by hosting, form/email delivery, CRM, analytics or marketing automation providers configured by ga.tech. These services are used to operate the website and follow up on requests. Do not submit passwords, financial credentials, government IDs or other highly sensitive data through website forms.</p></section>
+<section><h2>Marketing signups</h2><p>If you voluntarily subscribe to Build Notes, your email address may be forwarded to a configured marketing provider for occasional updates. You may unsubscribe from future marketing communications using the instructions provided in those messages.</p></section>
+<section><h2>Sharing and sale of data</h2><p>We do not sell personal information. Data may be shared with service providers only when reasonably necessary to operate the website, process a request, communicate or deliver agreed work.</p></section>
+<section><h2>Retention and deletion</h2><p>Information is kept only as long as reasonably necessary for evaluation, delivery, support, record-keeping or legal obligations. You may request correction or deletion of information you submitted, subject to legitimate record-keeping or legal requirements, through the contact page.</p></section>
+<section><h2>Changes</h2><p>This policy may be updated as tools, integrations and formal business operations evolve. The latest version will appear on this page.</p></section>
+</div></main><Footer/></>}

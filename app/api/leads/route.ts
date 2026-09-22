@@ -41,6 +41,7 @@ export async function POST(request: NextRequest) {
       headers:{'Content-Type':'application/json','Accept':'application/json'},
       body:JSON.stringify({
         _subject: `[${scoring.tier.toUpperCase()} ${scoring.score}] ga.tech lead: ${body.request}`,
+        _autoresponse: 'Thanks for contacting ga.tech. Your request has been received. Target response time is within 1 business day.',
         ...lead,
       }),
     }).catch(() => null))

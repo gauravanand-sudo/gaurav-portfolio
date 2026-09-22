@@ -22,6 +22,7 @@ export async function POST(request: NextRequest) {
       headers:{'Content-Type':'application/json','Accept':'application/json'},
       body:JSON.stringify({
         _subject:'New ga.tech Build Notes subscriber',
+        _autoresponse:'Thanks for joining ga.tech Build Notes. You are on the list for occasional product, AI and delivery updates.',
         subscriber_email:email,
         source:subscriber.source,
         created_at:subscriber.createdAt,
