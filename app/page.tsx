@@ -2,158 +2,231 @@ import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
-const serviceGroups = [
+type IconName =
+  | 'phone' | 'bot' | 'game' | 'palette' | 'megaphone' | 'chart' | 'cloud' | 'slides'
+  | 'bulb' | 'burger' | 'bag' | 'calendar' | 'image' | 'document' | 'rocket' | 'chat'
+  | 'laptop' | 'shield' | 'bolt' | 'heart' | 'check' | 'search' | 'code' | 'wand'
+
+function Icon({ name, className = '' }: { name: IconName; className?: string }) {
+  const common = { width: 24, height: 24, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.9, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const }
+  const paths: Record<IconName, React.ReactNode> = {
+    phone: <><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 5h4M11 19h2"/></>,
+    bot: <><rect x="4" y="7" width="16" height="12" rx="4"/><path d="M12 3v4M9 12h.01M15 12h.01M8 16h8"/></>,
+    game: <><path d="M7 9h10a4 4 0 0 1 3.8 5.2l-1 3A2.6 2.6 0 0 1 15.4 18l-1.2-1.4H9.8L8.6 18a2.6 2.6 0 0 1-4.4-.8l-1-3A4 4 0 0 1 7 9Z"/><path d="M7 13h4M9 11v4M16 12h.01M18 14h.01"/></>,
+    palette: <><path d="M12 3a9 9 0 1 0 0 18h1.5a2 2 0 0 0 0-4H12a2 2 0 0 1 0-4h2a7 7 0 0 0-2-10Z"/><path d="M7 9h.01M9 6h.01M15 6h.01M17 10h.01"/></>,
+    megaphone: <><path d="M3 11v2a2 2 0 0 0 2 2h2l4 4V5L7 9H5a2 2 0 0 0-2 2Z"/><path d="M11 7c4 0 7-2 9-4v18c-2-2-5-4-9-4M6 15l1 5"/></>,
+    chart: <><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></>,
+    cloud: <><path d="M7 18h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.1 8.8 4.5 4.5 0 0 0 7 18Z"/></>,
+    slides: <><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 8h5M7 12h10M9 22h6M12 18v4"/></>,
+    bulb: <><path d="M9 18h6M10 22h4M8.5 14.5A6 6 0 1 1 15.5 14.5c-.9.7-1.5 1.5-1.5 2.5h-4c0-1-.6-1.8-1.5-2.5Z"/></>,
+    burger: <><path d="M4 10h16M5 10a7 5 0 0 1 14 0M4 14h16M6 18h12a2 2 0 0 0 2-2H4a2 2 0 0 0 2 2Z"/></>,
+    bag: <><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/></>,
+    calendar: <><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M8 14h2M14 14h2M8 18h2"/></>,
+    image: <><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5L5 20"/></>,
+    document: <><path d="M6 2h8l4 4v16H6V2Z"/><path d="M14 2v5h5M9 12h6M9 16h6"/></>,
+    rocket: <><path d="M14 5c3-3 6-3 6-3s0 3-3 6l-6 6-4 1 1-4 6-6Z"/><path d="m9 15-3 3M5 13l-2 2M11 19l-2 2"/></>,
+    chat: <><path d="M4 5h16v11H8l-4 4V5Z"/></>,
+    laptop: <><rect x="4" y="4" width="16" height="12" rx="2"/><path d="M2 20h20M9 20l1-4h4l1 4"/></>,
+    shield: <><path d="M12 3 5 6v5c0 5 3.5 8.5 7 10 3.5-1.5 7-5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></>,
+    bolt: <path d="m13 2-8 12h7l-1 8 8-12h-7l1-8Z"/>,
+    heart: <path d="M20.8 5.8a5 5 0 0 0-7.1 0L12 7.5l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 21l8.8-8.1a5 5 0 0 0 0-7.1Z"/>,
+    check: <path d="m5 12 4 4L19 6"/>,
+    search: <><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></>,
+    code: <><path d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></>,
+    wand: <><path d="m4 20 10-10M14 4l1-2 1 2 2 1-2 1-1 2-1-2-2-1 2-1ZM18 12l.7-1.5.8 1.5 1.5.8-1.5.7-.8 1.5-.7-1.5-1.5-.7 1.5-.8Z"/></>,
+  }
+  return <svg className={className} aria-hidden="true" {...common}>{paths[name]}</svg>
+}
+
+const services = [
   {
-    icon: 'APP',
-    title: 'Apps & websites',
-    summary: 'Customer apps, marketplaces, portals and websites built around a real workflow.',
-    examples: [
-      'Zomato / Swiggy-style food delivery',
-      'Amazon / Flipkart-style e-commerce',
-      'Uber / Ola-style booking & tracking',
-      'Urban Company-style service marketplace',
-      'SaaS dashboards & admin panels',
-      'Business websites & landing pages',
-    ],
+    key: 'apps',
+    icon: 'phone' as IconName,
+    title: 'Apps & Websites',
+    summary: 'Mobile apps, marketplaces, SaaS products and websites.',
+    examples: ['Food delivery like Zomato / Swiggy', 'E-commerce like Amazon / Flipkart', 'Booking flows like Uber / Ola'],
+    tags: ['Apps', 'SaaS', 'Websites'],
   },
   {
-    icon: 'AI',
-    title: 'AI & automation',
-    summary: 'AI tools that answer, create, classify, search, summarize and automate repetitive work.',
-    examples: [
-      'ChatGPT-style support assistant',
-      'PDF / company knowledge chatbot',
-      'Lead qualification & CRM automation',
-      'Email, report & document automation',
-      'AI content & research workflows',
-      'Custom agents connected to APIs',
-    ],
+    key: 'ai',
+    icon: 'bot' as IconName,
+    title: 'AI & Automation',
+    summary: 'AI assistants and workflows that save time and repetitive work.',
+    examples: ['Customer support chatbot', 'PDF / knowledge assistant', 'CRM & document automation'],
+    tags: ['AI Chatbot', 'RAG', 'Automation'],
   },
   {
-    icon: 'GAME',
-    title: 'Games & interactive',
-    summary: 'Playable experiences, prototypes and interactive demos for web, mobile or internal use.',
-    examples: [
-      '2D casual & arcade games',
-      'Quiz, puzzle & educational games',
-      'Endless runner / tap games',
-      'Multiplayer prototype concepts',
-      'Interactive product demos',
-      'Simulation & training experiences',
-    ],
+    key: 'games',
+    icon: 'game' as IconName,
+    title: 'Games & Interactive',
+    summary: 'Playable ideas, prototypes and interactive digital experiences.',
+    examples: ['2D casual / arcade games', 'Quiz & educational games', 'Interactive product demos'],
+    tags: ['2D Games', 'Interactive', 'Prototype'],
   },
   {
-    icon: 'DESIGN',
-    title: 'Graphics & creative',
-    summary: 'Visual assets for brands, creators, products, campaigns and events.',
-    examples: [
-      'Posters & event creatives',
-      'Instagram / LinkedIn social posts',
-      'YouTube thumbnails & banners',
-      'Logos & lightweight brand kits',
-      'Ad creatives & campaign graphics',
-      'Infographics, menus & brochures',
-    ],
+    key: 'creative',
+    icon: 'palette' as IconName,
+    title: 'Graphics & Creative',
+    summary: 'Visual assets for brands, creators, products and events.',
+    examples: ['Posters & event creatives', 'Social media & thumbnails', 'Brochures & brand visuals'],
+    tags: ['Posters', 'Social', 'Branding'],
   },
   {
-    icon: 'CONTENT',
-    title: 'Content & marketing',
-    summary: 'Useful, search-friendly and campaign-ready content across channels.',
-    examples: [
-      'SEO articles & tech news briefs',
-      'Landing-page & website copy',
-      'Product descriptions & catalog copy',
-      'Social captions & content calendars',
-      'Video scripts & newsletter drafts',
-      'Ad copy, hooks & campaign ideas',
-    ],
+    key: 'content',
+    icon: 'megaphone' as IconName,
+    title: 'Content & Marketing',
+    summary: 'Search-friendly and campaign-ready writing for digital channels.',
+    examples: ['SEO articles & tech briefs', 'Website & landing-page copy', 'Scripts & product descriptions'],
+    tags: ['SEO', 'Copy', 'Content'],
   },
   {
-    icon: 'DATA',
-    title: 'Data, dashboards & research',
-    summary: 'Turn messy information into usable dashboards, reports and decisions.',
-    examples: [
-      'Excel / Sheets automation',
-      'Business KPI dashboards',
-      'Data cleaning & transformation',
-      'Market / competitor research',
-      'Reporting & recurring summaries',
-      'Forecasting / ML prototypes',
-    ],
+    key: 'data',
+    icon: 'chart' as IconName,
+    title: 'Data & Business',
+    summary: 'Dashboards, reports and automation for business information.',
+    examples: ['KPI & analytics dashboards', 'Excel / Sheets automation', 'Research & recurring reports'],
+    tags: ['Dashboards', 'Excel', 'Reports'],
   },
   {
-    icon: 'CLOUD',
-    title: 'Backend, APIs & cloud',
-    summary: 'The infrastructure behind apps, automations and digital products.',
-    examples: [
-      'REST APIs & integrations',
-      'Payments, auth & notifications',
-      'Docker & cloud deployment',
-      'CI/CD & release automation',
-      'Databases & backend services',
-      'Monitoring & performance fixes',
-    ],
+    key: 'cloud',
+    icon: 'cloud' as IconName,
+    title: 'Backend & Cloud',
+    summary: 'APIs and infrastructure that power digital products reliably.',
+    examples: ['Payments, auth & notifications', 'Cloud deployment & CI/CD', 'Databases & integrations'],
+    tags: ['APIs', 'Cloud', 'CI/CD'],
   },
   {
-    icon: 'DOC',
-    title: 'Documents & presentations',
-    summary: 'Professional business material that is ready to send, present or publish.',
-    examples: [
-      'Pitch decks & sales presentations',
-      'Proposals & company profiles',
-      'Resumes & portfolio documents',
-      'PDF reports & executive summaries',
-      'SOPs, manuals & documentation',
-      'Case studies & one-pagers',
-    ],
+    key: 'docs',
+    icon: 'slides' as IconName,
+    title: 'Documents & Presentations',
+    summary: 'Professional business material ready to present or publish.',
+    examples: ['Pitch decks & proposals', 'Company profiles & reports', 'Resumes & documentation'],
+    tags: ['Pitch Decks', 'Reports', 'Docs'],
   },
   {
-    icon: 'CUSTOM',
-    title: 'Custom digital work',
-    summary: 'If it can be designed, automated, coded, organized or produced digitally, ask.',
-    examples: [
-      'MVPs & proof-of-concepts',
-      'Calculators, forms & mini-tools',
-      'QR menus & microsites',
-      'Bots & workflow helpers',
-      'Internal productivity tools',
-      'Unusual one-off digital builds',
-    ],
+    key: 'custom',
+    icon: 'bulb' as IconName,
+    title: 'Custom Digital Work',
+    summary: 'If it can be designed, coded or automated, bring the idea.',
+    examples: ['MVPs & microsites', 'Calculators, forms & mini-tools', 'Bots & one-off digital builds'],
+    tags: ['MVPs', 'Tools', 'Bots'],
   },
 ]
 
-const popularRequests = [
-  'Food delivery app',
-  'E-commerce store',
-  'Booking app',
-  'AI chatbot',
-  'Company website',
-  'Admin dashboard',
-  'Poster design',
-  'Social media creatives',
-  'Pitch deck',
-  'YouTube thumbnail',
-  '2D mobile game',
-  'Quiz game',
-  'SEO articles',
-  'Tech news content',
-  'Excel automation',
-  'Business reports',
-  'API integration',
-  'Cloud deployment',
-  'PDF chatbot',
-  'Lead automation',
-  'Resume / portfolio',
-  'Landing page',
-  'Product catalog',
-  'Custom prototype',
+const popularRequests: { label: string; icon: IconName; tint: string }[] = [
+  { label: 'Food Delivery App', icon: 'burger', tint: 'orange' },
+  { label: 'E-commerce Store', icon: 'bag', tint: 'pink' },
+  { label: 'Booking App', icon: 'calendar', tint: 'blue' },
+  { label: 'AI Chatbot', icon: 'bot', tint: 'violet' },
+  { label: 'Poster Design', icon: 'image', tint: 'purple' },
+  { label: 'Pitch Deck', icon: 'slides', tint: 'red' },
+  { label: '2D Game', icon: 'game', tint: 'navy' },
+  { label: 'Dashboard', icon: 'chart', tint: 'blue' },
+  { label: 'Landing Page', icon: 'laptop', tint: 'cyan' },
+  { label: 'Cloud Deployment', icon: 'cloud', tint: 'sky' },
+  { label: 'Resume / Portfolio', icon: 'document', tint: 'indigo' },
+  { label: 'Social Creative', icon: 'palette', tint: 'pink' },
+  { label: 'PDF Chatbot', icon: 'document', tint: 'red' },
+  { label: 'Excel Automation', icon: 'chart', tint: 'green' },
 ]
 
 const insights = [
-  ['RAG vs AI agents: choosing the right architecture for business knowledge', '/insights/rag-vs-ai-agents-for-business-knowledge'],
-  ['A practical cloud cost checklist before your startup scales', '/insights/cloud-cost-checklist-before-you-scale'],
-  ['Why performance engineering still matters in an AI-first software stack', '/insights/performance-engineering-in-an-ai-first-stack'],
+  {
+    tag: 'AI & AUTOMATION',
+    title: 'RAG vs AI agents: choosing the right architecture',
+    copy: 'A practical guide to choosing retrieval, agents, or a simpler workflow.',
+    href: '/insights/rag-vs-ai-agents-for-business-knowledge',
+    visual: 'ai',
+    time: '7 min read',
+  },
+  {
+    tag: 'CLOUD',
+    title: 'A practical cloud cost checklist before you scale',
+    copy: 'Simple controls that prevent expensive infrastructure surprises later.',
+    href: '/insights/cloud-cost-checklist-before-you-scale',
+    visual: 'tools',
+    time: '6 min read',
+  },
+  {
+    tag: 'SYSTEMS',
+    title: 'Why performance engineering still matters in AI',
+    copy: 'Model calls are only one part of the latency and cost of a real product.',
+    href: '/insights/performance-engineering-in-an-ai-first-stack',
+    visual: 'growth',
+    time: '6 min read',
+  },
 ]
+
+function HeroVisual() {
+  return (
+    <div className="hero-product-scene" aria-label="Examples of digital products and creative work">
+      <div className="float-card ai-float"><Icon name="bot" /><span><b>AI Assistant</b><small>Ask anything…</small></span></div>
+      <div className="float-card game-float"><Icon name="game" /><span><b>Play. Create.</b><small>Interactive ideas</small></span></div>
+      <div className="float-card cloud-float"><Icon name="cloud" /><span><b>Cloud systems</b><small>Deploy · Scale · Grow</small></span></div>
+      <div className="poster-float"><span>BOLD</span><span>IDEAS</span><span>BRIGHTER</span><span>BRANDS</span></div>
+
+      <div className="hero-phone">
+        <div className="phone-notch" />
+        <strong>Good food,<br/>near you.</strong>
+        <div className="food-photo food-a">🥗</div>
+        <div className="food-photo food-b">🍕</div>
+        <div className="phone-tabs"><i/><i/><i/></div>
+      </div>
+
+      <div className="hero-laptop">
+        <div className="laptop-screen">
+          <aside>
+            <div className="mini-logo">GA</div>
+            <span className="active">Overview</span><span>Analytics</span><span>Projects</span><span>Clients</span><span>Settings</span>
+          </aside>
+          <div className="dashboard-body">
+            <div className="dash-top"><div><small>DASHBOARD</small><h3>Grow smarter.</h3></div><div className="score-ring">78%</div></div>
+            <div className="metric-row"><div><small>Projects</small><b>128</b></div><div><small>Active</small><b>24</b></div><div><small>Success</small><b>98%</b></div></div>
+            <div className="chart-card"><div className="chart-title">Growth</div><div className="bar-chart">{[36,52,44,70,61,83,92].map((h,i)=><i key={i} style={{height:`${h}%`}} />)}</div></div>
+          </div>
+        </div>
+        <div className="laptop-base" />
+      </div>
+
+      <div className="deck-float"><div className="deck-icon">P</div><div><b>Presentation</b><small>Pitch · Explain · Win</small></div></div>
+      <div className="idea-note"><Icon name="wand" /><span>Ideas → impact</span></div>
+    </div>
+  )
+}
+
+function ServiceVisual({ type, icon }: { type: string; icon: IconName }) {
+  if (type === 'apps') {
+    return <div className="service-visual visual-apps"><div className="mini-phone p1"><span>🍔</span><i/><i/></div><div className="mini-phone p2"><span>🛍️</span><i/><i/></div><div className="mini-browser"><div/><div/><div/></div></div>
+  }
+  if (type === 'ai') {
+    return <div className="service-visual visual-ai"><span className="chat-dot left">AI</span><div className="robot-illustration"><Icon name="bot" /></div><span className="chat-dot right">✓</span><div className="ai-card-line"/><div className="ai-card-line short"/></div>
+  }
+  if (type === 'games') {
+    return <div className="service-visual visual-games"><div className="game-hills"><i/><i/><i/></div><div className="controller"><Icon name="game" /></div><span className="game-star">★</span><span className="game-coin">●</span></div>
+  }
+  if (type === 'creative') {
+    return <div className="service-visual visual-creative"><div className="design-chip">Ps</div><div className="design-chip ai">Ai</div><div className="poster-card"><b>GOOD<br/>IDEAS</b><small>BETTER<br/>BRANDS</small></div><div className="poster-card second">CREATE</div></div>
+  }
+  if (type === 'content') {
+    return <div className="service-visual visual-content"><div className="content-doc"><i/><i/><i/></div><div className="content-doc back"><i/><i/></div><div className="megaphone"><Icon name="megaphone" /></div></div>
+  }
+  if (type === 'data') {
+    return <div className="service-visual visual-data"><div className="data-screen"><strong>Revenue</strong><b>$24.5k</b><div>{[45,60,38,78,88].map((h,i)=><i key={i} style={{height:`${h}%`}} />)}</div></div><div className="data-mini"><Icon name="chart" /></div></div>
+  }
+  if (type === 'cloud') {
+    return <div className="service-visual visual-cloud"><div className="cloud-shape"><Icon name="cloud" /></div><div className="server-stack"><i/><i/><i/></div><div className="server-stack second"><i/><i/></div></div>
+  }
+  if (type === 'docs') {
+    return <div className="service-visual visual-docs"><div className="slide-card one"><b>Pitch deck</b><i/><i/></div><div className="slide-card two"><Icon name="document" /></div><div className="slide-card three"><Icon name="slides" /></div></div>
+  }
+  return <div className="service-visual visual-custom"><div className="bulb-glow"><Icon name="bulb" /></div><span className="custom-tile t1"><Icon name="code" /></span><span className="custom-tile t2"><Icon name="wand" /></span><span className="custom-tile t3"><Icon name="laptop" /></span></div>
+}
+
+function InsightVisual({ type }: { type: string }) {
+  if (type === 'ai') return <div className="insight-thumb thumb-ai"><div className="robot-illustration"><Icon name="bot" /></div><div className="thumb-chat">AI</div><div className="thumb-leaf">✦</div></div>
+  if (type === 'tools') return <div className="insight-thumb thumb-tools"><div className="tools-laptop"><Icon name="laptop" /></div><span><Icon name="cloud" /></span><span><Icon name="chart" /></span><span><Icon name="wand" /></span></div>
+  return <div className="insight-thumb thumb-growth"><div className="mountain m1"/><div className="mountain m2"/><div className="flag">⚑</div><div className="sun"/></div>
+}
 
 export default function Home() {
   const structuredData = {
@@ -162,128 +235,126 @@ export default function Home() {
     name: 'GauravAnand.Tech',
     url: 'https://gauravanand.tech',
     areaServed: 'Worldwide',
-    description: 'A broad digital studio for apps, websites, AI, automation, games, graphics, content, presentations, data and cloud work.',
-    serviceType: [
-      'App development',
-      'Website development',
-      'AI automation',
-      'Game development',
-      'Graphic design',
-      'Content creation',
-      'Data dashboards',
-      'Cloud engineering',
-      'Presentation design',
-    ],
+    description: 'A digital studio for apps, websites, AI, automation, games, design, content, presentations, data and cloud work.',
+    serviceType: ['App development','Website development','AI automation','Game development','Graphic design','Content creation','Data dashboards','Cloud engineering','Presentation design'],
   }
 
   return (
     <>
       <Nav />
       <main>
-        <section className="studio-hero">
-          <div className="site-shell studio-hero-grid">
-            <div>
-              <p className="hero-kicker">DIGITAL STUDIO · BUILD / DESIGN / AUTOMATE / CREATE</p>
-              <h1>Need something digital? We can probably build it.</h1>
-              <p className="hero-lead">
-                Apps, websites, AI tools, automations, games, posters, dashboards, presentations, content, cloud systems and custom digital work — one place to get ideas turned into finished output.
-              </p>
+        <section className="visual-hero">
+          <div className="site-shell visual-hero-grid">
+            <div className="hero-copy-block">
+              <div className="hero-pill">A DIGITAL SERVICES STUDIO</div>
+              <h1>Need something digital?<br/>We can probably <em>build it.</em></h1>
+              <p className="hero-lead">Apps, websites, AI tools, automation, games, posters, dashboards, presentations, content, cloud systems and custom digital work — from idea to launch.</p>
               <div className="hero-actions">
-                <a className="button button-primary" href="mailto:gaurav.anand54@gmail.com?subject=Project%20request%20-%20gauravanand.tech">Tell us what you need →</a>
-                <a className="button button-secondary" href="#services">Browse services</a>
+                <a className="button button-primary button-lg" href="mailto:gaurav.anand54@gmail.com?subject=Start%20a%20Project%20-%20gauravanand.tech">Start a Project →</a>
+                <a className="button button-secondary button-lg" href="#services">View Services</a>
+              </div>
+              <div className="hero-trust">
+                <span><Icon name="bolt" />Fast turnaround</span>
+                <span><Icon name="shield" />Reliable & professional</span>
+                <span><Icon name="heart" />Long-term support</span>
               </div>
             </div>
-            <div className="hero-service-board">
-              <span>APPS</span><span>AI</span><span>GAMES</span><span>WEBSITES</span>
-              <span>POSTERS</span><span>AUTOMATION</span><span>CONTENT</span><span>DATA</span>
-              <span>CLOUD</span><span>DECKS</span><span>GRAPHICS</span><span>MORE</span>
-            </div>
-          </div>
-          <div className="studio-marquee">
-            <div className="site-shell marquee-row">
-              <span>Food delivery apps</span><i /> <span>E-commerce</span><i /> <span>AI assistants</span><i />
-              <span>Games</span><i /> <span>Posters</span><i /> <span>Dashboards</span><i />
-              <span>Websites</span><i /> <span>Presentations</span><i /> <span>Automation</span>
-            </div>
+            <HeroVisual />
           </div>
         </section>
 
-        <section id="services" className="studio-section">
+        <section id="services" className="visual-section services-showcase">
           <div className="site-shell">
-            <div className="studio-heading">
-              <div>
-                <p className="section-eyebrow">WHAT YOU CAN ORDER</p>
-                <h2>Concrete services, not vague “digital transformation”.</h2>
-              </div>
-              <p>Choose a category or simply describe the result you want. We can scope a one-off task, a prototype, or a complete build.</p>
+            <div className="visual-section-head">
+              <div><h2>Our Services</h2><p>Everything you need to bring an idea to life, digitally.</p></div>
+              <a href="mailto:gaurav.anand54@gmail.com?subject=Service%20request%20-%20gauravanand.tech" className="head-link">Explore all services →</a>
             </div>
-
-            <div className="service-matrix">
-              {serviceGroups.map((group) => (
-                <article className="service-tile" key={group.title}>
-                  <div className="service-tile-top"><span>{group.icon}</span><i>↗</i></div>
-                  <h3>{group.title}</h3>
-                  <p>{group.summary}</p>
-                  <ul>{group.examples.map((item) => <li key={item}>{item}</li>)}</ul>
+            <div className="visual-service-grid">
+              {services.map((service) => (
+                <article className="visual-service-card" key={service.key}>
+                  <ServiceVisual type={service.key} icon={service.icon} />
+                  <div className="visual-card-body">
+                    <div className="card-title-row"><h3>{service.title}</h3><span>→</span></div>
+                    <p>{service.summary}</p>
+                    <ul>{service.examples.map((item)=><li key={item}>{item}</li>)}</ul>
+                    <div className="tag-row">{service.tags.map(tag=><span key={tag}>{tag}</span>)}</div>
+                  </div>
                 </article>
               ))}
+              <article className="visual-service-card service-cta-card">
+                <div className="cta-plane"><Icon name="rocket" /></div>
+                <h3>Have a unique idea in mind?</h3>
+                <p>Tell us what you want to make. If it’s digital, we can probably help.</p>
+                <a href="mailto:gaurav.anand54@gmail.com?subject=Unique%20digital%20idea%20-%20gauravanand.tech" className="button button-primary">Start a Project →</a>
+              </article>
             </div>
-
-            <p className="brand-example-note">Brand names above describe familiar product patterns only; there is no affiliation or endorsement.</p>
+            <p className="brand-example-note">Brand references describe familiar product patterns only; there is no affiliation or endorsement.</p>
           </div>
         </section>
 
-        <section className="studio-section requests-section">
+        <section className="visual-section popular-section">
           <div className="site-shell">
-            <div className="studio-heading compact-heading">
-              <div>
-                <p className="section-eyebrow">POPULAR REQUESTS</p>
-                <h2>Start with the thing you want made.</h2>
+            <div className="visual-section-head compact">
+              <div><h2>Popular Requests</h2><p>Some of the most common things you can ask us to make.</p></div>
+              <a href="mailto:gaurav.anand54@gmail.com?subject=Custom%20work%20request%20-%20gauravanand.tech" className="head-link">Request anything →</a>
+            </div>
+            <div className="request-icon-grid">
+              {popularRequests.map((item)=>(
+                <a key={item.label} href={`mailto:gaurav.anand54@gmail.com?subject=${encodeURIComponent(item.label)}%20-%20gauravanand.tech`} className="request-icon-card">
+                  <div className={`request-icon ${item.tint}`}><Icon name={item.icon} /></div>
+                  <span>{item.label}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="visual-section process-visual-section">
+          <div className="site-shell">
+            <div className="visual-section-head compact"><div><h2>A Simple 3-Step Process</h2><p>From idea to launch, without the hassle.</p></div></div>
+            <div className="process-visual-grid">
+              <article><div className="step-badge one">1</div><div><h3>Discuss Your Idea</h3><p>Tell us what you need, your goal and your deadline. We’ll suggest the practical path.</p></div><div className="process-art chat-art"><Icon name="chat" /><span>•••</span></div></article>
+              <article><div className="step-badge two">2</div><div><h3>Design & Build</h3><p>We create, iterate and keep you in the loop with clear milestones and updates.</p></div><div className="process-art build-art"><Icon name="laptop" /><Icon name="wand" /></div></article>
+              <article><div className="step-badge three">3</div><div><h3>Launch & Improve</h3><p>We deliver the finished work, help you launch, and refine what needs improving.</p></div><div className="process-art rocket-art"><Icon name="rocket" /></div></article>
+            </div>
+          </div>
+        </section>
+
+        <section className="visual-section insights-visual-section">
+          <div className="site-shell">
+            <div className="visual-section-head compact">
+              <div><h2>Insights & Ideas</h2><p>Practical guides and technology notes to help you build better.</p></div>
+              <Link href="/insights" className="head-link">View all articles →</Link>
+            </div>
+            <div className="insight-visual-grid">
+              {insights.map((article)=>(
+                <Link href={article.href} key={article.href} className="insight-visual-card">
+                  <InsightVisual type={article.visual} />
+                  <div className="insight-copy"><span>{article.tag}</span><h3>{article.title}</h3><p>{article.copy}</p><strong>{article.time} →</strong></div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="visual-cta-wrap">
+          <div className="site-shell visual-cta-banner">
+            <div className="cta-copy">
+              <p className="section-eyebrow">LET’S BUILD TOGETHER</p>
+              <h2>Ready to bring <em>your idea</em> to life?</h2>
+              <p>From simple designs to complete digital products, get one clear place to build, launch and improve.</p>
+              <div className="hero-actions">
+                <a className="button button-primary button-lg" href="mailto:gaurav.anand54@gmail.com?subject=Start%20a%20Project%20-%20gauravanand.tech">Start a Project →</a>
+                <Link className="button button-secondary button-lg" href="/portfolio">View Portfolio</Link>
               </div>
-              <a className="button button-primary small-button" href="mailto:gaurav.anand54@gmail.com?subject=Custom%20work%20request%20-%20gauravanand.tech">Request something else →</a>
             </div>
-            <div className="request-cloud">
-              {popularRequests.map((item) => <span key={item}>{item}</span>)}
+            <div className="cta-benefits">
+              {['Custom solutions','Clear communication','Practical delivery','Long-term support'].map(item=><span key={item}><i><Icon name="check"/></i>{item}</span>)}
             </div>
-          </div>
-        </section>
-
-        <section className="studio-section studio-process">
-          <div className="site-shell process-compact">
-            <div>
-              <p className="section-eyebrow">HOW IT WORKS</p>
-              <h2>Send the task. Get a clear plan. Get the work.</h2>
-            </div>
-            <div className="compact-steps">
-              <article><span>01</span><div><h3>Describe it</h3><p>Send the idea, example links, deadline and what “done” should look like.</p></div></article>
-              <article><span>02</span><div><h3>Scope it</h3><p>We turn it into deliverables, milestones and the simplest practical execution plan.</p></div></article>
-              <article><span>03</span><div><h3>Build it</h3><p>You get the finished files, product, design or deployed system — with revisions where agreed.</p></div></article>
-            </div>
-          </div>
-        </section>
-
-        <section className="studio-section insights-compact">
-          <div className="site-shell">
-            <div className="mini-head">
-              <div><p className="section-eyebrow">INSIGHTS</p><h2>Ideas, guides & tech briefs.</h2></div>
-              <Link href="/insights" className="simple-link">See all →</Link>
-            </div>
-            <div className="mini-insights">
-              {insights.map(([title, href]) => <Link key={href} href={href}>{title}<span>→</span></Link>)}
-            </div>
-          </div>
-        </section>
-
-        <section className="studio-final">
-          <div className="site-shell final-grid">
-            <div>
-              <p className="section-eyebrow">ANY DIGITAL TASK</p>
-              <h2>What do you need done?</h2>
-              <p>Send one sentence or a full brief. App, game, poster, automation, website, dashboard, presentation, content, AI tool — or something not listed.</p>
-            </div>
-            <div className="final-actions">
-              <a className="button button-light" href="mailto:gaurav.anand54@gmail.com?subject=New%20work%20request%20-%20gauravanand.tech">Start a request →</a>
-              <Link className="button button-dark-outline" href="/portfolio">View resume</Link>
+            <div className="cta-illustration">
+              <div className="cta-laptop"><div className="cta-logo">GA</div></div>
+              <div className="cta-plant"><i/><i/><i/></div>
+              <div className="cta-float-card"><Icon name="bulb" /><b>Build</b><span>Create</span><span>Grow</span></div>
             </div>
           </div>
         </section>
