@@ -82,3 +82,7 @@
 .company-footer-bottom>span:last-child{text-align:right}.legal-links{display:flex;gap:13px}.legal-links a{text-decoration:none;color:#98a2b3}.legal-links a:hover{color:#1677ff}
 @media(max-width:820px){.company-footer-grid{grid-template-columns:repeat(2,1fr)}.company-footer-bottom{grid-template-columns:1fr}.company-footer-bottom>span:last-child{text-align:left}.legal-links{justify-content:flex-start}}
 @media(max-width:520px){.company-footer-grid{grid-template-columns:1fr}}
+
+/* Keep the uploaded logo prominent in company navigation/footer */
+.company-footer-grid .footer-logo-image{height:64px}
+@media(max-width:600px){.company-footer-grid .footer-logo-image{height:54px}}

@@ -110,3 +110,9 @@ linear-gradient(105deg,#eef6ff,#f6f2ff 58%,#e8efff);display:grid;grid-template-c
 .laptop-screen aside .mini-logo img{width:100%;height:100%;object-fit:contain;display:block}
 .cta-logo{padding:3px;background:#fff;overflow:hidden}
 .cta-logo img{width:100%;height:100%;object-fit:contain;display:block}
+
+/* Use the uploaded ga.tech logo inside illustrative product UI */
+.laptop-screen aside .mini-logo{width:38px;height:38px;padding:2px;background:#fff;border-radius:8px}
+.laptop-screen aside .mini-logo img{width:100%;height:100%;object-fit:contain}
+.cta-logo{width:42px;height:42px;left:52px;top:23px;padding:2px;background:#fff;border-radius:9px}
+.cta-logo img{width:100%;height:100%;object-fit:contain}

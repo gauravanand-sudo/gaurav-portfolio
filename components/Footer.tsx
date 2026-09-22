@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="site-shell company-footer-grid">
         <div>
           <Link href="/" className="footer-logo-row" aria-label="ga.tech home">
-            <img className="footer-logo-image" src="/brand/ga-tech-logo.svg" alt="ga.tech" />
+            <img className="footer-logo-image" src="/brand/ga-tech-logo.webp" alt="ga.tech" />
           </Link>
           <p className="company-footer-copy">Build · Automate · Create · Launch</p>
         </div>

@@ -176,7 +176,7 @@ function HeroVisual() {
       <div className="hero-laptop">
         <div className="laptop-screen">
           <aside>
-            <div className="mini-logo"><img src="/brand/ga-tech-mark.svg" alt="" /></div>
+            <div className="mini-logo"><img src="/brand/ga-tech-logo.webp" alt="" /></div>
             <span className="active">Overview</span><span>Analytics</span><span>Projects</span><span>Clients</span><span>Settings</span>
           </aside>
           <div className="dashboard-body">
@@ -234,7 +234,7 @@ export default function Home() {
     '@type': 'ProfessionalService',
     name: 'ga.tech',
     url: 'https://gauravanand.tech',
-    logo: 'https://gauravanand.tech/brand/ga-tech-mark.svg',
+    logo: 'https://gauravanand.tech/brand/ga-tech-logo.webp',
     email: 'gaurav.anand54@gmail.com',
     areaServed: 'Worldwide',
     description: 'A digital studio for apps, websites, AI, automation, games, design, content, presentations, data and cloud work.',
@@ -427,7 +427,7 @@ export default function Home() {
               {['Custom solutions','Clear communication','Practical delivery','Long-term support'].map(item=><span key={item}><i><Icon name="check"/></i>{item}</span>)}
             </div>
             <div className="cta-illustration">
-              <div className="cta-laptop"><div className="cta-logo"><img src="/brand/ga-tech-mark.svg" alt="" /></div></div>
+              <div className="cta-laptop"><div className="cta-logo"><img src="/brand/ga-tech-logo.webp" alt="" /></div></div>
               <div className="cta-plant"><i/><i/><i/></div>
               <div className="cta-float-card"><Icon name="bulb" /><b>Build</b><span>Create</span><span>Grow</span></div>
             </div>

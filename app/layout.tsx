@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/' },
   icons: {
-    icon: [{ url: '/brand/ga-tech-mark.svg', type: 'image/svg+xml' }],
-    shortcut: '/brand/ga-tech-mark.svg',
-    apple: '/brand/ga-tech-mark.svg',
+    icon: [{ url: '/brand/ga-tech-logo.webp', type: 'image/webp' }],
+    shortcut: '/brand/ga-tech-logo.webp',
+    apple: '/brand/ga-tech-logo.webp',
   },
   openGraph: {
     title: 'ga.tech — Digital Studio',
@@ -32,11 +32,13 @@ export const metadata: Metadata = {
     url: 'https://gauravanand.tech',
     siteName: 'ga.tech',
     type: 'website',
+    images: [{ url: '/brand/ga-tech-logo.webp', width: 360, height: 302, alt: 'ga.tech logo' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'ga.tech — Digital Studio',
     description: 'Apps, AI, games, websites, graphics, content, cloud and custom digital work.',
+    images: ['/brand/ga-tech-logo.webp'],
   },
   robots: { index: true, follow: true },
 }
@@ -46,7 +48,7 @@ const organizationData = {
   '@type': 'Organization',
   name: 'ga.tech',
   url: 'https://gauravanand.tech',
-  logo: 'https://gauravanand.tech/brand/ga-tech-mark.svg',
+  logo: 'https://gauravanand.tech/brand/ga-tech-logo.webp',
   email: 'gaurav.anand54@gmail.com',
   description: 'Digital studio for apps, AI, automation, design, content, cloud and custom digital work.',
   contactPoint: {

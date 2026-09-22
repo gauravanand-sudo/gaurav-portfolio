@@ -77,3 +77,11 @@ a{color:inherit}section[id]{scroll-margin-top:72px}::selection{background:#dbeaf
   .brand-logo-image{height:31px}
   .footer-logo-image{height:36px}
 }
+
+/* Exact uploaded ga.tech logo */
+.brand-logo-image{height:52px;width:auto;object-fit:contain;display:block}
+.footer-logo-image{height:58px;width:auto;object-fit:contain;display:block}
+@media(max-width:560px){
+  .brand-logo-image{height:44px}
+  .footer-logo-image{height:50px}
+}
