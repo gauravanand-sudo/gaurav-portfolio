@@ -5,20 +5,21 @@ import './site-base.css'
 import './site-sections.css'
 import './site-content.css'
 import './company.css'
+import './maturity.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://gauravanand.tech'),
   title: {
-    default: 'ga.tech — Digital Studio for Apps, AI, Games, Design & More',
+    default: 'ga.tech — Digital Product & AI Studio',
     template: '%s | ga.tech',
   },
-  description: 'Digital services for apps, websites, AI automation, games, graphics, posters, content, dashboards, presentations, cloud systems and custom digital work.',
+  description: 'Founder-led digital product, AI automation, creative and cloud delivery for startups and growing businesses.',
   keywords: [
-    'app development', 'website development', 'AI automation', 'AI chatbot', 'game development',
-    'graphic design', 'poster design', 'social media design', 'presentation design', 'SEO content',
-    'dashboard development', 'cloud deployment', 'API development', 'custom digital services'
+    'digital product studio', 'MVP development', 'website development', 'AI automation',
+    'RAG chatbot development', 'workflow automation', 'backend development', 'cloud engineering',
+    'pitch deck design', 'launch creative'
   ],
   alternates: { canonical: '/' },
   icons: {
@@ -27,18 +28,16 @@ export const metadata: Metadata = {
     apple: '/brand/ga-tech-logo.webp',
   },
   openGraph: {
-    title: 'ga.tech — Digital Studio',
-    description: 'Apps, AI, games, websites, graphics, content, cloud and custom digital work.',
+    title: 'ga.tech — Build, Automate & Launch',
+    description: 'Founder-led digital product, AI automation, creative and cloud delivery for startups and growing businesses.',
     url: 'https://gauravanand.tech',
     siteName: 'ga.tech',
     type: 'website',
-    images: [{ url: '/brand/ga-tech-logo.webp', width: 360, height: 302, alt: 'ga.tech logo' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ga.tech — Digital Studio',
-    description: 'Apps, AI, games, websites, graphics, content, cloud and custom digital work.',
-    images: ['/brand/ga-tech-logo.webp'],
+    title: 'ga.tech — Build, Automate & Launch',
+    description: 'Founder-led digital product, AI automation, creative and cloud delivery for startups and growing businesses.',
   },
   robots: { index: true, follow: true },
 }
@@ -49,8 +48,14 @@ const organizationData = {
   name: 'ga.tech',
   url: 'https://gauravanand.tech',
   logo: 'https://gauravanand.tech/brand/ga-tech-logo.webp',
-  email: 'gaurav.anand54@gmail.com',
-  description: 'Digital studio for apps, AI, automation, design, content, cloud and custom digital work.',
+  description: 'Founder-led digital product studio for startups and growing businesses.',
+  areaServed: 'Worldwide',
+  founder: {
+    '@type': 'Person',
+    name: 'Gaurav Anand',
+    jobTitle: 'R&D Staff Software Engineer',
+    url: 'https://gauravanand.tech/portfolio',
+  },
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'sales',

@@ -5,23 +5,30 @@ import Footer from '@/components/Footer'
 import { companyServices } from '@/lib/company-services'
 
 export const metadata: Metadata = {
-  title: 'Services',
-  description: 'Apps, websites, AI automation, design, content, backend and cloud services from ga.tech.',
+  title: 'Digital Product, AI & Creative Services',
+  description: 'Founder-led product, AI automation, creative and cloud delivery for startups and growing businesses.',
   alternates: { canonical: '/services' },
 }
+
+const requestGroups = [
+  ['Products', ['Business website', 'Landing page', 'SaaS MVP', 'Customer portal', 'Booking flow', 'Marketplace']],
+  ['Automation', ['AI chatbot', 'RAG knowledge assistant', 'Document workflow', 'CRM automation', 'Recurring reports', 'Research workflow']],
+  ['Creative', ['Launch creative', 'Pitch deck', 'Social media pack', 'Poster system', 'SEO content', 'Landing-page copy']],
+  ['Technical', ['API/backend', 'Cloud deployment', 'Authentication', 'Payments integration', 'Database service', 'Performance tuning']],
+]
 
 export default function ServicesPage() {
   return (
     <>
       <Nav />
-      <main className="company-page">
+      <main id="main-content" className="company-page">
         <section className="company-hero compact-company-hero">
           <div className="site-shell">
             <p className="company-kicker">SERVICES</p>
-            <h1>Four ways to turn a business need into finished digital work.</h1>
-            <p>Choose the closest fit. If your request crosses categories, send one brief and we’ll scope it as one engagement.</p>
+            <h1>Start with the outcome. We’ll assemble the right delivery path.</h1>
+            <p>ga.tech combines product engineering, AI automation, creative delivery and cloud execution so growing teams do not need to coordinate several vendors for one launch.</p>
             <div className="company-hero-actions">
-              <Link className="button button-primary button-lg" href="/contact">Get scope & estimate →</Link>
+              <Link className="button button-primary button-lg" href="/contact">Request scope →</Link>
               <Link className="button button-secondary button-lg" href="/about">How we work</Link>
             </div>
           </div>
@@ -36,7 +43,7 @@ export default function ServicesPage() {
                 <h2>{service.title}</h2>
                 <p>{service.summary}</p>
                 <div className="pillar-examples">
-                  {service.examples.slice(0, 4).map((item) => <span key={item}>{item}</span>)}
+                  {service.idealFor.slice(0,4).map((item) => <span key={item}>{item}</span>)}
                 </div>
                 <Link href={`/services/${service.slug}`} className="company-text-link">Explore this service →</Link>
               </article>
@@ -45,14 +52,43 @@ export default function ServicesPage() {
         </section>
 
         <section className="company-section company-soft-section">
-          <div className="site-shell company-split">
-            <div>
-              <p className="company-kicker">NOT SURE WHERE IT FITS?</p>
-              <h2>Describe the outcome, not the technology.</h2>
+          <div className="site-shell">
+            <div className="company-section-heading">
+              <p className="company-kicker">COMMON REQUESTS</p>
+              <h2>Not sure which service label fits? That is normal.</h2>
+              <p className="section-support-copy">Describe the result you want. These examples show the kinds of work that can sit inside the four service pillars.</p>
             </div>
+            <div className="request-group-grid">
+              {requestGroups.map(([group, items]) => (
+                <article key={group}>
+                  <h3>{group}</h3>
+                  <div>{items.map((item) => <Link href={`/contact?request=${encodeURIComponent(item)}`} key={item}>{item}<span>→</span></Link>)}</div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="company-section">
+          <div className="site-shell">
+            <div className="company-section-heading">
+              <p className="company-kicker">ENGAGEMENT MODELS</p>
+              <h2>Different problems need different commercial shapes.</h2>
+            </div>
+            <div className="engagement-grid">
+              <article><span>FOCUSED</span><h3>Fixed-scope sprint</h3><p>For a clearly defined website, deck, automation, design system, landing page or technical task.</p><strong>One defined outcome · written acceptance points</strong></article>
+              <article><span>MILESTONE</span><h3>Product project</h3><p>For MVPs, applications and larger workflows that should move through visible delivery checkpoints.</p><strong>Scope → milestone demos → QA → launch</strong></article>
+              <article><span>ONGOING</span><h3>Support & iteration</h3><p>For maintenance, feature work, content production, cloud support and recurring creative needs.</p><strong>Monthly or milestone-based follow-on support</strong></article>
+            </div>
+          </div>
+        </section>
+
+        <section className="company-section company-soft-section">
+          <div className="site-shell company-split">
+            <div><p className="company-kicker">NEXT STEP</p><h2>Send the problem, not a polished specification.</h2></div>
             <div>
-              <p>“I need a delivery app”, “our team wastes hours on reports”, “we need 20 launch creatives”, or “this backend keeps failing” is enough to start.</p>
-              <Link className="button button-primary" href="/contact">Tell us what you need →</Link>
+              <p>Include the outcome you want, who will use it, any hard constraints, a rough budget range and your preferred timeline. That is enough to start a useful scope conversation.</p>
+              <Link className="button button-primary" href="/contact">Start a project brief →</Link>
             </div>
           </div>
         </section>

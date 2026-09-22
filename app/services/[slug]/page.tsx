@@ -28,18 +28,14 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
     '@type': 'Service',
     name: service.title,
     description: service.summary,
-    provider: {
-      '@type': 'Organization',
-      name: 'ga.tech',
-      url: 'https://gauravanand.tech',
-    },
+    provider: { '@type': 'Organization', name: 'ga.tech', url: 'https://gauravanand.tech' },
     areaServed: 'Worldwide',
   }
 
   return (
     <>
       <Nav />
-      <main className="company-page">
+      <main id="main-content" className="company-page">
         <section className="company-hero service-detail-hero">
           <div className="site-shell">
             <Link href="/services" className="company-back-link">← All services</Link>
@@ -47,7 +43,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             <h1>{service.title}</h1>
             <p>{service.summary}</p>
             <div className="company-hero-actions">
-              <Link className="button button-primary button-lg" href={`/contact?request=${encodeURIComponent(service.title)}`}>Get scope & estimate →</Link>
+              <Link className="button button-primary button-lg" href={`/contact?request=${encodeURIComponent(service.title)}`}>Request scope →</Link>
               <Link className="button button-secondary button-lg" href="/about">How ga.tech works</Link>
             </div>
           </div>
@@ -68,20 +64,47 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               <ul className="company-check-list">{service.examples.map((item) => <li key={item}>{item}</li>)}</ul>
             </div>
             <div className="service-detail-block">
-              <p className="company-kicker">WHAT YOU SHOULD LEAVE WITH</p>
+              <p className="company-kicker">EXPECTED OUTCOME</p>
               <ul className="company-check-list">{service.outcomes.map((item) => <li key={item}>{item}</li>)}</ul>
             </div>
           </div>
         </section>
 
         <section className="company-section company-soft-section">
-          <div className="site-shell company-split">
+          <div className="site-shell service-scope-grid">
             <div>
-              <p className="company-kicker">NEXT STEP</p>
-              <h2>Send the brief. Get a practical response.</h2>
+              <p className="company-kicker">WHAT CHANGES SCOPE</p>
+              <h2>The same category can be a small sprint or a larger product engagement.</h2>
             </div>
+            <ul className="scope-factor-list">
+              {service.scopeFactors.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+          </div>
+        </section>
+
+        <section className="company-section">
+          <div className="site-shell">
+            <div className="company-section-heading">
+              <p className="company-kicker">DELIVERY FLOW</p>
+              <h2>How this engagement usually moves.</h2>
+            </div>
+            <div className="delivery-flow-grid">
+              {[
+                ['01','Discover','Clarify users, desired result, dependencies and constraints.'],
+                ['02','Scope','Agree deliverables, assumptions, milestones and ownership.'],
+                ['03','Validate','Prototype or de-risk the highest-uncertainty part first.'],
+                ['04','Build & QA','Deliver in visible checkpoints and test against the agreed scope.'],
+                ['05','Launch','Deploy, hand over and define support if needed.'],
+              ].map(([num,title,copy]) => <article key={num}><span>{num}</span><h3>{title}</h3><p>{copy}</p></article>)}
+            </div>
+          </div>
+        </section>
+
+        <section className="company-section company-soft-section">
+          <div className="site-shell company-split">
+            <div><p className="company-kicker">NEXT STEP</p><h2>Send the outcome, constraints and timeline.</h2></div>
             <div>
-              <p>You don’t need a specification document. Share the problem, desired outcome, budget range and timeline. We’ll use that to scope the next step.</p>
+              <p>You do not need a specification document. Share what should be different after this work is complete and any constraints we must respect.</p>
               <Link className="button button-primary" href={`/contact?request=${encodeURIComponent(service.title)}`}>Start this project →</Link>
             </div>
           </div>
