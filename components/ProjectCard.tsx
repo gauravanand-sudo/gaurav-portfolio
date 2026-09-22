@@ -1,125 +1,77 @@
+import Link from 'next/link'
+
 interface ProjectCardProps {
   title: string
   description: string
   tags: string[]
   github?: string
+  href?: string
   liveDemo?: string
   status?: string
 }
 
-const statusColor: Record<string, string> = {
-  Active:     'var(--accent)',
-  Exploring:  '#a6b6c1',
-  Archived:   '#7f8a84',
-}
-
-export default function ProjectCard({
-  title, description, tags, github, liveDemo, status,
-}: ProjectCardProps) {
-  const color = status ? (statusColor[status] ?? '#888') : '#888'
-
+export default function ProjectCard({ title, description, tags, github, href, liveDemo, status }: ProjectCardProps) {
   return (
-    <div className="pcard">
-      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '12px' }}>
-        <h3 style={{ fontSize: '15px', fontWeight: 600, color: 'var(--text-hi)', letterSpacing: '-0.01em' }}>
-          {title}
-        </h3>
-        {status && (
-          <span style={{
-            fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-            fontSize: '10px',
-            color: color,
-            border: `1px solid ${color}30`,
-            background: `${color}0d`,
-            padding: '3px 8px',
-            borderRadius: '4px',
-            whiteSpace: 'nowrap',
-            flexShrink: 0,
-            marginTop: '2px',
-          }}>
-            {status}
-          </span>
-        )}
+    <article className="pcard">
+      <div className="pcard-head">
+        <h3>{title}</h3>
+        {status ? <span className="pcard-status">{status}</span> : null}
       </div>
 
-      <p style={{
-        fontSize: '13px',
-        color: 'var(--text-lo)',
-        marginTop: '10px',
-        lineHeight: 1.75,
-        display: '-webkit-box',
-        WebkitLineClamp: 3,
-        WebkitBoxOrient: 'vertical',
-        overflow: 'hidden',
-      }}>
-        {description}
-      </p>
+      <p className="pcard-description">{description}</p>
 
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '18px' }}>
-        {tags.map((tag) => (
-          <span key={tag} style={{
-            fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-            fontSize: '10px',
-            color: 'var(--text-lo)',
-            background: 'rgba(38, 50, 46, 0.65)',
-            border: '1px solid var(--border)',
-            padding: '3px 8px',
-            borderRadius: '4px',
-          }}>
-            {tag}
-          </span>
-        ))}
+      <div className="pcard-tags">
+        {tags.map((tag) => <span key={tag}>{tag}</span>)}
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginTop: '22px', paddingTop: '18px', borderTop: '1px solid var(--border)' }}>
-        {github && (
-          <a href={github} target="_blank" rel="noopener noreferrer" className="pcard-link">
-            GitHub ↗
-          </a>
-        )}
-        {liveDemo && (
-          <a href={liveDemo} target="_blank" rel="noopener noreferrer" className="pcard-link pcard-cta">
-            Try Now ↗
-          </a>
-        )}
+      <div className="pcard-links">
+        {href ? <Link href={href} className="pcard-link pcard-cta">Case study →</Link> : null}
+        {liveDemo ? <a href={liveDemo} target="_blank" rel="noopener noreferrer" className="pcard-link">Live ↗</a> : null}
+        {github ? <a href={github} target="_blank" rel="noopener noreferrer" className="pcard-link">GitHub ↗</a> : null}
       </div>
 
       <style>{`
         .pcard {
           border: 1px solid var(--border);
-          background: linear-gradient(180deg, rgba(29, 39, 36, 0.92), rgba(24, 32, 29, 0.96));
-          padding: 24px;
-          border-radius: 10px;
-          transition: border-color 200ms ease, background 200ms ease;
-          position: relative;
-          overflow: hidden;
+          background: linear-gradient(180deg, rgba(24, 36, 31, .83), rgba(15, 23, 21, .92));
+          padding: 25px;
+          border-radius: 16px;
+          transition: border-color 180ms ease, transform 180ms ease;
+          min-height: 305px;
+          display: flex;
+          flex-direction: column;
         }
-        .pcard::before {
-          content: '';
-          position: absolute;
-          top: 0; left: 0; right: 0;
-          height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(182,215,198,0), transparent);
-          transition: background 200ms ease;
+        .pcard:hover { border-color: var(--border-mid); transform: translateY(-2px); }
+        .pcard-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+        .pcard-head h3 { font-size: 19px; font-weight: 700; color: var(--text-hi); letter-spacing: -.02em; }
+        .pcard-status {
+          font-family: 'JetBrains Mono', ui-monospace, monospace;
+          font-size: 9px;
+          text-transform: uppercase;
+          letter-spacing: .1em;
+          color: var(--accent);
+          border: 1px solid var(--accent-border);
+          background: rgba(20, 52, 39, .58);
+          padding: 4px 7px;
+          border-radius: 999px;
+          white-space: nowrap;
         }
-        .pcard:hover {
-          border-color: var(--border-mid);
-          background: linear-gradient(180deg, rgba(33, 44, 40, 0.95), rgba(27, 36, 33, 0.98));
+        .pcard-description { font-size: 13px; color: var(--text-lo); margin-top: 13px; line-height: 1.8; }
+        .pcard-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+        .pcard-tags span {
+          font-family: 'JetBrains Mono', ui-monospace, monospace;
+          font-size: 10px;
+          color: var(--text-mid);
+          background: rgba(11,17,16,.55);
+          border: 1px solid var(--border);
+          padding: 4px 8px;
+          border-radius: 999px;
         }
-        .pcard:hover::before {
-          background: linear-gradient(90deg, transparent, rgba(182,215,198,0.28), transparent);
-        }
-        .pcard-link {
-          font-size: 12px;
-          color: var(--text-lo);
-          text-decoration: none;
-          transition: color 150ms ease;
-          letter-spacing: 0.01em;
-        }
+        .pcard-links { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: auto; padding-top: 24px; }
+        .pcard-link { font-size: 12px; color: var(--text-lo); text-decoration: none; font-weight: 650; }
         .pcard-link:hover { color: var(--text-hi); }
-        .pcard-cta { color: var(--accent-strong) !important; }
-        .pcard-cta:hover { color: var(--text-hi) !important; }
+        .pcard-cta { color: var(--accent-strong); }
       `}</style>
-    </div>
+    </article>
   )
 }

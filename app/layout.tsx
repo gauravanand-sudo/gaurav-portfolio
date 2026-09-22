@@ -9,8 +9,48 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Gaurav Anand — Systems Engineer',
-  description: 'Portfolio of Gaurav Anand. Systems C++ engineer with 6.5 years of experience in concurrency, simulation, and compilers.',
+  metadataBase: new URL('https://gauravanand.tech'),
+  title: {
+    default: 'GauravAnand.Tech — AI, Cloud & Software Solutions',
+    template: '%s | GauravAnand.Tech',
+  },
+  description:
+    'Founder-led AI, cloud and software engineering studio building AI agents, RAG systems, automation, SaaS products, APIs, cloud platforms, data solutions and performance-critical software.',
+  keywords: [
+    'AI development services',
+    'AI automation',
+    'AI agents',
+    'RAG development',
+    'ChatGPT integration',
+    'OpenAI API development',
+    'cloud consulting',
+    'software development',
+    'MVP development',
+    'SaaS development',
+    'DevOps consulting',
+    'C++ performance engineering',
+    'freelance software engineer India',
+    'AI consultant India',
+  ],
+  alternates: { canonical: '/' },
+  openGraph: {
+    title: 'GauravAnand.Tech — AI, Cloud & Software Solutions',
+    description:
+      'AI agents, automation, cloud platforms, SaaS products and high-performance software — designed and built end to end.',
+    url: 'https://gauravanand.tech',
+    siteName: 'GauravAnand.Tech',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'GauravAnand.Tech — AI, Cloud & Software Solutions',
+    description: 'Founder-led AI, cloud and software engineering studio.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,44 +1,29 @@
+import Link from 'next/link'
+
 export default function Footer() {
   return (
-    <footer style={{
-      borderTop: '1px solid var(--border)',
-      padding: '36px 0',
-      marginTop: '40px',
-    }}>
-      <div style={{
-        maxWidth: '900px',
-        margin: '0 auto',
-        padding: '0 28px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        flexWrap: 'wrap',
-        gap: '12px',
-      }}>
-        <span style={{
-          fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-          fontSize: '12px',
-          color: 'var(--text-dim)',
-          letterSpacing: '0.05em',
-        }}>
-          © 2025 Gaurav Anand
-        </span>
-        <a
-          href="mailto:gaurav.anand54@gmail.com"
-          className="footer-email"
-        >
-          gaurav.anand54@gmail.com
-        </a>
+    <footer className="site-footer">
+      <div className="site-shell footer-grid">
+        <div>
+          <p className="footer-brand">GauravAnand.Tech</p>
+          <p className="footer-copy">
+            AI, cloud and software engineering for companies that need useful technology shipped — not just slides.
+          </p>
+        </div>
+
+        <div className="footer-links">
+          <Link href="/#services">Services</Link>
+          <Link href="/#work">Work</Link>
+          <Link href="/insights">Insights</Link>
+          <a href="https://github.com/gauravanand-sudo" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </div>
+
+        <div className="footer-contact">
+          <span>India · Remote worldwide</span>
+          <a href="mailto:gaurav.anand54@gmail.com">gaurav.anand54@gmail.com</a>
+          <span>© 2026 Gaurav Anand</span>
+        </div>
       </div>
-      <style>{`
-        .footer-email {
-          font-size: 13px;
-          color: var(--text-lo);
-          text-decoration: none;
-          transition: color 150ms ease;
-        }
-        .footer-email:hover { color: var(--text-mid); }
-      `}</style>
     </footer>
   )
 }
