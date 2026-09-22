@@ -24,3 +24,6 @@
 @media(max-width:980px){.request-group-grid{grid-template-columns:repeat(2,1fr)}.delivery-flow-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:820px){.service-scope-grid,.founder-story-grid{grid-template-columns:1fr;gap:30px}.scope-factor-list{grid-template-columns:1fr}.thank-you-next{grid-template-columns:1fr}}
 @media(max-width:560px){.request-group-grid{grid-template-columns:1fr}.delivery-flow-grid{grid-template-columns:1fr}.delivery-flow-grid article{min-height:150px}}
+/* Insights v9 */
+.insight-group{margin-top:44px}.insight-group+ .insight-group{margin-top:58px}.insight-group-head{margin-bottom:18px}.insight-group-head h2{margin-top:7px;font-size:30px;letter-spacing:-.035em}
+.article-index-card p{font-size:14px!important;line-height:1.65}.article-index-card strong{font-size:12px!important}.article-meta{font-size:11px!important}

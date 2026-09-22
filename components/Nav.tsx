@@ -17,6 +17,15 @@ export default function Nav() {
 
   useEffect(() => setOpen(false), [pathname])
 
+  useEffect(() => {
+    if (!open) return
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false)
+    }
+    window.addEventListener('keydown', closeOnEscape)
+    return () => window.removeEventListener('keydown', closeOnEscape)
+  }, [open])
+
   const isCurrent = (href: string) =>
     href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`)
 
@@ -55,21 +64,23 @@ export default function Nav() {
         </div>
       </div>
 
-      <div id="mobile-navigation" className={`mobile-navigation ${open ? 'is-open' : ''}`}>
-        <div className="site-shell mobile-navigation-inner">
-          {links.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="mobile-nav-link"
-              aria-current={isCurrent(link.href) ? 'page' : undefined}
-            >
-              {link.label}<span aria-hidden="true">→</span>
-            </Link>
-          ))}
-          <Link href="/contact" className="button button-primary mobile-project-cta">Request scope →</Link>
+      {open && (
+        <div id="mobile-navigation" className="mobile-navigation is-open">
+          <div className="site-shell mobile-navigation-inner">
+            {links.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="mobile-nav-link"
+                aria-current={isCurrent(link.href) ? 'page' : undefined}
+              >
+                {link.label}<span aria-hidden="true">→</span>
+              </Link>
+            ))}
+            <Link href="/contact" className="button button-primary mobile-project-cta">Request scope →</Link>
+          </div>
         </div>
-      </div>
+      )}
     </nav>
   )
 }

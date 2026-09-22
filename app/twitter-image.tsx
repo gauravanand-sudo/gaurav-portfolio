@@ -13,7 +13,7 @@ export default function Image() {
         padding:'70px 80px',background:'linear-gradient(135deg,#fff8f0,#ffffff 50%,#f6f1ff)',
         color:'#111a33',fontFamily:'Arial, sans-serif'
       }}>
-        <div style={{fontSize:52,fontWeight:800}}>ga<span style={{color:'#ff356a'}}>.</span>tech</div>
+        <div style={{display:'flex',fontSize:52,fontWeight:800}}>ga<span style={{color:'#ff356a'}}>.</span>tech</div>
         <div style={{fontSize:68,fontWeight:800,lineHeight:1.02,letterSpacing:'-3px',marginTop:34,maxWidth:980}}>Build, automate and launch.</div>
         <div style={{fontSize:27,color:'#667085',marginTop:24}}>Founder-led digital product, AI automation, creative and cloud delivery.</div>
       </div>

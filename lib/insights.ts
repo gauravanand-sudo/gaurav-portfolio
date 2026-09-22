@@ -139,7 +139,128 @@ export const insights: Insight[] = [
         ],
       },
     ],
+  },,
+  {
+    slug: 'how-much-does-an-mvp-cost-what-changes-the-scope',
+    title: 'How much does an MVP cost? The scope decisions that actually move the number',
+    description: 'A buyer-focused framework for understanding what makes an MVP small, medium or expensive before asking for a quote.',
+    category: 'Buyer Guide',
+    published: '2026-09-23',
+    readTime: '6 min read',
+    sections: [
+      {
+        heading: 'Start with one user journey',
+        paragraphs: [
+          'MVP pricing becomes vague when the request is a list of features instead of one business outcome. The fastest way to make scope more predictable is to identify the primary user, the action they must complete, and the smallest end-to-end flow that proves the idea works.',
+          'A marketplace with buyer accounts, seller onboarding, payments, messaging, reviews, delivery tracking and a full admin console is not one MVP flow. It is several products hiding inside one sentence.',
+        ],
+      },
+      {
+        heading: 'The biggest cost drivers',
+        paragraphs: ['The visual design matters, but complexity usually grows faster around product logic and integrations.'],
+        bullets: [
+          'Number of user roles and journeys',
+          'Payments, maps, messaging or third-party integrations',
+          'Admin and operations tooling',
+          'Permissions, security and audit requirements',
+          'Data migration or existing-system integration',
+          'Native mobile requirements versus responsive web',
+        ],
+      },
+      {
+        heading: 'A better way to ask for an estimate',
+        paragraphs: [
+          'Give the delivery team the user, problem, must-have flow, launch target, hard integrations, rough budget range and what can wait. That produces a much more useful scope discussion than asking for a clone of a large consumer app.',
+        ],
+      },
+      {
+        heading: 'Treat the first release as a learning system',
+        paragraphs: [
+          'The strongest MVP is not the version with the most features. It is the version that lets real users complete the important workflow and gives the business enough evidence to decide what deserves investment next.',
+        ],
+      },
+    ],
   },
+  {
+    slug: 'ai-chatbot-for-company-documents-rag-checklist',
+    title: 'AI chatbot for company documents: a practical RAG checklist before you build',
+    description: 'What a business should prepare before building a chatbot over PDFs, policies, manuals or internal knowledge.',
+    category: 'Buyer Guide',
+    published: '2026-09-23',
+    readTime: '6 min read',
+    sections: [
+      {
+        heading: 'The chatbot is the visible part, not the whole product',
+        paragraphs: [
+          'A useful internal knowledge assistant depends on document quality, permissions, retrieval, citations, evaluation and update workflows. A polished chat box cannot compensate for stale or poorly structured source material.',
+        ],
+      },
+      {
+        heading: 'Prepare the knowledge source',
+        paragraphs: ['Before choosing a model, understand the information the system is expected to trust.'],
+        bullets: [
+          'Which documents are authoritative?',
+          'How often do they change?',
+          'Who is allowed to access which content?',
+          'Are there duplicates or conflicting versions?',
+          'Does the answer need citations or source links?',
+        ],
+      },
+      {
+        heading: 'Define what “good” means',
+        paragraphs: [
+          'Collect real questions employees or customers ask and define what a correct answer should contain. That evaluation set becomes more valuable than subjective prompt tweaking because it tells you whether retrieval and answer quality are actually improving.',
+        ],
+      },
+      {
+        heading: 'Know when RAG is enough',
+        paragraphs: [
+          'If the job is primarily to retrieve and explain controlled knowledge, RAG is usually a cleaner starting point. Add agentic tool use only when the system genuinely needs to take actions across other systems.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'startup-website-brief-what-to-include',
+    title: 'What to include in a startup website brief before you hire someone',
+    description: 'A simple website brief that helps a founder get better estimates, better copy and fewer revision loops.',
+    category: 'Buyer Guide',
+    published: '2026-09-23',
+    readTime: '5 min read',
+    sections: [
+      {
+        heading: 'A website brief does not need to be a specification',
+        paragraphs: [
+          'The useful information is commercial, not technical: who the site is for, what the visitor should understand, what action they should take, and what proof you can show.',
+        ],
+      },
+      {
+        heading: 'The minimum useful brief',
+        paragraphs: ['A short document or email can be enough if it answers the right questions.'],
+        bullets: [
+          'Who is the primary audience?',
+          'What problem does the business solve?',
+          'What should a visitor do next?',
+          'What pages are definitely required?',
+          'What proof, testimonials or credentials exist?',
+          'Who will provide copy, images and brand assets?',
+          'What is the target launch date?',
+        ],
+      },
+      {
+        heading: 'Separate launch requirements from the wish list',
+        paragraphs: [
+          'A clear launch version reduces cost and revision cycles. Features such as advanced calculators, customer portals, multilingual content or large CMS workflows can be planned without blocking the first credible version of the site.',
+        ],
+      },
+      {
+        heading: 'Ask about ownership and handover',
+        paragraphs: [
+          'Before work begins, clarify hosting, domain access, analytics, source files, code ownership, third-party subscriptions and who is responsible for updates after launch. Those operational details matter as much as the visual design.',
+        ],
+      },
+    ],
+  }
 ]
 
 export function getInsight(slug: string) {

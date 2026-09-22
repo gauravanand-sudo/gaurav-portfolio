@@ -4,7 +4,7 @@ import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Gaurav Anand — Portfolio & Resume',
+  title: 'Founder — Gaurav Anand',
   description: 'Resume of Gaurav Anand — R&D Staff Software Engineer with 7+ years across C++ systems, AI/ML, backend infrastructure, semiconductor/ASIC and cloud.',
   alternates: { canonical: '/portfolio' },
 }
@@ -68,11 +68,11 @@ export default function PortfolioPage() {
   return (
     <>
       <Nav />
-      <main className="portfolio-page">
+      <main id="main-content" className="portfolio-page">
         <section className="portfolio-hero">
           <div className="site-shell portfolio-hero-grid">
             <div>
-              <p className="section-eyebrow">PORTFOLIO / RESUME</p>
+              <p className="section-eyebrow">FOUNDER / RESUME</p>
               <h1>Gaurav Anand</h1>
               <p className="portfolio-role">R&D Staff Software Engineer · C++ Systems · AI/ML</p>
               <p className="lead">
@@ -82,7 +82,7 @@ export default function PortfolioPage() {
             <div className="portfolio-contact">
               <a href="mailto:gaurav.anand54@gmail.com">gaurav.anand54@gmail.com</a>
               <a href="tel:+919289656293">+91 92896 56293</a>
-              <Link href="/">Digital services site →</Link>
+              <Link href="/contact">Start a ga.tech project →</Link>
             </div>
           </div>
         </section>

@@ -15,10 +15,10 @@ export default function Image() {
         color: '#111a33', fontFamily: 'Arial, sans-serif'
       }}>
         <div style={{display:'flex',alignItems:'center',gap:18}}>
-          <div style={{fontSize:54,fontWeight:800}}>ga<span style={{color:'#ff356a'}}>.</span>tech</div>
+          <div style={{display:'flex',fontSize:54,fontWeight:800}}>ga<span style={{color:'#ff356a'}}>.</span>tech</div>
           <div style={{fontSize:18,color:'#667085',paddingTop:10}}>DIGITAL PRODUCT STUDIO</div>
         </div>
-        <div style={{maxWidth:980}}>
+        <div style={{display:'flex',flexDirection:'column',maxWidth:980}}>
           <div style={{fontSize:72,fontWeight:800,lineHeight:1.02,letterSpacing:'-3px'}}>
             Build, automate and launch without juggling multiple vendors.
           </div>
