@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main, company-maturity-v9, sales-engine-v10, sales-engine-complete-v11]
+    branches: [main, company-maturity-v9, sales-engine-v10, sales-engine-complete-v11, visual-reset-v12]
   pull_request:
     branches: [main]
 
