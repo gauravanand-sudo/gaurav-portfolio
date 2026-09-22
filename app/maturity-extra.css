@@ -44,3 +44,15 @@
 @media(max-width:560px){.care-grid,.risk-grid,.resource-grid{grid-template-columns:1fr}.subscribe-form input{min-width:100%;width:100%}.subscribe-form .button{width:100%}.lead-step-actions{flex-direction:column}.lead-step-actions .button{width:100%}}
 
 .lead-step-hidden{display:none!important}
+
+/* v11 last-mile sales operations */
+.footer-sales-email{display:inline-block;margin-top:9px;color:#1677ff;text-decoration:none;font-size:12px;font-weight:750}
+.launch-window-strip{padding:24px 0;background:#fff7f3;border-top:1px solid #f2ddd6;border-bottom:1px solid #f2ddd6}
+.launch-window-grid{display:grid;grid-template-columns:.8fr 1.4fr auto;gap:32px;align-items:center}
+.launch-window-grid h2{margin-top:6px;font-size:26px;letter-spacing:-.035em;line-height:1.08}
+.launch-window-items{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.launch-window-items span{display:grid;gap:3px;padding:12px 14px;border-radius:11px;background:#fff;border:1px solid #efdcd5}
+.launch-window-items strong{font-size:15px;color:#182230}.launch-window-items small{font-size:11px;color:#667085}
+.launch-window-grid>a{color:#d94367;text-decoration:none;font-size:13px;font-weight:850;white-space:nowrap}
+@media(max-width:900px){.launch-window-grid{grid-template-columns:1fr}.launch-window-items{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.launch-window-items{grid-template-columns:1fr}}

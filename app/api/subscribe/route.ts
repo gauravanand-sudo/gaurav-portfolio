@@ -9,15 +9,15 @@ export async function POST(request: NextRequest) {
     const email = String(body.email || '').trim()
     if (!email || !email.includes('@')) return NextResponse.json({ ok:false }, { status:400 })
 
-    const subscriber = { email, source: body.source || 'site', createdAt:new Date().toISOString() }
+    const subscriber = { email, source: body.source || 'site', createdAt:new Date().toISOString(), stage:'Subscriber' }
 
     if (process.env.MARKETING_WEBHOOK_URL) {
-      fetch(process.env.MARKETING_WEBHOOK_URL, {
-        method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(subscriber)
-      }).catch(() => null)
+      const headers:Record<string,string>={'Content-Type':'application/json'}
+      if (process.env.MARKETING_WEBHOOK_SECRET) headers.Authorization=`Bearer ${process.env.MARKETING_WEBHOOK_SECRET}`
+      fetch(process.env.MARKETING_WEBHOOK_URL,{method:'POST',headers,body:JSON.stringify(subscriber)}).catch(()=>null)
     }
 
-    await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(notifyEmail)}`, {
+    await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(notifyEmail)}`,{
       method:'POST',
       headers:{'Content-Type':'application/json','Accept':'application/json'},
       body:JSON.stringify({
@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
         source:subscriber.source,
         created_at:subscriber.createdAt,
       }),
-    }).catch(() => null)
+    }).catch(()=>null)
 
     return NextResponse.json({ ok:true })
   } catch {

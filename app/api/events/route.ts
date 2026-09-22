@@ -13,9 +13,9 @@ export async function POST(request: NextRequest) {
     }
 
     if (process.env.ANALYTICS_WEBHOOK_URL) {
-      await fetch(process.env.ANALYTICS_WEBHOOK_URL, {
-        method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(enriched)
-      }).catch(() => null)
+      const headers:Record<string,string>={'Content-Type':'application/json'}
+      if (process.env.ANALYTICS_WEBHOOK_SECRET) headers.Authorization=`Bearer ${process.env.ANALYTICS_WEBHOOK_SECRET}`
+      await fetch(process.env.ANALYTICS_WEBHOOK_URL,{method:'POST',headers,body:JSON.stringify(enriched)}).catch(()=>null)
     }
 
     console.info('ga.tech event', JSON.stringify(enriched))
