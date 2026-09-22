@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     'dashboard development', 'cloud deployment', 'API development', 'custom digital services'
   ],
   alternates: { canonical: '/' },
+  icons: {
+    icon: [{ url: '/brand/ga-tech-mark.svg', type: 'image/svg+xml' }],
+    shortcut: '/brand/ga-tech-mark.svg',
+    apple: '/brand/ga-tech-mark.svg',
+  },
   openGraph: {
     title: 'GauravAnand.Tech — Digital Studio',
     description: 'Apps, AI, games, websites, graphics, content, cloud and custom digital work.',

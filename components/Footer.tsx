@@ -5,9 +5,8 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="site-shell visual-footer">
         <div>
-          <Link href="/" className="footer-logo-row">
-            <span className="footer-mark">A</span>
-            <span><strong>GauravAnand.<em>Tech</em></strong><small>IDEAS · DIGITAL · REALITY</small></span>
+          <Link href="/" className="footer-logo-row" aria-label="ga.tech home">
+            <img className="footer-logo-image" src="/brand/ga-tech-logo.svg" alt="ga.tech" />
           </Link>
         </div>
         <div className="footer-nav">

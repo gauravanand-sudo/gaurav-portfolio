@@ -68,3 +68,12 @@ a{color:inherit}section[id]{scroll-margin-top:72px}::selection{background:#dbeaf
 @media(max-width:560px){
   .site-shell{width:min(100% - 22px,1220px)}.brand-copy small{display:none}.brand-copy strong{font-size:12px}.nav-search{display:none}.nav-cta{padding:9px 11px}.nav-cta span{display:none}
 }
+
+
+/* ga.tech brand assets */
+.brand-logo-image{display:block;width:auto;height:37px;object-fit:contain}
+.footer-logo-image{display:block;width:auto;height:42px;object-fit:contain}
+@media(max-width:560px){
+  .brand-logo-image{height:31px}
+  .footer-logo-image{height:36px}
+}

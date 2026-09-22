@@ -14,9 +14,8 @@ export default function Nav() {
   return (
     <nav className="site-nav">
       <div className="site-shell nav-inner">
-        <Link href="/" className="brand-lockup" aria-label="GauravAnand.Tech home">
-          <span className="brand-mark"><i/><i/></span>
-          <span className="brand-copy"><strong>GauravAnand.<em>Tech</em></strong><small>IDEAS · DIGITAL · REALITY</small></span>
+        <Link href="/" className="brand-lockup" aria-label="ga.tech home">
+          <img className="brand-logo-image" src="/brand/ga-tech-logo.svg" alt="ga.tech" />
         </Link>
         <div className="nav-links" aria-label="Primary navigation">
           {links.map((link) => <Link key={link.label} href={link.href} className="nav-link">{link.label}</Link>)}

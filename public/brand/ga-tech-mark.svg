@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 120" role="img" aria-label="GA">
+  <defs>
+    <linearGradient id="gaGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFA52E"/>
+      <stop offset="42%" stop-color="#FF6545"/>
+      <stop offset="76%" stop-color="#FF365F"/>
+      <stop offset="100%" stop-color="#FF1F7A"/>
+    </linearGradient>
+    <linearGradient id="gaGrad2" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#9D003F"/>
+      <stop offset="52%" stop-color="#E10B58"/>
+      <stop offset="100%" stop-color="#FF7B39"/>
+    </linearGradient>
+  </defs>
+  <path d="M82 20H58C34 20 16 37 16 60s18 41 42 41h30V67H58" fill="none" stroke="url(#gaGrad)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M80 96L115 22L155 96" fill="none" stroke="url(#gaGrad)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M98 67H136" fill="none" stroke="url(#gaGrad2)" stroke-width="14" stroke-linecap="round"/>
+</svg>

@@ -103,3 +103,10 @@ linear-gradient(105deg,#eef6ff,#f6f2ff 58%,#e8efff);display:grid;grid-template-c
   .request-icon-grid{grid-template-columns:repeat(4,1fr)}.process-visual-grid article{grid-template-columns:auto 1fr}.process-art{grid-column:1/-1;height:70px}.insight-visual-card{grid-template-columns:120px 1fr}
   .visual-cta-banner{grid-template-columns:1fr;padding:23px 20px}.cta-copy h2{font-size:32px}.cta-benefits{grid-template-columns:1fr 1fr}
 }
+
+
+/* ga.tech marks inside product illustrations */
+.laptop-screen aside .mini-logo{padding:2px;background:#fff;overflow:hidden}
+.laptop-screen aside .mini-logo img{width:100%;height:100%;object-fit:contain;display:block}
+.cta-logo{padding:3px;background:#fff;overflow:hidden}
+.cta-logo img{width:100%;height:100%;object-fit:contain;display:block}
