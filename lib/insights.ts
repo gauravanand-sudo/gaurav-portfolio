@@ -139,7 +139,7 @@ export const insights: Insight[] = [
         ],
       },
     ],
-  },,
+  },
   {
     slug: 'how-much-does-an-mvp-cost-what-changes-the-scope',
     title: 'How much does an MVP cost? The scope decisions that actually move the number',
