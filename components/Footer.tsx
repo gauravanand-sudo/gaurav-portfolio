@@ -18,7 +18,7 @@ export default function Footer() {
         <div className="footer-message">Let’s build a brighter digital tomorrow. <span>♥</span></div>
       </div>
       <div className="site-shell footer-bottom">
-        <span>© 2026 GauravAnand.Tech. All rights reserved.</span>
+        <span>© 2026 ga.tech. All rights reserved.</span>
         <span>Remote · Worldwide</span>
       </div>
     </footer>

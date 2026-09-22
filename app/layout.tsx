@@ -10,8 +10,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'sw
 export const metadata: Metadata = {
   metadataBase: new URL('https://gauravanand.tech'),
   title: {
-    default: 'GauravAnand.Tech — Digital Studio for Apps, AI, Games, Design & More',
-    template: '%s | GauravAnand.Tech',
+    default: 'ga.tech — Digital Studio for Apps, AI, Games, Design & More',
+    template: '%s | ga.tech',
   },
   description: 'Digital services for apps, websites, AI automation, games, graphics, posters, content, dashboards, presentations, cloud systems and custom digital work.',
   keywords: [
@@ -26,15 +26,15 @@ export const metadata: Metadata = {
     apple: '/brand/ga-tech-mark.svg',
   },
   openGraph: {
-    title: 'GauravAnand.Tech — Digital Studio',
+    title: 'ga.tech — Digital Studio',
     description: 'Apps, AI, games, websites, graphics, content, cloud and custom digital work.',
     url: 'https://gauravanand.tech',
-    siteName: 'GauravAnand.Tech',
+    siteName: 'ga.tech',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GauravAnand.Tech — Digital Studio',
+    title: 'ga.tech — Digital Studio',
     description: 'Apps, AI, games, websites, graphics, content, cloud and custom digital work.',
   },
   robots: { index: true, follow: true },

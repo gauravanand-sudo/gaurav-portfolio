@@ -232,7 +232,7 @@ export default function Home() {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    name: 'GauravAnand.Tech',
+    name: 'ga.tech',
     url: 'https://gauravanand.tech',
     logo: 'https://gauravanand.tech/brand/ga-tech-mark.svg',
     areaServed: 'Worldwide',
