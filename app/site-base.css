@@ -1,81 +1,70 @@
 :root{
-  --bg:#f6f8fc;--bg-2:#eef2f8;--panel:#ffffff;--panel-2:#f9fbff;--ink:#111827;--ink-2:#263244;
-  --muted:#667085;--line:#e3e8f0;--blue:#2563eb;--blue-2:#1d4ed8;--violet:#7c3aed;--cyan:#0891b2;
-  --soft-blue:#eef4ff;--soft-violet:#f4f0ff;--soft-cyan:#ecfeff;--soft-warm:#fff7ed;
-  --text-hi:#111827;--text-mid:#344054;--text-lo:#667085;--text-dim:#98a2b3;
-  --surface:#ffffff;--surface-2:#f8fafc;--surface-soft:#f1f5f9;--border:#e4e7ec;--border-mid:#d0d5dd;
-  --accent:#2563eb;--accent-strong:#1d4ed8;--accent-bg:#eef4ff;--accent-border:#bfdbfe;
+  --bg:#f7f9fc;--paper:#ffffff;--ink:#101828;--ink-2:#344054;--muted:#667085;--line:#e5eaf2;
+  --blue:#1677ff;--blue-2:#0b63e6;--violet:#7258ff;--purple:#9b51e0;--cyan:#24b7d3;--green:#16b96b;
+  --pink:#ff5ea8;--orange:#ff8a3d;--red:#f04438;--navy:#25365f;--soft-blue:#eef5ff;--soft-violet:#f2efff;
+  --text-hi:#101828;--text-mid:#344054;--text-lo:#667085;--text-dim:#98a2b3;--surface:#fff;--surface-2:#f8fafc;
+  --surface-soft:#f2f4f7;--border:#e4e7ec;--border-mid:#d0d5dd;--accent:#1677ff;--accent-strong:#0b63e6;
+  --accent-bg:#eef5ff;--accent-border:#bfdbfe;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;background:var(--bg)}
 body{
-  min-height:100vh;
-  color:var(--ink);
-  background:
-    radial-gradient(circle at 85% 0%,rgba(124,58,237,.06),transparent 26rem),
-    radial-gradient(circle at 5% 12%,rgba(37,99,235,.07),transparent 24rem),
-    linear-gradient(180deg,#fbfcff 0%,#f6f8fc 45%,#f8fafc 100%);
+  min-height:100vh;color:var(--ink);
+  background:linear-gradient(180deg,#fbfdff 0%,#f7f9fc 44%,#f9fbfe 100%);
   font-family:var(--font-inter),-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  -webkit-font-smoothing:antialiased;
-  line-height:1.5
+  -webkit-font-smoothing:antialiased;line-height:1.5
 }
-a{color:inherit}section[id]{scroll-margin-top:68px}::selection{background:#dbeafe;color:#0f172a}
-.site-shell{width:min(1180px,calc(100% - 36px));margin:0 auto}
-.section-eyebrow{font:800 9px 'JetBrains Mono','SFMono-Regular',ui-monospace,monospace;letter-spacing:.15em;text-transform:uppercase;color:var(--blue)}
+a{color:inherit}section[id]{scroll-margin-top:72px}::selection{background:#dbeafe;color:#0f172a}
+.site-shell{width:min(1220px,calc(100% - 36px));margin:0 auto}
+.section-eyebrow{font:800 9px 'JetBrains Mono','SFMono-Regular',ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
 
 .site-nav{
-  position:sticky;top:0;z-index:100;
-  background:rgba(255,255,255,.88);
-  border-bottom:1px solid rgba(15,23,42,.08);
-  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)
+  position:sticky;top:0;z-index:100;background:rgba(255,255,255,.91);
+  border-bottom:1px solid rgba(16,24,40,.08);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)
 }
-.nav-inner{min-height:60px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand-lockup{display:inline-flex;align-items:center;gap:9px;text-decoration:none}
-.brand-mark{
-  width:30px;height:30px;display:grid;place-items:center;border-radius:9px;
-  background:linear-gradient(135deg,var(--blue),var(--violet));color:white;
-  font:900 10px 'JetBrains Mono',ui-monospace,monospace;
-  box-shadow:0 8px 20px rgba(37,99,235,.18)
-}
-.brand-name{font:850 10px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.1em;color:#182230}
-.nav-links{display:flex;align-items:center;gap:19px}
-.nav-link{color:#667085;text-decoration:none;font-size:11px;font-weight:700}
-.nav-link:hover{color:#111827}
-.nav-cta{
-  background:var(--blue);color:white;text-decoration:none;padding:9px 13px;border-radius:9px;
-  font-size:10px;font-weight:850;box-shadow:0 8px 20px rgba(37,99,235,.16)
-}
-.nav-cta:hover{background:var(--blue-2)}
+.nav-inner{min-height:62px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:22px}
+.brand-lockup{display:inline-flex;align-items:center;gap:10px;text-decoration:none;justify-self:start}
+.brand-mark{width:35px;height:35px;position:relative;display:inline-block}
+.brand-mark i{position:absolute;display:block;background:linear-gradient(155deg,#46a2ff,#1769f4);border-radius:4px;transform-origin:center}
+.brand-mark i:first-child{width:11px;height:30px;left:7px;top:2px;transform:rotate(30deg) skewY(-8deg)}
+.brand-mark i:last-child{width:11px;height:24px;right:5px;bottom:3px;transform:rotate(-31deg) skewY(8deg);background:linear-gradient(155deg,#635bff,#1c7bf9)}
+.brand-copy{display:grid;line-height:1.05}
+.brand-copy strong{font-size:15px;letter-spacing:-.02em}.brand-copy em{font-style:normal;color:var(--blue)}
+.brand-copy small{margin-top:5px;font:750 7px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.22em;color:#8a94a7}
+.nav-links{display:flex;align-items:center;gap:30px;justify-self:center}
+.nav-link{color:#46526a;text-decoration:none;font-size:11px;font-weight:700}.nav-link:hover{color:var(--blue)}
+.nav-actions{justify-self:end;display:flex;align-items:center;gap:10px}
+.nav-search{width:35px;height:35px;border:1px solid #e4e9f2;border-radius:50%;display:grid;place-items:center;text-decoration:none;color:#4c5a73;background:white;box-shadow:0 4px 14px rgba(34,52,84,.05)}
+.nav-cta{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#1976ff,#0864e7);color:white;text-decoration:none;padding:10px 16px;border-radius:9px;font-size:11px;font-weight:800;box-shadow:0 8px 22px rgba(22,119,255,.2)}
+.nav-cta:hover{filter:brightness(1.04)}
 
 .button{
-  min-height:42px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:0 16px;
-  border-radius:10px;text-decoration:none;font-size:11px;font-weight:850;border:1px solid var(--line);
-  transition:transform 140ms ease,border-color 140ms ease,background 140ms ease,box-shadow 140ms ease
+  min-height:40px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:0 16px;border-radius:9px;
+  text-decoration:none;font-size:11px;font-weight:850;border:1px solid var(--line);
+  transition:transform 140ms ease,box-shadow 140ms ease,background 140ms ease,border-color 140ms ease
 }
 .button:hover{transform:translateY(-1px)}
-.button-primary{background:var(--blue);border-color:var(--blue);color:white;box-shadow:0 10px 24px rgba(37,99,235,.16)}
-.button-primary:hover{background:var(--blue-2);box-shadow:0 12px 26px rgba(37,99,235,.2)}
-.button-secondary{background:white;border-color:#d8dee9;color:#344054}
-.button-secondary:hover{border-color:#b8c4d4;background:#fafcff}
-.button-light{background:white;color:#1d4ed8;border-color:white}
-.button-light:hover{background:#f8fafc}
-.button-dark-outline{background:transparent;color:white;border-color:rgba(255,255,255,.45)}
-.button-dark-outline:hover{border-color:white}
+.button-lg{min-height:44px;padding:0 18px;font-size:12px}
+.button-primary{background:linear-gradient(135deg,#1976ff,#0864e7);border-color:#1677ff;color:white;box-shadow:0 10px 24px rgba(22,119,255,.2)}
+.button-primary:hover{box-shadow:0 13px 28px rgba(22,119,255,.25)}
+.button-secondary{background:#fff;border-color:#ced8e8;color:#26334d}.button-secondary:hover{border-color:#9eb6d9}
+.button-light{background:white;color:#1b5ecb;border-color:white}.button-dark-outline{background:transparent;color:white;border-color:rgba(255,255,255,.5)}
+.head-link{color:var(--blue);text-decoration:none;font-size:10px;font-weight:800;white-space:nowrap}.head-link:hover{text-decoration:underline;text-underline-offset:3px}
 .simple-link{color:var(--blue);text-decoration:none;font-size:11px;font-weight:850}
-.simple-link:hover{text-decoration:underline;text-underline-offset:4px}
 
-.site-footer{background:white;color:var(--ink);border-top:1px solid var(--line);padding:28px 0 15px}
-.footer-main{display:grid;grid-template-columns:1.25fr .6fr 1fr;gap:40px}
-.footer-brand{color:#182230;text-decoration:none;font:850 10px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.11em}
-.footer-copy{margin-top:7px;color:#667085;max-width:360px;font-size:11px;line-height:1.6}
-.footer-links{display:flex;flex-direction:column;gap:6px}
-.footer-links a{color:#667085;text-decoration:none;font-size:11px}.footer-links a:hover{color:#111827}
-.footer-cta{display:flex;flex-direction:column;align-items:flex-start;gap:8px;color:#667085;font-size:11px}
-.footer-cta a{color:var(--blue);text-decoration:none;font-weight:800}
-.footer-bottom{margin-top:22px;padding-top:12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#98a2b3;font-size:9px}
+.site-footer{background:white;border-top:1px solid var(--line);padding:24px 0 14px}
+.visual-footer{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:30px}
+.footer-logo-row{display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.footer-mark{width:29px;height:29px;border-radius:8px;display:grid;place-items:center;background:linear-gradient(135deg,#2185ff,#654dff);color:white;font-weight:900}
+.footer-logo-row>span:last-child{display:grid;line-height:1.05}.footer-logo-row strong{font-size:12px}.footer-logo-row em{font-style:normal;color:var(--blue)}.footer-logo-row small{margin-top:4px;font:700 6px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.18em;color:#98a2b3}
+.footer-nav{display:flex;gap:22px;justify-content:center}.footer-nav a{font-size:10px;text-decoration:none;color:#52617a;font-weight:700}.footer-nav a:hover{color:var(--blue)}
+.footer-message{justify-self:end;color:#8993a6;font-size:10px}.footer-message span{color:#ff557a}
+.footer-bottom{margin-top:18px;padding-top:12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#98a2b3;font-size:8px}
 
-@media(max-width:720px){
-  .site-shell{width:min(100% - 24px,1180px)}
-  .nav-inner{min-height:56px}.brand-name{display:none}.nav-link{display:none}.nav-cta{padding:8px 10px}
-  .footer-main{grid-template-columns:1fr;gap:20px}.footer-bottom{flex-direction:column;gap:4px}
+@media(max-width:820px){
+  .nav-inner{grid-template-columns:1fr auto}.nav-links{display:none}.nav-actions{grid-column:2}.brand-copy strong{font-size:13px}
+  .visual-footer{grid-template-columns:1fr}.footer-nav{justify-content:flex-start;flex-wrap:wrap}.footer-message{justify-self:start}.footer-bottom{gap:5px;flex-direction:column}
+}
+@media(max-width:560px){
+  .site-shell{width:min(100% - 22px,1220px)}.brand-copy small{display:none}.brand-copy strong{font-size:12px}.nav-search{display:none}.nav-cta{padding:9px 11px}.nav-cta span{display:none}
 }
