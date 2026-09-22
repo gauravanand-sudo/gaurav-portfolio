@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import { companyServices } from '@/lib/company-services'
+import { salesOffers, carePlans } from '@/lib/sales'
 
 export const metadata: Metadata = {
   title: 'Digital Product, AI & Creative Services',
@@ -49,6 +50,14 @@ export default function ServicesPage() {
               </article>
             ))}
           </div>
+        </section>
+
+        <section className="company-section company-soft-section">
+          <div className="site-shell"><div className="company-section-heading"><p className="company-kicker">PLANNING RANGES</p><h2>Commercial starting points before a custom quote.</h2><p className="section-support-copy">Directional planning ranges help buyers self-qualify. Final scope depends on integrations, risk and launch requirements.</p></div><div className="starter-offer-grid">{salesOffers.map((offer)=><article className="starter-offer-card" key={offer.key}><span>{offer.label}</span><h3>{offer.title}</h3><p>{offer.copy}</p><div className="offer-commercials"><strong>{offer.timeline}</strong><span>{offer.planningRange}</span></div><Link href={`/contact?request=${encodeURIComponent(offer.request)}`}>Scope this →</Link></article>)}</div></div>
+        </section>
+
+        <section className="company-section">
+          <div className="site-shell"><div className="company-section-heading"><p className="company-kicker">CARE PLANS</p><h2>Recurring support after launch.</h2></div><div className="care-grid">{carePlans.map((plan)=><article key={plan.title}><h3>{plan.title}</h3><p>{plan.fit}</p><ul>{plan.includes.map((item)=><li key={item}>{item}</li>)}</ul></article>)}</div><Link href="/working-with-us" className="company-text-link">See commercial and procurement details →</Link></div>
         </section>
 
         <section className="company-section company-soft-section">

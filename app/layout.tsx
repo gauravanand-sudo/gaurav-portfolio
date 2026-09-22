@@ -7,6 +7,7 @@ import './site-content.css'
 import './company.css'
 import './maturity.css'
 import './maturity-extra.css'
+import SalesTracker from '@/components/SalesTracker'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 
@@ -60,7 +61,6 @@ const organizationData = {
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'sales',
-    email: 'gaurav.anand54@gmail.com',
     availableLanguage: ['English'],
   },
 }
@@ -69,6 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={inter.variable}>
       <body>
+        <SalesTracker />
         {children}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }} />
       </body>
