@@ -24,7 +24,7 @@ export default function TermsPage() {
           <section><h2>Intellectual property</h2><p>Ownership and licensing of project code, designs, source files, content and third-party assets should be defined in the relevant proposal, statement of work or contract. Existing ga.tech materials remain the property of their respective owners unless agreed otherwise.</p></section>
           <section><h2>Third-party services</h2><p>Projects may depend on hosting, APIs, software, payment providers, AI models or other third-party services. Their availability, pricing and terms are outside ga.tech’s control.</p></section>
           <section><h2>Acceptable enquiries</h2><p>Do not use the website to request unlawful, deceptive, abusive or rights-infringing work, or to transmit malware, credentials or confidential data you are not authorized to share.</p></section>
-          <section><h2>Contact</h2><p>Questions about these website terms can be sent to gaurav.anand54@gmail.com.</p></section>
+          <section><h2>Contact</h2><p>Questions about these website terms can be sent through the contact page.</p></section>
         </div>
       </main>
       <Footer />

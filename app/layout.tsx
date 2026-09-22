@@ -4,6 +4,7 @@ import './globals.css'
 import './site-base.css'
 import './site-sections.css'
 import './site-content.css'
+import './company.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 
@@ -40,6 +41,29 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 }
 
+const organizationData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'ga.tech',
+  url: 'https://gauravanand.tech',
+  logo: 'https://gauravanand.tech/brand/ga-tech-mark.svg',
+  email: 'gaurav.anand54@gmail.com',
+  description: 'Digital studio for apps, AI, automation, design, content, cloud and custom digital work.',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'sales',
+    email: 'gaurav.anand54@gmail.com',
+    availableLanguage: ['English'],
+  },
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return <html lang="en" className={inter.variable}><body>{children}</body></html>
+  return (
+    <html lang="en" className={inter.variable}>
+      <body>
+        {children}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }} />
+      </body>
+    </html>
+  )
 }

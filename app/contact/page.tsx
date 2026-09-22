@@ -32,7 +32,7 @@ export default function ContactPage({ searchParams }: { searchParams?: { request
             <aside className="contact-direct-card">
               <p className="company-kicker">PREFER DIRECT CONTACT?</p>
               <h2>Use email or WhatsApp.</h2>
-              <a href="mailto:gaurav.anand54@gmail.com">gaurav.anand54@gmail.com</a>
+              <a href="mailto:gaurav.anand54@gmail.com">Email ga.tech →</a>
               <a href="https://wa.me/919289656293?text=Hi%20ga.tech%2C%20I%20have%20a%20project%20I%27d%20like%20to%20discuss." target="_blank" rel="noopener noreferrer">WhatsApp →</a>
               <small>Remote · Worldwide</small>
             </aside>
@@ -148,7 +148,6 @@ export default function ContactPage({ searchParams }: { searchParams?: { request
               </label>
 
               <button type="submit" className="button button-primary lead-submit">Send project brief →</button>
-              <p className="lead-form-note">The first form submission may require a one-time email activation before future leads are delivered automatically.</p>
             </form>
           </div>
         </section>

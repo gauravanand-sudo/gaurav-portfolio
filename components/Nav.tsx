@@ -5,7 +5,8 @@ function SearchIcon() {
 }
 
 const links = [
-  { label: 'Services', href: '/#services' },
+  { label: 'Services', href: '/services' },
+  { label: 'About', href: '/about' },
   { label: 'Insights', href: '/insights' },
   { label: 'Portfolio', href: '/portfolio' },
 ]
@@ -22,7 +23,7 @@ export default function Nav() {
         </div>
         <div className="nav-actions">
           <Link className="nav-search" href="/insights" aria-label="Browse insights"><SearchIcon /></Link>
-          <a className="nav-cta" href="mailto:gaurav.anand54@gmail.com?subject=Start%20a%20Project%20-%20gauravanand.tech">Start a Project <span>→</span></a>
+          <Link className="nav-cta" href="/contact">Start a Project <span>→</span></Link>
         </div>
       </div>
     </nav>

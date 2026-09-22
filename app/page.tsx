@@ -180,9 +180,9 @@ function HeroVisual() {
             <span className="active">Overview</span><span>Analytics</span><span>Projects</span><span>Clients</span><span>Settings</span>
           </aside>
           <div className="dashboard-body">
-            <div className="dash-top"><div><small>DASHBOARD</small><h3>Grow smarter.</h3></div><div className="score-ring">78%</div></div>
-            <div className="metric-row"><div><small>Projects</small><b>128</b></div><div><small>Active</small><b>24</b></div><div><small>Success</small><b>98%</b></div></div>
-            <div className="chart-card"><div className="chart-title">Growth</div><div className="bar-chart">{[36,52,44,70,61,83,92].map((h,i)=><i key={i} style={{height:`${h}%`}} />)}</div></div>
+            <div className="dash-top"><div><small>SAMPLE PRODUCT UI</small><h3>Grow smarter.</h3></div><div className="score-ring">DEMO</div></div>
+            <div className="metric-row"><div><small>Apps</small><b>Build</b></div><div><small>AI</small><b>Automate</b></div><div><small>Cloud</small><b>Scale</b></div></div>
+            <div className="chart-card"><div className="chart-title">Illustrative dashboard</div><div className="bar-chart">{[36,52,44,70,61,83,92].map((h,i)=><i key={i} style={{height:`${h}%`}} />)}</div></div>
           </div>
         </div>
         <div className="laptop-base" />
@@ -235,8 +235,10 @@ export default function Home() {
     name: 'ga.tech',
     url: 'https://gauravanand.tech',
     logo: 'https://gauravanand.tech/brand/ga-tech-mark.svg',
+    email: 'gaurav.anand54@gmail.com',
     areaServed: 'Worldwide',
     description: 'A digital studio for apps, websites, AI, automation, games, design, content, presentations, data and cloud work.',
+    contactPoint: { '@type': 'ContactPoint', contactType: 'sales', email: 'gaurav.anand54@gmail.com', availableLanguage: ['English'] },
     serviceType: ['App development','Website development','AI automation','Game development','Graphic design','Content creation','Data dashboards','Cloud engineering','Presentation design'],
   }
 
@@ -251,8 +253,8 @@ export default function Home() {
               <h1>Need something digital?<br/>We can probably <em>build it.</em></h1>
               <p className="hero-lead">Apps, websites, AI tools, automation, games, posters, dashboards, presentations, content, cloud systems and custom digital work — from idea to launch.</p>
               <div className="hero-actions">
-                <a className="button button-primary button-lg" href="mailto:gaurav.anand54@gmail.com?subject=Start%20a%20Project%20-%20gauravanand.tech">Start a Project →</a>
-                <a className="button button-secondary button-lg" href="#services">View Services</a>
+                <a className="button button-primary button-lg" href="/contact">Start a Project →</a>
+                <Link className="button button-secondary button-lg" href="/services">View Services</Link>
               </div>
               <div className="hero-trust">
                 <span><Icon name="bolt" />Fast turnaround</span>
@@ -268,7 +270,7 @@ export default function Home() {
           <div className="site-shell">
             <div className="visual-section-head">
               <div><h2>Our Services</h2><p>Everything you need to bring an idea to life, digitally.</p></div>
-              <a href="mailto:gaurav.anand54@gmail.com?subject=Service%20request%20-%20gauravanand.tech" className="head-link">Explore all services →</a>
+              <Link href="/services" className="head-link">Explore all services →</Link>
             </div>
             <div className="visual-service-grid">
               {services.map((service) => (
@@ -286,7 +288,7 @@ export default function Home() {
                 <div className="cta-plane"><Icon name="rocket" /></div>
                 <h3>Have a unique idea in mind?</h3>
                 <p>Tell us what you want to make. If it’s digital, we can probably help.</p>
-                <a href="mailto:gaurav.anand54@gmail.com?subject=Unique%20digital%20idea%20-%20gauravanand.tech" className="button button-primary">Start a Project →</a>
+                <Link href="/contact?request=Custom%20digital%20work" className="button button-primary">Start a Project →</Link>
               </article>
             </div>
             <p className="brand-example-note">Brand references describe familiar product patterns only; there is no affiliation or endorsement.</p>
@@ -297,16 +299,69 @@ export default function Home() {
           <div className="site-shell">
             <div className="visual-section-head compact">
               <div><h2>Popular Requests</h2><p>Some of the most common things you can ask us to make.</p></div>
-              <a href="mailto:gaurav.anand54@gmail.com?subject=Custom%20work%20request%20-%20gauravanand.tech" className="head-link">Request anything →</a>
+              <Link href="/contact" className="head-link">Request anything →</Link>
             </div>
             <div className="request-icon-grid">
               {popularRequests.map((item)=>(
-                <a key={item.label} href={`mailto:gaurav.anand54@gmail.com?subject=${encodeURIComponent(item.label)}%20-%20gauravanand.tech`} className="request-icon-card">
+                <Link key={item.label} href={`/contact?request=${encodeURIComponent(item.label)}`} className="request-icon-card">
                   <div className={`request-icon ${item.tint}`}><Icon name={item.icon} /></div>
                   <span>{item.label}</span>
-                </a>
+                </Link>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="home-conversion-section">
+          <div className="site-shell">
+            <div className="home-conversion-head">
+              <div>
+                <p className="company-kicker">STARTER OFFERS</p>
+                <h2>Buy an outcome, not a list of technologies.</h2>
+              </div>
+              <p>These are starting shapes, not rigid packages. The final scope is based on your brief, dependencies and quality bar.</p>
+            </div>
+            <div className="offer-grid">
+              <article className="offer-card">
+                <span>01 · LAUNCH</span>
+                <h3>Business Website Launch</h3>
+                <p>For a new company, product, service or campaign that needs a credible web presence and lead flow.</p>
+                <ul><li>Responsive pages</li><li>Contact / enquiry flow</li><li>Basic SEO structure</li><li>Deployment & handover</li></ul>
+                <Link href="/contact?request=Business%20Website%20Launch">Scope this →</Link>
+              </article>
+              <article className="offer-card">
+                <span>02 · MVP</span>
+                <h3>App / MVP Build</h3>
+                <p>For validating a product idea around one clear user journey before investing in a much larger build.</p>
+                <ul><li>Core user flow</li><li>Auth / data / API as needed</li><li>Usable frontend</li><li>Deployment-ready build</li></ul>
+                <Link href="/contact?request=App%20or%20MVP%20Build">Scope this →</Link>
+              </article>
+              <article className="offer-card">
+                <span>03 · AUTOMATE</span>
+                <h3>AI / Workflow Sprint</h3>
+                <p>For one painful recurring workflow that could be automated, searched or accelerated with software and AI.</p>
+                <ul><li>Workflow mapping</li><li>Prototype the risky part</li><li>Integrations / RAG if useful</li><li>Evaluation & handover</li></ul>
+                <Link href="/contact?request=AI%20or%20Workflow%20Sprint">Scope this →</Link>
+              </article>
+              <article className="offer-card">
+                <span>04 · CREATE</span>
+                <h3>Launch Creative Pack</h3>
+                <p>For brands that need a coordinated set of visual and written assets rather than one isolated design.</p>
+                <ul><li>Visual direction</li><li>Campaign / social assets</li><li>Deck or launch collateral</li><li>Editable exports where agreed</li></ul>
+                <Link href="/contact?request=Launch%20Creative%20Pack">Scope this →</Link>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="trust-strip">
+          <div className="site-shell trust-strip-grid">
+            <div className="trust-point"><strong>Clear scope first</strong><span>Deliverables and assumptions written down before work starts.</span></div>
+            <div className="trust-point"><strong>Milestone delivery</strong><span>Break larger work into visible checkpoints instead of one final reveal.</span></div>
+            <div className="trust-point"><strong>Direct communication</strong><span>Fewer layers between the problem, feedback and execution.</span></div>
+            <div className="trust-point"><strong>Handover included</strong><span>Source code/files and practical documentation can be part of the scope.</span></div>
+            <div className="trust-point"><strong>NDA-friendly</strong><span>Confidential projects can be discussed under appropriate written terms.</span></div>
+            <div className="trust-point"><strong>Post-launch support</strong><span>Ongoing fixes, improvements or operating support can be scoped separately.</span></div>
           </div>
         </section>
 
@@ -338,6 +393,25 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="faq-section">
+          <div className="site-shell faq-grid">
+            <div className="faq-intro">
+              <p className="company-kicker">FAQ</p>
+              <h2>Questions buyers usually ask before starting.</h2>
+              <p>Need something more specific? Put it in the project brief and we’ll answer it against your actual scope.</p>
+              <Link href="/contact" className="company-text-link">Ask about your project →</Link>
+            </div>
+            <div className="faq-list">
+              <article className="faq-item"><h3>Do I need a detailed specification?</h3><p>No. A problem, desired result, examples and constraints are enough to start scoping.</p></article>
+              <article className="faq-item"><h3>How is pricing decided?</h3><p>Pricing depends on scope, uncertainty, integrations, revision needs and delivery timeline. The brief captures a budget range so the proposed approach stays realistic.</p></article>
+              <article className="faq-item"><h3>Can ga.tech handle small one-off work?</h3><p>Yes. A poster, landing page, automation, deck or focused technical task can be scoped independently.</p></article>
+              <article className="faq-item"><h3>What happens to source code and files?</h3><p>Handover and ownership expectations are defined in the proposal or statement of work. Standard engagements can include source files/code and practical documentation.</p></article>
+              <article className="faq-item"><h3>Can you work with an existing team or product?</h3><p>Yes. Work can start from an existing codebase, workflow, cloud setup, design system or content library when access and constraints are clear.</p></article>
+              <article className="faq-item"><h3>Is ongoing support available?</h3><p>Yes. Maintenance, content production, cloud/technical support and iterative improvements can be scoped after launch.</p></article>
+            </div>
+          </div>
+        </section>
+
         <section className="visual-cta-wrap">
           <div className="site-shell visual-cta-banner">
             <div className="cta-copy">
@@ -345,8 +419,8 @@ export default function Home() {
               <h2>Ready to bring <em>your idea</em> to life?</h2>
               <p>From simple designs to complete digital products, get one clear place to build, launch and improve.</p>
               <div className="hero-actions">
-                <a className="button button-primary button-lg" href="mailto:gaurav.anand54@gmail.com?subject=Start%20a%20Project%20-%20gauravanand.tech">Start a Project →</a>
-                <Link className="button button-secondary button-lg" href="/portfolio">View Portfolio</Link>
+                <a className="button button-primary button-lg" href="/contact">Start a Project →</a>
+                <Link className="button button-secondary button-lg" href="/about">How we work</Link>
               </div>
             </div>
             <div className="cta-benefits">
