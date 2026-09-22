@@ -4,7 +4,7 @@ const links = [
   { label: 'Services', href: '/#services' },
   { label: 'Work', href: '/#work' },
   { label: 'Insights', href: '/insights' },
-  { label: 'About', href: '/#about' },
+  { label: 'Portfolio', href: '/portfolio' },
 ]
 
 export default function Nav() {
@@ -13,7 +13,7 @@ export default function Nav() {
       <div className="site-shell nav-inner">
         <Link href="/" className="brand-lockup" aria-label="GauravAnand.Tech home">
           <span className="brand-mark">GA</span>
-          <span className="brand-name">gauravanand.tech</span>
+          <span className="brand-name">GAURAVANAND.TECH</span>
         </Link>
 
         <div className="nav-links" aria-label="Primary navigation">
@@ -23,7 +23,7 @@ export default function Nav() {
             </Link>
           ))}
           <a className="nav-cta" href="mailto:gaurav.anand54@gmail.com?subject=Project%20inquiry%20-%20gauravanand.tech">
-            Build with me
+            Start a project
           </a>
         </div>
       </div>
