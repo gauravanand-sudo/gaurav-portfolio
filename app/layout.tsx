@@ -7,6 +7,7 @@ import './site-content.css'
 import './company.css'
 import './maturity.css'
 import './maturity-extra.css'
+import './studio-home.css'
 import SalesTracker from '@/components/SalesTracker'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
